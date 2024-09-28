@@ -33,7 +33,7 @@ function LoginForm() {
           required
         />
       </div>
-      <button type="submit">Iniciar Sesión</button>
+      <button type="submit">Iniciar aquí </button>
     </form>
   );
 }
