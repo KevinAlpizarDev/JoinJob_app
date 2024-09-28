@@ -23,6 +23,13 @@ services:
       - /app/node_modules
     ports:
       - "5173:5173"
+    develop:
+      watch:
+        - path: ./app/package.json
+          action: rebuild
+        - path: ./app
+          target: /usr/src/app
+          action: sync
 
   mysql:
     image: mysql:latest
@@ -37,4 +44,3 @@ services:
 
 volumes:
   django_react_data:
-
