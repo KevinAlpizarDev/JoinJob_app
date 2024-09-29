@@ -8,11 +8,13 @@ https://lucid.app/lucidchart/e73f288f-2c07-4025-9c2e-e5d55945bd43/edit?viewport_
 On user_authentication
 python manage.py startapp polls
 {
-    "email": "kev@gmail.com",
-    "username": "kev",
-    "password": "12345678"
+    "email": "example@example.com",
+    "username": "example_user",
+    "password": "ExamplePassword123"
 }
+
 {
-    "email": "kevin@gmail.com",
+    "email": "kev3@gmail.com",
+    "username": "kev3",
     "password": "12345678"
-}
+}https://www.xvideos.com/profiles/tetas_ricas_y_chucha_rosadita
