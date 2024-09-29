@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // Esta línea debe ser exacta
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -9,7 +9,7 @@ const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
 
-function App() {
+function LoginForm() {
   const [currentUser, setCurrentUser] = useState();
   const [registrationToggle, setRegistrationToggle] = useState(false);
   const [email, setEmail] = useState("");
@@ -129,4 +129,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginForm;

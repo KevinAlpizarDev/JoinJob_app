@@ -38,6 +38,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://react_app:5173",
     # Application definition
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -94,8 +95,8 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        "HOST": "localhost",
-        # "HOST": "mysql",  # Cambia localhost a mysql
+        # "HOST": "localhost",
+        "HOST": "mysql",  # Cambia localhost a mysql
         "PORT": "3306",
     }
 }
