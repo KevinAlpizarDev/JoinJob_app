@@ -25,14 +25,26 @@ SECRET_KEY = "django-insecure-cq9^w7-(v#q#_%emqujen%@%0xk96yy1ghst8st^5(^*60=rrt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+#     "http://react_app:5173",
+#     # Application definition
+# ]
+
+
+CORS_ALLOW_ALL_ORIGINS = False  # Cambiar esto si solo quieres permitir ciertos orígenes
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://react_app:5173",
-    # Application definition
+    "http://localhost:5174",  # Asegúrate de que este puerto sea correcto
+    "http://127.0.0.1:5174",
 ]
-CORS_ALLOWED_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True  # Permitir credenciales
+# CORS_ALLOWED_CREDENTIALS = True
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5174",
+#     "http://127.0.0.1:5174",
+# ]
 
 # Application definition
 
@@ -49,6 +61,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  # CorsMiddleware should be before CommonMiddleware for CORS to work properly
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -88,8 +102,8 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        # "HOST": "localhost",
-        "HOST": "mysql",  # Cambia localhost a mysql
+        "HOST": "localhost",
+        # "HOST": "mysql",  # Cambia localhost a mysql
         "PORT": "3306",
     }
 }
