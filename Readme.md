@@ -13,3 +13,9 @@ python manage.py startapp polls
     "username": "example_user",
     "password": "ExamplePassword123"
 }
+
+{
+    "email": "kev3@gmail.com",
+    "username": "kev3",
+    "password": "12345678"
+}

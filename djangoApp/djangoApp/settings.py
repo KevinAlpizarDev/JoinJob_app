@@ -27,9 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://react_app:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://react_app:5174",
     # Application definition
 ]
 CORS_ALLOWED_CREDENTIALS = True
@@ -49,13 +49,14 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "djangoApp.urls"
@@ -88,8 +89,8 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        # "HOST": "localhost",
-        "HOST": "mysql",  # Cambia localhost a mysql
+        "HOST": "localhost",
+        # "HOST": "mysql",  # Cambia localhost a mysql
         "PORT": "3306",
     }
 }
