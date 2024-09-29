@@ -26,7 +26,13 @@ SECRET_KEY = "django-insecure-cq9^w7-(v#q#_%emqujen%@%0xk96yy1ghst8st^5(^*60=rrt
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://react_app:5173",
+    # Application definition
+]
+CORS_ALLOWED_CREDENTIALS = True
 
 # Application definition
 
@@ -37,6 +43,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "corsheaders",
+    "user_api.apps.UserApiConfig",
 ]
 
 MIDDLEWARE = [
@@ -79,12 +88,20 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        "HOST": "mysql",
+        "HOST": "localhost",
         "PORT": "3306",
     }
 }
 
+## User model
+AUTH_USER_MODEL = "user_api.AppUser"
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+    ),
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
