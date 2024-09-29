@@ -3,7 +3,7 @@ import LoginForm from "../components/LoginForm";
 const HomePage = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1 className="text-6xl">Home Page</h1>
       <LoginForm/>
     </div>
   );
