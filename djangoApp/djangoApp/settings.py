@@ -95,8 +95,8 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        # "HOST": "localhost",
-        "HOST": "mysql",  # Cambia localhost a mysql
+        "HOST": "localhost",
+        # "HOST": "mysql",  # Cambia localhost a mysql
         "PORT": "3306",
     }
 }
