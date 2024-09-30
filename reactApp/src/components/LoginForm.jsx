@@ -53,7 +53,7 @@ function LoginForm() {
 
   return (
 
-    <div>
+    <div className="bg-blue-50 dark:bg-black">
       {currentUser ? (
         <div>
           <form onSubmit={submitLogout}>
