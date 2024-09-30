@@ -58,10 +58,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
     errorElement: <NotFoundPage />,
   },
-  // {
-  //   path: "/register", // Add this route for RegisterForm
-  //   element: <RegisterForm />,
-  // },
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
