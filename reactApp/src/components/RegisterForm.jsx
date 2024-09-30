@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
-
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
@@ -69,61 +67,57 @@ function RegisterForm() {
   }
 
   return (
-
-<>
-
-    <div>
-      <button onClick={update_form_btn}>
-        {registrationToggle ? "Log in" : "Register"}
-      </button>
-      {registrationToggle ? (
-        <form onSubmit={submitRegistration}>
-          <label>Email address</label>
-          <input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <form onSubmit={submitLogin}>
-          <label>Email address</label>
-          <input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      )}
-    </div>
-
-
-</>
+    <>
+      <div>
+        <button onClick={update_form_btn}>
+          {registrationToggle ? "Log in" : "Register"}
+        </button>
+        {registrationToggle ? (
+          <form onSubmit={submitRegistration}>
+            <label>Email address</label>
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        ) : (
+          <form onSubmit={submitLogin}>
+            <label>Email address</label>
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      </div>
+    </>
   );
 }
 
