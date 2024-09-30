@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Esta línea debe ser exacta
 
@@ -50,6 +52,7 @@ function LoginForm() {
   };
 
   return (
+
     <div>
       {currentUser ? (
         <div>
@@ -126,6 +129,7 @@ function LoginForm() {
         </div>
       )}
     </div>
+
   );
 }
 

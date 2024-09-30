@@ -41,6 +41,8 @@ const App = () => {
   };
 
   return (
+    <>
+    
     <div className="h-screen flex flex-col justify-center items-center dark:bg-neutral-900">
       <RouterProvider router={router} />
       <button
@@ -49,8 +51,28 @@ const App = () => {
       >
         Change Theme
       </button>
+
+      
     </div>
+  
+
+
+
+
+    </>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
