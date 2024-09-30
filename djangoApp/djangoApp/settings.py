@@ -25,8 +25,20 @@ SECRET_KEY = "django-insecure-cq9^w7-(v#q#_%emqujen%@%0xk96yy1ghst8st^5(^*60=rrt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# CORS_ALLOW_ALL_ORIGINS = True  # Use with caution
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",  # Asegúrate de que este puerto sea correcto
+#     "http://127.0.0.1:517",
+# ]
 
+ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://react_app:5173",
+    # Application definition
+]
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -37,16 +49,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "user_api.apps.UserApiConfig",
+    "rest_framework",  # Django REST framework
+    "corsheaders",  # Django CORS headers
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # CORS middleware
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "djangoApp.urls"
@@ -79,12 +95,21 @@ DATABASES = {
         "NAME": "default",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        "HOST": "mysql",
+        "HOST": "localhost",
+        # "HOST": "mysql",  # Cambia localhost a mysql
         "PORT": "3306",
     }
 }
 
+## User model
+AUTH_USER_MODEL = "user_api.AppUser"
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+    ),
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
