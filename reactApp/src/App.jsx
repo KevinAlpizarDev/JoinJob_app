@@ -12,48 +12,48 @@ import LoginForm from "./components/LoginForm";
 // ]);
 
 const App = () => {
-  // #DarkMode
-  const [theme, setTheme] = useState(() => {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
 
-  useEffect(() => {
-    const htmlElement = document.documentElement;
+//   const [theme, setTheme] = useState(() => {
+//     return window.matchMedia("(prefers-color-scheme: dark)").matches
+//       ? "dark"
+//       : "light";
+//   });
 
-    htmlElement.classList.toggle("dark", theme === "dark");
+//   useEffect(() => {
+//     const htmlElement = document.documentElement;
 
-    const handleMediaChange = (event) => {
-      setTheme(event.matches ? "dark" : "light");
-    };
+//     htmlElement.classList.toggle("dark", theme === "dark");
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", handleMediaChange);
+//     const handleMediaChange = (event) => {
+//       setTheme(event.matches ? "dark" : "light");
+//     };
 
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    };
-  }, [theme]);
+//     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+//     mediaQuery.addEventListener("change", handleMediaChange);
 
-  const handleChangeTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+//     return () => {
+//       mediaQuery.removeEventListener("change", handleMediaChange);
+//     };
+//   }, [theme]);
 
-  return (
-    <>
-      <div className="h-screen flex flex-col justify-center items-center dark:bg-neutral-900">
-        {/* <RouterProvider router={router} /> */}
-        <button
-          className="bg-slate-200 px-4 py-2 rounded hover:bg-slate-300 dark:bg-slate-950 dark:text-white dark:hover:bg-slate-900"
-          onClick={handleChangeTheme}
-        >
-          Change Theme
-        </button>
-      </div>
-      <LoginForm/>
-    </>
-  );
+//   const handleChangeTheme = () => {
+//     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+//   };
+
+//   return (
+//     <>
+//       <div className="h-screen flex flex-col justify-center items-center dark:bg-neutral-900">
+//         {/* <RouterProvider router={router} /> */}
+//         <button
+//           className="bg-slate-200 px-4 py-2 rounded hover:bg-slate-300 dark:bg-slate-950 dark:text-white dark:hover:bg-slate-900"
+//           onClick={handleChangeTheme}
+//         >
+//           Change Theme
+//         </button>
+//       </div>
+//       <LoginForm/>
+//     </>
+//   );
 };
 
 export default App;

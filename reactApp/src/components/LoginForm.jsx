@@ -1,8 +1,6 @@
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Esta línea debe ser exacta
-
+import ThemeButton from "./ThemeButton";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
@@ -52,7 +50,6 @@ function LoginForm() {
   };
 
   return (
-
     <div className="bg-blue-50 dark:bg-black">
       {currentUser ? (
         <div>
@@ -124,12 +121,12 @@ function LoginForm() {
                 />
               </div>
               <button type="submit">Submit</button>
+              <ThemeButton/>
             </form>
           )}
         </div>
       )}
     </div>
-
   );
 }
 
