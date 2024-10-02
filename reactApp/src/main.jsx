@@ -50,6 +50,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+// import ThemeButton from "./components/ThemeButton";
 // import RegisterForm from "./pages/RegisterForm"; // Ensure this is correctly imported
 
 const router = createBrowserRouter([
@@ -58,14 +59,12 @@ const router = createBrowserRouter([
     element: <HomePage />,
     errorElement: <NotFoundPage />,
   },
-  // {
-  //   path: "/register", // Add this route for RegisterForm
-  //   element: <RegisterForm />,
-  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    {/* <ThemeButton/>
+     */}
   </React.StrictMode>
 );

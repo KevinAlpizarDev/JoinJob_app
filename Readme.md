@@ -1,20 +1,10 @@
-Estructura de proyecto
-23/9/2024
-
-On development
-
-https://lucid.app/lucidchart/e73f288f-2c07-4025-9c2e-e5d55945bd43/edit?viewport_loc=-1744%2C-571%2C2663%2C1285%2C0_0&invitationId=inv_b9cf6205-a7dc-4069-a170-39e27e7aa7ea
-
-On user_authentication
-python manage.py startapp polls
-{
-    "email": "example@example.com",
-    "username": "example_user",
-    "password": "ExamplePassword123"
-}
+on redux
 
 {
-    "email": "kev3@gmail.com",
-    "username": "kev3",
-    "password": "12345678"
+"email": "kev3@gmail.com",
+"username": "kev3",
+"password": "12345678"
 }
+on newbranch
+https://youtu.be/U1Tg2nVAyxw?si=qbBf9m486zXftAbi
+https://youtu.be/0Tz2xLZHAEA?si=WmURDQ9qTob49xLa
