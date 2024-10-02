@@ -26,25 +26,27 @@ SECRET_KEY = "django-insecure-cq9^w7-(v#q#_%emqujen%@%0xk96yy1ghst8st^5(^*60=rrt
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://react_app:5173",
 ]
 
-
-
-# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:5173",
-#     "http://127.0.0.1:5173",
-# ]
 CORS_ALLOW_CREDENTIALS = True
 
+# ALLOWED_HOSTS = ["*"]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost",
+#     "http://127.0.0.1",
+#     "http://0.0.0.0",
+# ]
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = False
 
 
 # Application definition
