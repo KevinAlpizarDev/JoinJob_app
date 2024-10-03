@@ -109,7 +109,11 @@ DATABASES = {
         "PORT": "3306",
     }
 }
-
+# Configuración de cookies de sesión
+SESSION_COOKIE_SAMESITE = (
+    "Lax"  # Ajuste por defecto que previene CSRF en la mayoría de los casos
+)
+SESSION_COOKIE_SECURE = False  # Desactivar para desarrollo sin HTTPS
 ## User model
 AUTH_USER_MODEL = "user_api.AppUser"
 
