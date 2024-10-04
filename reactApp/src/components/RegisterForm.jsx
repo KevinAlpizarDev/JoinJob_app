@@ -31,16 +31,34 @@
 //     setRegistrationToggle(!registrationToggle);
 //   }
 
-//   // Envía el formulario de registro
+//   // // Envía el formulario de registro
+//   // function submitRegistration(e) {
+//   //   e.preventDefault();
+//   //   client
+//   //     .post("/api/register", { email, username, password }) // Envío de los datos de registro
+//   //     .then(() => {
+//   //       return client.post("/api/login", { email, password }); // Inicia sesión automáticamente después de registrar
+//   //     })
+//   //     .then(() => {
+//   //       setCurrentUser(true); // Establece el estado como autenticado
+//   //     });
+//   // }
 //   function submitRegistration(e) {
 //     e.preventDefault();
 //     client
-//       .post("/api/register", { email, username, password }) // Envío de los datos de registro
+//       .post("/api/register", { email, username, password })
 //       .then(() => {
-//         return client.post("/api/login", { email, password }); // Inicia sesión automáticamente después de registrar
+//         return client.post("/api/login", { email, password });
 //       })
 //       .then(() => {
-//         setCurrentUser(true); // Establece el estado como autenticado
+//         setCurrentUser(true);
+//       })
+//       .catch((error) => {
+//         console.error(
+//           "Error en el registro:",
+//           error.response ? error.response.data : error.message
+//         );
+//         // Aquí puedes mostrar un mensaje al usuario o manejar el error de alguna manera
 //       });
 //   }
 
