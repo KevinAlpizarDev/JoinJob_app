@@ -10,20 +10,17 @@ const client = axios.create({
 });
 
 export const getCurrentUser = () => {
-  return client.get("/api/user");
+  return client.get("/api/user/");
 };
 
 export const registerUser = (email, username, password) => {
-  return client.post("/api/register", { email, username, password });
+  return client.post("/api/register/", { email, username, password });
 };
 
 export const loginUser = (email, password) => {
-  return client.post("/api/login", { email, password });
+  return client.post("/api/login/", { email, password });
 };
 
 export const logoutUser = () => {
-  return client.post("/api/logout");
+  return client.post("/api/logout/");
 };
-
-
-

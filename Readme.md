@@ -12,3 +12,5 @@ https://youtu.be/0Tz2xLZHAEA?si=WmURDQ9qTob49xLa
 on admin
 netstat -aon | findstr :5173
 taskkill /PID 6616 /F
+
+on bigdatabase
