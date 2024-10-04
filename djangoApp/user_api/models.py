@@ -142,6 +142,8 @@
 #############CON Base de datos completa ###########################################################################
 
 
+# from django.db import models
+from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
@@ -193,3 +195,79 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+    #
+
+
+class Institucion(models.Model):
+    TIPO_CHOICES = [
+        ("publico", "Público"),
+        ("privada", "Privada"),
+    ]
+
+    id = models.BigAutoField(primary_key=True)
+    nombre = models.TextField()
+    tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
+    numero = models.IntegerField()
+    activa = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre
+
+
+class Sede(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nombre = models.TextField()
+    provincia = models.TextField()
+    canton = models.TextField()
+    distrito = models.TextField()
+    numero = models.IntegerField()
+    director = models.TextField(null=True, blank=True)
+    institucion = models.ForeignKey(Institucion, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+
+
+# class Cursos(models.Model):
+#     nombre = models.CharField(max_length=255)
+#     descripcion = models.TextField(null=True, blank=True)
+#     # codigo = models.CharField(max_length=100)  # Permite hasta 100 caracteres
+#     codigo = models.CharField(  unique=True, max_length=1024)  # Permite hasta 100 caracteres
+
+#     fecha_inicio = models.DateField()
+#     fecha_fin = models.DateField()
+#     anio = models.IntegerField()
+#     cupo = models.IntegerField()
+#     activa = models.BooleanField(default=True)
+#     sede = models.ForeignKey("Sede", on_delete=models.CASCADE)
+
+#     def __str__(self):
+#         return self.nombre
+
+
+class Cursos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nombre = models.CharField(max_length=255)
+    descripcion = models.TextField(null=True, blank=True)
+    codigo = models.CharField(unique=True, max_length=100) 
+
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
+    anio = models.IntegerField()
+    cupo = models.IntegerField()
+    activa = models.BooleanField(default=True)
+    sede = models.ForeignKey("Sede", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+
+
+class Inscripcion(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    fecha_inscripcion = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    curso = models.ForeignKey(Cursos, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user} - {self.curso}"
