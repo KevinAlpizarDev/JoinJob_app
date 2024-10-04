@@ -1,52 +1,3 @@
-// import React, { useEffect, useState } from "react";
-
-// function ThemeToggle() {
-//   // Initialize theme state based on the user's preference or default to light
-//   const [theme, setTheme] = useState(() => {
-//     return window.matchMedia("(prefers-color-scheme: dark)").matches
-//       ? "dark"
-//       : "light";
-//   });
-
-//   // Effect to apply the theme to the document
-//   useEffect(() => {
-//     const htmlElement = document.documentElement;
-//     htmlElement.classList.toggle("dark", theme === "dark");
-
-//     const handleMediaChange = (event) => {
-//       setTheme(event.matches ? "dark" : "light");
-//     };
-
-//     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-//     mediaQuery.addEventListener("change", handleMediaChange);
-
-//     return () => {
-//       mediaQuery.removeEventListener("change", handleMediaChange);
-//     };
-//   }, [theme]);
-
-//   // Handle the change of the checkbox
-//   const handleThemeChange = () => {
-//     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-//   };
-
-//   return (
-//     <label className="inline-flex items-center cursor-pointer">
-//       <input
-//         type="checkbox"
-//         className="p-4 sr-only peer"
-//         checked={theme === "dark"}
-//         onChange={handleThemeChange}
-//       />
-//       <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-600">
-//         <div className="absolute top-0.5 left-1 transition-transform duration-300 ease-in-out peer-checked:translate-x-6 h-6 w-6 bg-white rounded-full shadow-md"></div>
-//       </div>
-//     </label>
-//   );
-// }
-
-// export default ThemeToggle;
-//////////////////////////////////////////////////////////////////////////////
 
 import React, { useEffect, useState } from "react";
 
@@ -85,8 +36,6 @@ setTimeout(() => {
 
    
   };
-
-
 
   return (
     <label className="inline-flex items-center cursor-pointer">

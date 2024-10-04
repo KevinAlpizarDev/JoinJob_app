@@ -160,117 +160,117 @@
 // CON SERVICE
 //////////////////////////////////////////////////////////////
 // RegisterForm.js
-import React, { useState, useEffect } from "react";
-import {
-  getCurrentUser,
-  registerUser,
-  loginUser,
-  logoutUser,
-} from "../services/service";
+// import React, { useState, useEffect } from "react";
+// import {
+//   getCurrentUser,
+//   registerUser,
+//   loginUser,
+//   logoutUser,
+// } from "../services/service";
 
-const RegisterForm = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [registrationToggle, setRegistrationToggle] = useState(false);
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+// const RegisterForm = () => {
+//   const [currentUser, setCurrentUser] = useState(null);
+//   const [registrationToggle, setRegistrationToggle] = useState(false);
+//   const [email, setEmail] = useState("");
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    getCurrentUser()
-      .then(() => setCurrentUser(true))
-      .catch(() => setCurrentUser(false));
-  }, []);
+//   useEffect(() => {
+//     getCurrentUser()
+//       .then(() => setCurrentUser(true))
+//       .catch(() => setCurrentUser(false));
+//   }, []);
 
-  function update_form_btn() {
-    setRegistrationToggle(!registrationToggle);
-  }
+//   function update_form_btn() {
+//     setRegistrationToggle(!registrationToggle);
+//   }
 
-  function submitRegistration(e) {
-    e.preventDefault();
-    registerUser(email, username, password)
-      .then(() => loginUser(email, password))
-      .then(() => setCurrentUser(true));
-  }
+//   function submitRegistration(e) {
+//     e.preventDefault();
+//     registerUser(email, username, password)
+//       .then(() => loginUser(email, password))
+//       .then(() => setCurrentUser(true));
+//   }
 
-  function submitLogin(e) {
-    e.preventDefault();
-    loginUser(email, password).then(() => setCurrentUser(true));
-  }
+//   function submitLogin(e) {
+//     e.preventDefault();
+//     loginUser(email, password).then(() => setCurrentUser(true));
+//   }
 
-  function submitLogout(e) {
-    e.preventDefault();
-    logoutUser().then(() => setCurrentUser(false));
-  }
+//   function submitLogout(e) {
+//     e.preventDefault();
+//     logoutUser().then(() => setCurrentUser(false));
+//   }
 
-  if (currentUser) {
-    return (
-      <div>
-        <h2>You're logged in!</h2>
-        <form onSubmit={submitLogout}>
-          <button type="submit">Log out</button>
-        </form>
-      </div>
-    );
-  }
+//   if (currentUser) {
+//     return (
+//       <div>
+//         <h2>You're logged in!</h2>
+//         <form onSubmit={submitLogout}>
+//           <button type="submit">Log out</button>
+//         </form>
+//       </div>
+//     );
+//   }
 
-  return (
-    <div>
-      <h1>Authentication App</h1>
-      <button onClick={update_form_btn}>
-        {registrationToggle ? "Log in" : "Register"}
-      </button>
+//   return (
+//     <div>
+//       <h1>Authentication App</h1>
+//       <button onClick={update_form_btn}>
+//         {registrationToggle ? "Log in" : "Register"}
+//       </button>
 
-      {registrationToggle ? (
-        <form onSubmit={submitRegistration}>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <form onSubmit={submitLogin}>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      )}
-    </div>
-  );
-};
+//       {registrationToggle ? (
+//         <form onSubmit={submitRegistration}>
+//           <label>
+//             Email:
+//             <input
+//               type="email"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//             />
+//           </label>
+//           <label>
+//             Username:
+//             <input
+//               type="text"
+//               value={username}
+//               onChange={(e) => setUsername(e.target.value)}
+//             />
+//           </label>
+//           <label>
+//             Password:
+//             <input
+//               type="password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//           </label>
+//           <button type="submit">Submit</button>
+//         </form>
+//       ) : (
+//         <form onSubmit={submitLogin}>
+//           <label>
+//             Email:
+//             <input
+//               type="email"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//             />
+//           </label>
+//           <label>
+//             Password:
+//             <input
+//               type="password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//           </label>
+//           <button type="submit">Submit</button>
+//         </form>
+//       )}
+//     </div>
+//   );
+// };
 
-export default RegisterForm;
+// export default RegisterForm;
