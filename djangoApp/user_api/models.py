@@ -358,23 +358,6 @@ class Sede(models.Model):
         return self.nombre
 
 
-# class Cursos(models.Model):
-#     nombre = models.CharField(max_length=255)
-#     descripcion = models.TextField(null=True, blank=True)
-#     # codigo = models.CharField(max_length=100)  # Permite hasta 100 caracteres
-#     codigo = models.CharField(  unique=True, max_length=1024)  # Permite hasta 100 caracteres
-
-#     fecha_inicio = models.DateField()
-#     fecha_fin = models.DateField()
-#     anio = models.IntegerField()
-#     cupo = models.IntegerField()
-#     activa = models.BooleanField(default=True)
-#     sede = models.ForeignKey("Sede", on_delete=models.CASCADE)
-
-#     def __str__(self):
-#         return self.nombre
-
-
 class Cursos(models.Model):
     id = models.BigAutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
