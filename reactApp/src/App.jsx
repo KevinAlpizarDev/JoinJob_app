@@ -73,6 +73,7 @@ import NavBar from "./components/main/NavBar";
 import AuthProvider from "./components/AuthProvider";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
+import FooterPage from "./components/FooterPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
