@@ -130,13 +130,17 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import { Provider } from "react-redux";
+import FooterPage from "./components/FooterPage";
 // import store from "./store";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
+ <>
  
-    <App />
+ <App />
+ <FooterPage/>
+ </>
   
 );
