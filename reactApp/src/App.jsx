@@ -51,17 +51,55 @@
 // export default App;
 
 // src/index.js
+// import React from "react";
+// import { createRoot } from "react-dom/client"; // Cambiado
+// import App from "./App";
+// import { Provider } from "react-redux";
+// import store from "./store";
+
+// const rootElement = document.getElementById("root");
+// const root = createRoot(rootElement); // Usar createRoot
+
+// root.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>
+// );
+// App.jsx
 import React from "react";
-import { createRoot } from "react-dom/client"; // Cambiado
-import App from "./App";
-import { Provider } from "react-redux";
-import store from "./store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFoundPage from "./pages/NotFoundPage";
+import NavBar from "./components/main/NavBar";
+import AuthProvider from "./components/AuthProvider";
+import HomePage from "./pages/HomePage";
+import SignInPage from "./pages/SignInPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement); // Usar createRoot
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
+    ),
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/signin",
+    element: <SignInPage />,
+  },
+]);
 
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+const App = () => {
+  return (
+    <React.StrictMode>
+      <AuthProvider isSignedIn={false}>
+        <NavBar />
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </React.StrictMode>
+  );
+};
+
+export default App;
