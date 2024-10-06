@@ -69,13 +69,14 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from "react-router-dom";
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/main/NavBar";
 import AuthProvider from "./components/AuthProvider";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
+import ContactUsPage from "./pages/ContactUsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
@@ -90,7 +91,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/signin",
-    element: <SignInPage />,
+    // element: <SignInPage />,
+    element: < ContactUsPage />,
+    // ContactUsPage
   },
 ]);
 
@@ -100,14 +103,13 @@ const App = () => {
       <AuthProvider isSignedIn={false}>
         <NavBar />
         <RouterProvider router={router} />
-        <FooterPage/>
+        <FooterPage />
       </AuthProvider>
     </React.StrictMode>
   );
 };
 
 export default App;
-
 
 ////////////////////////////////////////////////////////////////////
 // import React from "react";
