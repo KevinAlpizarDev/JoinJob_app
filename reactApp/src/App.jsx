@@ -78,6 +78,7 @@ import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -89,12 +90,20 @@ const router = createBrowserRouter([
     ),
     errorElement: <NotFoundPage />,
   },
+ 
   {
     path: "/signin",
     element: <SignInPage />,
     // element: < ContactUsPage />,
     // ContactUsPage
   },
+  {
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <AdminPage />
+      </ProtectedRoute>
+    ),
 ]);
 
 const App = () => {
