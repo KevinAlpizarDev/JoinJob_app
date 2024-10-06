@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 function ThemeToggle() {
@@ -28,13 +27,9 @@ function ThemeToggle() {
 
   // Handle the change of the checkbox
   const handleThemeChange = () => {
-
-setTimeout(() => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-}, 300);
-
-
-   
+    setTimeout(() => {
+      setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    }, 500);
   };
 
   return (
