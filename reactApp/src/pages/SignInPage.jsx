@@ -504,11 +504,11 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFDE82] flex items-center justify-center p-4">
-      <div className="bg-white rounded-3xl shadow-xl overflow-hidden max-w-md w-full transform -rotate-1 transition-transform hover:rotate-0">
+    <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] ">
+      <div className="bg-white rounded-3xl   max-w-md w-full  ">
         <div className="p-8">
           <h1 className="text-4xl font-bold mb-6 text-center text-[#1D3557]">
-            Welcome!
+      JoinJob
           </h1>
           <button
             onClick={update_form_btn}
