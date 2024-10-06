@@ -1299,9 +1299,9 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] min-h-screen">
-      <div className="bg-white rounded-3xl max-w-md w-full">
-        <div className="p-8">
+    <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max ">
+      <div className="bg-white rounded-3xl max-w-md w-full mb-12">
+        <div className="p-4">
           <h1 className="text-4xl font-bold mb-6 text-center text-[#1D3557]">
             JoinJob
           </h1>
@@ -1454,7 +1454,7 @@ export default function SignInPage() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transform transition-transform hover:scale-105"
+                className="w-full bg-[#E63946] text-white rounded-full py-3  font-bold text-lg transform transition-transform hover:scale-105"
               >
                 Log In
               </button>
