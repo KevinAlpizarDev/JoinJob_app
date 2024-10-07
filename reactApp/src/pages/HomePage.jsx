@@ -6,7 +6,7 @@ import React from "react";
 const HomePage = ({ submitLogout }) => {
   return (
     <div className="h-screen bg-red-500 dark:bg-black">
-      <h1>JoinJob</h1>
+      <h1 className="text-xl font-extrabold  mb-4 text-blue-500">JoinJob</h1>
       <h2>You're logged in!</h2>
       <form onSubmit={submitLogout}>
         <button type="submit">Log out</button>

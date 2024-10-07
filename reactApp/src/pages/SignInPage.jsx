@@ -1302,7 +1302,7 @@ export default function SignInPage() {
     <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max ">
       <div className="bg-white rounded-3xl max-w-md w-full mb-12">
         <div className="p-4">
-          <h1 className="text-4xl font-black font-p mb-6 text-center text-[#1D3557]">
+          <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
             JoinJob
           </h1>
           <button
