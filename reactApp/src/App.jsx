@@ -131,8 +131,9 @@ import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import AboutPage from "./pages/AboutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminPage from "./pages/AdminPage";
+// import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -149,12 +150,12 @@ const router = createBrowserRouter([
     element: <SignInPage />,
   },
   {
-    path: "/admin",
-    element: (
-    
-        <AdminPage />
-
-    ),
+    path: "/about",
+    element: <AboutPage />,
+  },
+  {
+    path: "/contact",
+    element: <ContactUsPage  />,
   },
 ]);
 
@@ -162,7 +163,6 @@ const App = () => {
   return (
     <React.StrictMode>
       <AuthProvider isSignedIn={false}>
- 
         <RouterProvider router={router} />
         <FooterPage />
       </AuthProvider>

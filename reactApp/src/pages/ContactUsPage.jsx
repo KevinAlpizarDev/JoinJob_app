@@ -79,16 +79,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
-
 // export default function Component() {
 //     return (
 //       <div className="min-h-screen bg-[#F1FAEE] text-[#1D3557] p-8">
@@ -96,7 +86,7 @@
 //           <h1 className="text-4xl font-bold text-center">Our Services</h1>
 //           <p className="text-xl text-center mt-4 text-[#457B9D]">Discover what we can do for you</p>
 //         </header>
-  
+
 //         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 //           {/* Card 1 */}
 //           <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -108,14 +98,14 @@
 //               <p className="text-[#457B9D]">
 //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.
 //               </p>
-//               <input 
-//                 type="text" 
-//                 placeholder="Enter your email" 
-//                 className="mt-4 w-full p-3 border border-[#A8DADC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557] placeholder-gray-500 text-[#1D3557]" 
+//               <input
+//                 type="text"
+//                 placeholder="Enter your email"
+//                 className="mt-4 w-full p-3 border border-[#A8DADC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557] placeholder-gray-500 text-[#1D3557]"
 //               />
 //             </div>
 //           </div>
-  
+
 //           {/* Card 2 */}
 //           <div className="bg-white rounded-lg shadow-md overflow-hidden">
 //             <div className="bg-[#A8DADC] p-6">
@@ -126,14 +116,14 @@
 //               <p className="text-[#457B9D]">
 //                 Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.
 //               </p>
-//               <input 
-//                 type="text" 
-//                 placeholder="Enter your name" 
-//                 className="mt-4 w-full p-3 border border-[#A8DADC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557] placeholder-gray-500 text-[#1D3557]" 
+//               <input
+//                 type="text"
+//                 placeholder="Enter your name"
+//                 className="mt-4 w-full p-3 border border-[#A8DADC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1D3557] placeholder-gray-500 text-[#1D3557]"
 //               />
 //             </div>
 //           </div>
-  
+
 //           {/* Featured Card */}
 //           <div className="bg-white rounded-lg shadow-md overflow-hidden md:col-span-2">
 //             <div className="bg-[#A8DADC] p-6">
@@ -151,10 +141,10 @@
 //             </div>
 //           </div>
 //         </div>
-  
+
 //         {/* Separator */}
 //         <div className="my-12 bg-[#A8DADC] h-px w-full"></div>
-  
+
 //         {/* Footer */}
 //         <footer className="text-center text-[#457B9D]">
 //           <p>&copy; 2023 Your Company Name. All rights reserved.</p>
@@ -162,52 +152,78 @@
 //       </div>
 //     )
 //   }
-  
 
+// import React from 'react';
 
+// const ContactUsPage = () => {
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+//       <div className="bg-white shadow-md rounded-lg p-8 max-w-2xl w-full text-center">
+//         <h1 className="text-4xl font-bold mb-6 text-gray-800">Get in Touch with Us</h1>
+//         <p className="text-lg text-gray-600 mb-8">
+//           We'd love to hear from you! Whether you have a question, feedback, or just want to say hi, fill out the form below and we’ll get back to you shortly.
+//         </p>
+//         <div className="space-y-4">
+//           <div>
+//             <input
+//               type="email"
+//               placeholder="Enter your email"
+//               className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+//             />
+//           </div>
+//           <div>
+//             <textarea
+//               placeholder="Your message"
+//               className="w-full h-40 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+//             />
+//           </div>
+//           <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg">
+//             Send Message
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
+// export default ContactUsPage;
 
-
-
-
-
-
-
-
-import React from 'react';
+import React from "react";
+import NavBar from "../components/main/NavBar";
 
 const ContactUsPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-md rounded-lg p-8 max-w-2xl w-full text-center">
-        <h1 className="text-4xl font-bold mb-6 text-gray-800">Get in Touch with Us</h1>
-        <p className="text-lg text-gray-600 mb-8">
-          We'd love to hear from you! Whether you have a question, feedback, or just want to say hi, fill out the form below and we’ll get back to you shortly.
-        </p>
-        <div className="space-y-4">
-          <div>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
-            />
+    <>
+      <div>
+        <NavBar />
+
+        <div className="flex justify-between items-center w-full p-4 px bg-black">
+          <div className="flex items-center w-full max-w-2xl mx-auto space-x-4 px-20">
+            <div className="w-full">
+              <div>
+           
+
+              </div>
+              <input
+                type="text"
+                id="large-input"
+                className="block w-full px-5 py-3 text-lg font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none leading-relaxed"
+                placeholder="name@pagedone.com"
+                required
+              />
+            </div>
+
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Submit
+            </button>
           </div>
-          <div>
-            <textarea
-              placeholder="Your message"
-              className="w-full h-40 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
-            />
-          </div>
-          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg">
-            Send Message
-          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default ContactUsPage;
-
-
-
