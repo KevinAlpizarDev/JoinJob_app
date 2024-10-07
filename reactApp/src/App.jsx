@@ -162,7 +162,7 @@ const App = () => {
   return (
     <React.StrictMode>
       <AuthProvider isSignedIn={false}>
-        <NavBar />
+ 
         <RouterProvider router={router} />
         <FooterPage />
       </AuthProvider>
