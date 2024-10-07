@@ -1183,6 +1183,7 @@ import {
 } from "../services/service";
 import { useAuth } from "../components/AuthProvider";
 import NavBar from "../components/main/NavBar";
+import FooterPage from "../components/FooterPage";
 
 export default function SignInPage() {
   const { user, setUser } = useAuth();
@@ -1467,7 +1468,7 @@ export default function SignInPage() {
         </div>
       </div>
     </div>
-
+    <FooterPage />
 </>
 
   );

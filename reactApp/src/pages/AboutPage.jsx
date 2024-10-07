@@ -86,6 +86,7 @@
 // }
 import React from "react";
 import NavBar from "../components/main/NavBar";
+import FooterPage from "../components/FooterPage";
 
 export default function AboutPage() {
   return (
@@ -152,6 +153,7 @@ export default function AboutPage() {
           </section>
         </main>
       </div>
+      < FooterPage />
     </>
   );
 }

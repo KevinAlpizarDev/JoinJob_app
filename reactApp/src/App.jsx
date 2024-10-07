@@ -164,7 +164,7 @@ const App = () => {
     <React.StrictMode>
       <AuthProvider isSignedIn={false}>
         <RouterProvider router={router} />
-        <FooterPage />
+        {/* <FooterPage /> */}
       </AuthProvider>
     </React.StrictMode>
   );
