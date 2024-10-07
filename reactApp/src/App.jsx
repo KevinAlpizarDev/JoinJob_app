@@ -66,17 +66,74 @@
 //   </Provider>
 // );
 // App.jsx
+// import React from "react";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// import { BrowserRouter } from "react-router-dom";
+// import NotFoundPage from "./pages/NotFoundPage";
+// import NavBar from "./components/main/NavBar";
+// import AuthProvider from "./components/AuthProvider";
+// import HomePage from "./pages/HomePage";
+// import SignInPage from "./pages/SignInPage";
+// import FooterPage from "./components/FooterPage";
+// import ContactUsPage from "./pages/ContactUsPage";
+// import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: (
+//       <ProtectedRoute>
+//         <HomePage />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
+
+//   {
+//     path: "/signin",
+//     element: <SignInPage />,
+//     // element: < ContactUsPage />,
+//     // ContactUsPage
+//   },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+// ]);
+
+// const App = () => {
+//   return (
+//     <React.StrictMode>
+//       <AuthProvider isSignedIn={false}>
+//         <NavBar />
+//         <RouterProvider router={router} />
+//         <FooterPage />
+//       </AuthProvider>
+//     </React.StrictMode>
+//   );
+// };
+
+// export default App;
+
+///////////////////////////////////////////////is stuff
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { BrowserRouter } from 'react-router-dom'
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/main/NavBar";
 import AuthProvider from "./components/AuthProvider";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import AboutPage from "./pages/AboutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+// import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -92,76 +149,25 @@ const router = createBrowserRouter([
     path: "/signin",
     element: <SignInPage />,
   },
+  {
+    path: "/about",
+    element: <AboutPage />,
+  },
+  {
+    path: "/contact",
+    element: <ContactUsPage  />,
+  },
 ]);
 
 const App = () => {
   return (
     <React.StrictMode>
       <AuthProvider isSignedIn={false}>
-        <NavBar />
         <RouterProvider router={router} />
-        <FooterPage/>
+        {/* <FooterPage /> */}
       </AuthProvider>
     </React.StrictMode>
   );
 };
 
 export default App;
-
-
-////////////////////////////////////////////////////////////////////
-// import React from "react";
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import NotFoundPage from "./pages/NotFoundPage";
-// import NavBar from "./components/main/NavBar";
-// import AuthProvider from "./components/AuthProvider";
-// import HomePage from "./pages/HomePage";
-// import SignInPage from "./pages/SignInPage";
-// import DashboardPage from "./pages/DashboardPage";
-// // import TeamPage from "./pages/TeamPage";
-// // import ProjectsPage from "./pages/ProjectsPage";
-// import FooterPage from "./components/FooterPage";
-// import ProtectedRoute from "./components/ProtectedRoute";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: (
-//       <ProtectedRoute>
-//         <HomePage />
-//       </ProtectedRoute>
-//     ),
-//     errorElement: <NotFoundPage />,
-//   },
-//   {
-//     path: "/signin",
-//     element: <SignInPage />,
-//   },
-//   // {
-//   //   path: "/dashboard",
-//   //   element: <DashboardPage />,
-//   // },
-//   // {
-//   //   path: "/team",
-//   //   element: <TeamPage />,
-//   // },
-//   // {
-//   //   path: "/projects",
-//   //   element: <ProjectsPage />,
-//   // },
-// ]);
-
-// const App = () => {
-//   return (
-//     <React.StrictMode>
-//       <AuthProvider isSignedIn={false}>
-//         <RouterProvider router={router}> {/* Asegúrate de que RouterProvider envuelva a NavBar */}
-//           <NavBar />
-//           <FooterPage />
-//         </RouterProvider>
-//       </AuthProvider>
-//     </React.StrictMode>
-//   );
-// };
-
-// export default App;

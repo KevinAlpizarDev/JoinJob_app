@@ -1,12 +1,17 @@
 import React from "react";
+import NavBar from "../components/main/NavBar";
 // import {submitLogout} from "./SignInPage"
 // import LoginForm from "../components/RegisterForm";
 // import RegisterForm from "../components/RegisterForm";
 // import ThemeButton from "../components/ThemeButton";
 const HomePage = ({ submitLogout }) => {
   return (
+
+<> 
+<NavBar/>
+
     <div className="h-screen bg-red-500 dark:bg-black">
-      <h1>JoinJob</h1>
+      <h1 className="text-xl font-extrabold  mb-4 text-blue-500">JoinJob</h1>
       <h2>You're logged in!</h2>
       <form onSubmit={submitLogout}>
         <button type="submit">Log out</button>
@@ -21,6 +26,10 @@ const HomePage = ({ submitLogout }) => {
       //   </form>
       // </div> */}
     </div>
+
+
+</>
+
   );
 };
 
