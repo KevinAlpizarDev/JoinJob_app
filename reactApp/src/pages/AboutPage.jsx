@@ -1,22 +1,17 @@
+import NavBar from "../components/main/NavBar";
+import FooterPage from "../components/FooterPage";
+import Position from "../components/Position";
 export default function AboutPage() {
   return (
+    <>
+    
+    
+< NavBar />
+<Position/>
+
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  About Acme Inc
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Empowering teams to achieve more through innovative project
-                  management solutions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+    
 
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -138,27 +133,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Join Our Journey
-                </h2>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  We're always looking for talented individuals to join our team
-                  and help shape the future of project management.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <button className="bg-purple-700 text-white px-6 py-3 rounded-full text-lg">
-                  View Open Positions
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+      
       </main>
     </div>
+    <FooterPage/>
+    </>
   );
 }
