@@ -1175,17 +1175,13 @@
 //   );
 // }
 
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getCurrentUser,
-  registerUser,
-  loginUser,
-} from "../services/service";
+import { getCurrentUser, registerUser, loginUser } from "../services/service";
 import { useAuth } from "../components/AuthProvider";
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
+import Position from "../components/Position";
 
 export default function SignInPage() {
   const { user, setUser } = useAuth();
@@ -1303,175 +1299,176 @@ export default function SignInPage() {
   };
 
   return (
+    <>
+      <NavBar />
+      <Position />
+      <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max ">
+        <div className="bg-white rounded-3xl max-w-md w-full mb-12">
+          <div className="p-4">
+            <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
+              JoinJob
+            </h1>
+            <button
+              onClick={updateFormBtn}
+              className="w-full bg-[#1D3557] text-white rounded-full py-3 px-6 font-bold text-lg mb-6 transform transition-transform hover:scale-105"
+            >
+              {registrationToggle ? "Switch to Log In" : "Switch to Register"}
+            </button>
 
-<>
-< NavBar/>
-    <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max ">
-      <div className="bg-white rounded-3xl max-w-md w-full mb-12">
-        <div className="p-4">
-          <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
-            JoinJob
-          </h1>
-          <button
-            onClick={updateFormBtn}
-            className="w-full bg-[#1D3557] text-white rounded-full py-3 px-6 font-bold text-lg mb-6 transform transition-transform hover:scale-105"
-          >
-            {registrationToggle ? "Switch to Log In" : "Switch to Register"}
-          </button>
+            {formError && (
+              <div style={{ ...errorStyle, marginBottom: "1rem" }}>
+                {formError}
+              </div>
+            )}
 
-          {formError && (
-            <div style={{ ...errorStyle, marginBottom: "1rem" }}>
-              {formError}
-            </div>
-          )}
+            {networkError && (
+              <div style={{ ...errorStyle, marginBottom: "1rem" }}>
+                {networkError}
+              </div>
+            )}
 
-          {networkError && (
-            <div style={{ ...errorStyle, marginBottom: "1rem" }}>
-              {networkError}
-            </div>
-          )}
-
-          {registrationToggle ? (
-            <form onSubmit={submitRegistration} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+            {registrationToggle ? (
+              <form onSubmit={submitRegistration} className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
+                    required
+                    style={emailError ? inputErrorStyle : {}}
+                    aria-invalid={emailError ? "true" : "false"}
+                    aria-describedby={emailError ? "email-error" : undefined}
+                  />
+                  {emailError && (
+                    <p id="email-error" style={errorStyle}>
+                      {emailError}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="username"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Username
+                  </label>
+                  <input
+                    id="username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
+                    required
+                  />
+                  {formError && <p style={errorStyle}>{formError}</p>}
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
+                    required
+                    style={passwordError ? inputErrorStyle : {}}
+                    aria-invalid={passwordError ? "true" : "false"}
+                    aria-describedby={
+                      passwordError ? "password-error" : undefined
+                    }
+                  />
+                  {passwordError && (
+                    <p id="password-error" style={errorStyle}>
+                      {passwordError}
+                    </p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transform transition-transform hover:scale-105"
                 >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
-                  required
-                  style={emailError ? inputErrorStyle : {}}
-                  aria-invalid={emailError ? "true" : "false"}
-                  aria-describedby={emailError ? "email-error" : undefined}
-                />
-                {emailError && (
-                  <p id="email-error" style={errorStyle}>
-                    {emailError}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="username"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  Register
+                </button>
+              </form>
+            ) : (
+              <form onSubmit={submitLogin} className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="login-email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="login-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
+                    required
+                    style={emailError ? inputErrorStyle : {}}
+                    aria-invalid={emailError ? "true" : "false"}
+                    aria-describedby={
+                      emailError ? "login-email-error" : undefined
+                    }
+                  />
+                  {emailError && (
+                    <p id="login-email-error" style={errorStyle}>
+                      {emailError}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="login-password"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Password
+                  </label>
+                  <input
+                    id="login-password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
+                    required
+                    style={passwordError ? inputErrorStyle : {}}
+                    aria-invalid={passwordError ? "true" : "false"}
+                    aria-describedby={
+                      passwordError ? "login-password-error" : undefined
+                    }
+                  />
+                  {passwordError && (
+                    <p id="login-password-error" style={errorStyle}>
+                      {passwordError}
+                    </p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#E63946] text-white rounded-full py-3  font-bold text-lg transform transition-transform hover:scale-105"
                 >
-                  Username
-                </label>
-                <input
-                  id="username"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
-                  required
-                />
-                {formError && (
-                  <p style={errorStyle}>
-                    {formError}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Password
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
-                  required
-                  style={passwordError ? inputErrorStyle : {}}
-                  aria-invalid={passwordError ? "true" : "false"}
-                  aria-describedby={passwordError ? "password-error" : undefined}
-                />
-                {passwordError && (
-                  <p id="password-error" style={errorStyle}>
-                    {passwordError}
-                  </p>
-                )}
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transform transition-transform hover:scale-105"
-              >
-                Register
-              </button>
-            </form>
-          ) : (
-            <form onSubmit={submitLogin} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="login-email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Email
-                </label>
-                <input
-                  id="login-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
-                  required
-                  style={emailError ? inputErrorStyle : {}}
-                  aria-invalid={emailError ? "true" : "false"}
-                  aria-describedby={emailError ? "login-email-error" : undefined}
-                />
-                {emailError && (
-                  <p id="login-email-error" style={errorStyle}>
-                    {emailError}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="login-password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Password
-                </label>
-                <input
-                  id="login-password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none"
-                  required
-                  style={passwordError ? inputErrorStyle : {}}
-                  aria-invalid={passwordError ? "true" : "false"}
-                  aria-describedby={passwordError ? "login-password-error" : undefined}
-                />
-                {passwordError && (
-                  <p id="login-password-error" style={errorStyle}>
-                    {passwordError}
-                  </p>
-                )}
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-[#E63946] text-white rounded-full py-3  font-bold text-lg transform transition-transform hover:scale-105"
-              >
-                Log In
-              </button>
-            </form>
-          )}
+                  Log In
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-    <FooterPage />
-</>
-
+      <FooterPage />
+    </>
   );
 }

@@ -45,3 +45,7 @@ export const logoutUser = () => {
 //     },
 //   });
 // };
+/////////////////////////////inlove
+export const getCursos = () => {
+  return client.get("/api/cursos/"); // Asegúrate de que esta ruta sea correcta
+};

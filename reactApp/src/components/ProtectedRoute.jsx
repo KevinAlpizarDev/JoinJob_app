@@ -148,12 +148,12 @@ function ProtectedRoute({ children, requireStaff }) {
       navigate("/signin", { replace: true });
     }
     // Si se requiere staff y el usuario es staff, redirige a /admin
-    else if (requireStaff && user.is_staff) {
+    else if (user.is_staff) {
       console.log("User is staff, redirecting to /admin");
       navigate("/admin", { replace: true });
     }
     // Si no es staff, redirige a la página de inicio
-    else if (requireStaff && !user.is_staff) {
+    else if (!user.is_staff) {
       console.log("User is not staff, redirecting to /");
       navigate("/", { replace: true });
     }

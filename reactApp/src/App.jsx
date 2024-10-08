@@ -133,18 +133,24 @@ import FooterPage from "./components/FooterPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import AboutPage from "./pages/AboutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import LandingPage from "./components/LandingPage";
 // import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: (
+  //     <ProtectedRoute>
+  //       <HomePage />
+  //     </ProtectedRoute>
+  //   ),
+  //   errorElement: <NotFoundPage />,
+  // },
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <HomePage />
-      </ProtectedRoute>
-    ),
-    errorElement: <NotFoundPage />,
+    element: <LandingPage />,
   },
+
   {
     path: "/signin",
     element: <SignInPage />,
@@ -155,7 +161,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/contact",
-    element: <ContactUsPage  />,
+    element: <ContactUsPage />,
   },
 ]);
 
