@@ -148,7 +148,7 @@ const EmailForm = () => {
 
     emailjs
       .sendForm(
-        "service_pughbho",
+        "service_dgjbtyk",
         "template_ehj9htl",
         form.current,
         "U9UAIoXdwQOs7-Ktb"
