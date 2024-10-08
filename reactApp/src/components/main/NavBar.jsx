@@ -331,7 +331,7 @@ export default function NavBar() {
             </Link>
             <div className="hidden md:block ml-10">
               <div className="flex items-baseline space-x-4">
-                <NavLink to="/signin">Signin</NavLink>
+          
                 <NavLink to="/about">About Us</NavLink>
                 <NavLink to="/contact">Contact Us</NavLink>
                 {/* <NavLink to="/projects">Projects</NavLink> */}
@@ -361,9 +361,8 @@ export default function NavBar() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavLink to="/admin" mobile>Dashboard</NavLink>
-            <NavLink to="/team" mobile>Team</NavLink>
-            <NavLink to="/projects" mobile>Projects</NavLink>
+          <NavLink to="/about">About Us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5">

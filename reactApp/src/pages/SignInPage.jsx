@@ -1186,6 +1186,7 @@ import {
 import { useAuth } from "../components/AuthProvider";
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
+import Position from "../components/Position";
 
 export default function SignInPage() {
   const { user, setUser } = useAuth();
@@ -1305,7 +1306,10 @@ export default function SignInPage() {
   return (
 
 <>
+
+
 < NavBar/>
+< Position/>
     <div className="min-w-fit bg-[#FFDE82] flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max ">
       <div className="bg-white rounded-3xl max-w-md w-full mb-12">
         <div className="p-4">
@@ -1470,6 +1474,7 @@ export default function SignInPage() {
         </div>
       </div>
     </div>
+ 
     <FooterPage />
 </>
 
