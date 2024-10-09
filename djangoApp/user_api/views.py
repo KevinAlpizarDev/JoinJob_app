@@ -235,7 +235,6 @@ class UserLogin(APIView):
             )
 
 
-
 class UserLogout(APIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
@@ -252,6 +251,12 @@ class UserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response({"user": serializer.data}, status=status.HTTP_200_OK)
+
+
+# Inlove
+# class CursosListCreate(generics.ListCreateAPIView):
+#     queryset = Cursos.objects.all()
+#     serializer_class = CursosSerializer
 
 
 # Views para Instituciones, Sedes, Cursos e Inscripciones

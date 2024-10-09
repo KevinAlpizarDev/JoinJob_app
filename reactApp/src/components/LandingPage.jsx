@@ -1,30 +1,24 @@
-import NavBar from "../components/main/NavBar";
-import FooterPage from "../components/FooterPage";
-// import EmailForm from "../components/EmailForm";
+import NavBar from "./main/NavBar";
+import FooterPage from "./FooterPage";
 import Position from "./Position";
 import { Link } from "react-router-dom";
-// import Position from "../components/Position";
+
 export default function LandingPage() {
   return (
     <>
       <NavBar />
-      <Position />
-      <div className="flex flex-col min-h-screen bg-slate-200 ">
-        {/* <Position /> */}
+      <Position/>
+      <div className="flex flex-col min-h-screen">
+        {/* <Position/> */}
         <main className="flex-1">
-          <section className="w-full md:py-6 lg:py-4 xl:py-48">
+          <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
             <div className="container px-4 md:px-6">
-              <div className="flex flex-col items-center space-y-1 text-center">
-                <div className="space-y-2">
-                  {/* <h1 className="text-3xl font- font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+              <div className="flex flex-col items-center space-y-4 text-center">
+                <div className="space-y-1">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                     Refreshingly simple project management
-                  </h1> */}
-
-                  <h1 className="text-5xl text-slate-800 pt-6 font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Oportunidades de Capacitación y Proyectos para el Desarrollo
                   </h1>
-
-                  <p className="mx-auto font-poppins py-6 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                  <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                     The project management platform that helps small teams move
                     faster and make more progress than they ever thought
                     possible.
@@ -50,14 +44,21 @@ export default function LandingPage() {
 </button>
 
 </Link> */}
+                  {/* 
+<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+</svg>
+<span class="sr-only">Icon description</span>
+</button> */}
 
-                  <Link to="signin">
+                  <Link to="/signin">
                     <button
                       type="button"
-                      class="text-white animate-bounce mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="animate-bounce text-white bg-blue-700 mt-10 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-8 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transform transition-transform duration-300 ease-in-out hover:-translate-y-1 active:translate-y-0"
                     >
                       <svg
-                        className="w-8 h-8"
+                        className="w-4 h-4"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -65,13 +66,13 @@ export default function LandingPage() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M1 5h12m0 0L9 1m4 4L9 9"
                         />
                       </svg>
-                      <span class="sr-only">Icon description</span>
+                      <span className="sr-only">Icon description</span>
                     </button>
                   </Link>
                 </div>
@@ -81,77 +82,62 @@ export default function LandingPage() {
 
           <section className="w-full py-12 md:py-24 lg:py-32">
             <div className="container px-4 md:px-6">
-              <h2 className="text-3xl text-slate-800 font-black tracking-tighter sm:text-4xl md:text-5xl text-center mb-20">
-                Oportunidades de Capacitación y Proyectos para el Desarrollo
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+                Not everything under the sun, just the stuff to get things done
               </h2>
               <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
                 <div className="flex items-start space-x-4">
                   <div className="mt-1 h-6 w-6 flex-none bg-green-500 rounded-full"></div>
                   <div>
-                    <h3 className=" font-black">Capacitación para PYMEs</h3>
-                    <p className="text-gray-500 dark:text-gray-400 font-poppins">
-                      Programas de formación para fortalecer pequeñas y medianas
-                      empresas, cubriendo temas como ventas, marketing y gestión
-                      empresarial.
+                    <h3 className="font-bold">Unlimited Projects</h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Create and manage as many projects as you need.
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="mt-1 h-6 w-6 flex-none bg-blue-500 rounded-full"></div>
                   <div>
-                    <h3 className="font-black">Puente al Desarrollo</h3>
-                    <p className="text-gray-500 dark:text-gray-400 font-poppins">
-                      Proyecto que busca sacar a las familias de la pobreza
-                      extrema mediante el acceso a capacitación y oportunidades
-                      laborales.
+                    <h3 className="font-bold">Private Conversations</h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Use pings for quick, private chats with team members.
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="mt-1 h-6 w-6 flex-none bg-purple-500 rounded-full"></div>
                   <div>
-                    <h3 className="font-black">
-                      Empleabilidad de Jóvenes con Discapacidad
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400 font-poppins">
-                      Proyectos orientados a la inclusión laboral de jóvenes con
-                      discapacidad mediante formación y oportunidades de empleo.
+                    <h3 className="font-bold">Essential Reports</h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Get summaries of the most important information.
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="mt-1 h-6 w-6 flex-none bg-yellow-500 rounded-full"></div>
                   <div>
-                    <h3 className="font-black">Educación Dual</h3>
-                    <p className="text-gray-500 dark:text-gray-400 font-poppins">
-                      Proyecto que combina educación y trabajo en empresas para
-                      que los estudiantes adquieran experiencia laboral mientras
-                      estudian.
+                    <h3 className="font-bold">Notification Controls</h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Stay focused with smart notification management.
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="mt-1 h-6 w-6 flex-none bg-red-500 rounded-full"></div>
                   <div>
-                    <h3 className="font-black">Proyectos de Emprendimiento</h3>
-                    <p className="text-gray-500 dark:text-gray-400 font-poppins">
-                      Asesoría y capital semilla para ayudar a personas en
-                      situación vulnerable a iniciar y desarrollar sus propios
-                      negocios.
+                    <h3 className="font-bold">Project Timeline</h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      See everything that's happening at a glance.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          {/* 
+
           <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
             <div className="container px-4 md:px-6">
-              <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
                 Leave the grind behind. Glide through projects instead.
               </h2>
               <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
@@ -276,3 +262,7 @@ export default function LandingPage() {
     </>
   );
 }
+
+
+
+

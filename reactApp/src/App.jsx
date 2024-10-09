@@ -137,6 +137,15 @@ import LandingPage from "./components/LandingPage";
 // import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: (
+  //     <ProtectedRoute>
+  //       <HomePage />
+  //     </ProtectedRoute>
+  //   ),
+  //   errorElement: <NotFoundPage />,
+  // },
   {
     path: "/home",
     element: (
@@ -146,6 +155,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <NotFoundPage />,
   },
+
   {
     path: "/",
     element: <LandingPage />,
