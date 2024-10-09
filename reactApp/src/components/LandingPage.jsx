@@ -166,6 +166,94 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+          </section> */}
+          <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+            <div className="container px-4 md:px-6">
+              <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+                Oportunidades de Capacitación y Proyectos en Costa Rica
+              </h2>
+              <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
+                {/* INA */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">
+                    Instituto Nacional de Aprendizaje (INA)
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Cursos Técnicos:</strong> Desarrollo web,
+                    programación, electricidad, gastronomía.
+                    <br />
+                    <strong>Proyectos:</strong> Educación Dual, Becas de
+                    Capacitación, Apoyo a PYMEs.
+                  </p>
+                </div>
+
+                {/* Empléate */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">Programa Empléate</h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Capacitación Técnica:</strong> Diseño gráfico,
+                    mecánica automotriz, inglés.
+                    <br />
+                    <strong>Proyectos:</strong> Inserción laboral juvenil,
+                    empleabilidad de personas con discapacidad.
+                  </p>
+                </div>
+
+                {/* IMAS */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">
+                    Instituto Mixto de Ayuda Social (IMAS)
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Programas:</strong> Puente al Desarrollo, asesoría
+                    para emprendimiento.
+                    <br />
+                    <strong>Proyectos:</strong> Apoyo a familias vulnerables con
+                    capacitación en habilidades productivas.
+                  </p>
+                </div>
+
+                {/* Municipalidades */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">Municipalidades</h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Proyectos Comunitarios:</strong> Talleres de
+                    reciclaje, educación ambiental.
+                    <br />
+                    <strong>Proyectos Deportivos:</strong> Creación de ligas
+                    deportivas, ferias de empleo.
+                  </p>
+                </div>
+
+                {/* Ministerio de Trabajo y Seguridad Social (MTSS) */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">
+                    Ministerio de Trabajo y Seguridad Social (MTSS)
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Programas:</strong> Intermediación laboral,
+                    protección al trabajador.
+                    <br />
+                    <strong>Proyectos:</strong> Capacitación en derechos
+                    laborales, programas para mejorar la inserción laboral.
+                  </p>
+                </div>
+
+                {/* Sistema Nacional de Empleo (SNE) */}
+                <div className="border rounded-lg p-4 shadow-sm">
+                  <h3 className="font-bold">
+                    Sistema Nacional de Empleo (SNE)
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <strong>Capacitación:</strong> Cursos en habilidades blandas
+                    y técnicas, asesoría para la búsqueda de empleo.
+                    <br />
+                    <strong>Proyectos:</strong> Programas de formación en
+                    competencias laborales, ferias de empleo.
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
         </main>
       </div>

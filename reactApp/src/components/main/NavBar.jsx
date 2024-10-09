@@ -1,10 +1,3 @@
-// //////////////////////////////////////////////
-// import React, { useState } from "react";
-// import { Menu, X } from "lucide-react"; // Ensure only the necessary icons are imported
-// import ThemeToggle from "../ThemeToggle"; // Import the ThemeToggle component
-// import { Link } from "react-router-dom";
-// const NavBar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
 
 //   const toggleMenu = () => setIsOpen(!isOpen);
 

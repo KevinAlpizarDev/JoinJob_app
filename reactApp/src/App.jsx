@@ -147,6 +147,16 @@ const router = createBrowserRouter([
   //   errorElement: <NotFoundPage />,
   // },
   {
+    path: "/home",
+    element: (
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
+    ),
+    errorElement: <NotFoundPage />,
+  },
+
+  {
     path: "/",
     element: <LandingPage />,
   },

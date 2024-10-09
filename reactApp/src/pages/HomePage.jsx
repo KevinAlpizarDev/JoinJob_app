@@ -7,7 +7,7 @@
 // const HomePage = ({ submitLogout }) => {
 //   return (
 
-// <>
+// <> 
 // <NavBar/>
 
 //     <div className="h-screen bg-red-500 dark:bg-black">
@@ -33,60 +33,32 @@
 // };
 
 // export default HomePage;
-
-//////////////////////////////////////////Inlove
-
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../components/main/NavBar";
-import Position from "../components/Position";
-import { getCursos } from "../services/service"; // Asegúrate de que esta ruta sea correcta
+import { useAuth } from "../components/AuthProvider";
 
-const HomePage = ({ submitLogout }) => {
-  const [cursos, setCursos] = useState([]); // Estado para los cursos
-  const [loading, setLoading] = useState(true); // Estado de carga
+const HomePage = () => {
+  const { setUser } = useAuth();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchCursos = async () => {
-      try {
-        const response = await getCursos();
-        setCursos(response.data); // Suponiendo que tu API devuelve la lista de cursos directamente
-      } catch (error) {
-        console.error("Error fetching cursos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCursos(); // Llama a la función para obtener los cursos
-  }, []);
+  // Maneja la acción de logout
+  const submitLogout = (e) => {
+    e.preventDefault();
+    setUser(null); // Limpia el estado del usuario
+    navigate("/signin"); // Redirige a la página de inicio de sesión
+  };
 
   return (
     <>
       <NavBar />
       <div className="h-screen bg-red-500 dark:bg-black">
-        <h1 className="text-xl font-extrabold mb-4 text-blue-500">JoinJob</h1>
+        <h1 className="text-xl font-extrabold  mb-4 text-blue-500">JoinJob</h1>
         <h2>You're logged in!</h2>
         <form onSubmit={submitLogout}>
           <button type="submit">Log out</button>
         </form>
-
-        {/* Renderizar los cursos */}
-        {loading ? (
-          <p>Cargando cursos...</p> // Mensaje de carga
-        ) : (
-          <div>
-            <h3>Lista de Cursos:</h3>
-            <ul>
-              {cursos.map((curso) => (
-                <li key={curso.id}>
-                  {curso.nombre} - {curso.descripcion}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
-      <Position />
     </>
   );
 };
