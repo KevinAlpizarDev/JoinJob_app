@@ -13,7 +13,8 @@ on admin
 netstat -aon | findstr :5173
 taskkill /PID 6616 /F
 
-on love5
+on nolove
+
 
 
 The email and password you entered did not match our records. Please double-check and try again.
