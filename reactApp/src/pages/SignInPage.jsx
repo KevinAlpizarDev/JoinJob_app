@@ -1208,7 +1208,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/home");
     }
   }, [user, navigate]);
 

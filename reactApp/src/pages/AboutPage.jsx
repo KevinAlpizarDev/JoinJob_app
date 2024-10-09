@@ -9,7 +9,7 @@ export default function AboutPage() {
 < NavBar />
 <Position/>
 
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-slate-200">
       <main className="flex-1">
     
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl">
                   Our Story
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Our Values
             </h2>
             <div className="grid gap-6 lg:grid-cols-4 lg:gap-12">
@@ -91,7 +91,7 @@ export default function AboutPage() {
 
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Meet Our Team
             </h2>
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">

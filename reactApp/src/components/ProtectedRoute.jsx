@@ -1,4 +1,4 @@
-///////////////////////////////////////////////2
+// ///////////////////////////////////////////////2
 // import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { useAuth } from "./AuthProvider";
@@ -18,31 +18,31 @@
 
 // export default ProtectedRoute;
 ///////////////////////////////////////////////3
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useAuth } from "./AuthProvider"; // Hook para obtener el usuario
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider"; // Hook para obtener el usuario
 
-// function ProtectedRoute({ children }) {
-//   const { user } = useAuth(); // Obtener el usuario desde el contexto
-//   const navigate = useNavigate();
+function ProtectedRoute({ children }) {
+  const { user } = useAuth(); // Obtener el usuario desde el contexto
+  const navigate = useNavigate();
 
-//   useEffect(() => {
-//     // Si el usuario es null, redirige a /signin
-//     if (!user) {
-//       navigate("/signin", { replace: true });
-//     }
-//   }, [user, navigate]);
+  useEffect(() => {
+    // Si el usuario es null, redirige a /signin
+    if (!user) {
+      navigate("/signin", { replace: true });
+    }
+  }, [user, navigate]);
 
-//   // Si el usuario existe, renderiza los componentes hijos
-//   if (user) {
-//     return children;
-//   }
+  // Si el usuario existe, renderiza los componentes hijos
+  if (user) {
+    return children;
+  }
 
-//   // Mientras redirige, puedes mostrar un loader o un mensaje
-//   return <div>Loading...</div>;
-// }
+  // Mientras redirige, puedes mostrar un loader o un mensaje
+  return <div>Loading...</div>;
+}
 
-// export default ProtectedRoute;
+export default ProtectedRoute;
 // import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { useAuth } from "./AuthProvider"; // Hook para obtener el usuario
@@ -131,40 +131,42 @@
 // }
 
 // export default ProtectedRoute;
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthProvider";
 
-function ProtectedRoute({ children, requireStaff }) {
-  const { user } = useAuth();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log("User state in ProtectedRoute:", user);
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from "./AuthProvider";
 
-    // Si no hay usuario, redirige a /signin
-    if (!user) {
-      console.log("No user, redirecting to /signin");
-      navigate("/signin", { replace: true });
-    }
-    // Si se requiere staff y el usuario es staff, redirige a /admin
-    else if (requireStaff && user.is_staff) {
-      console.log("User is staff, redirecting to /admin");
-      navigate("/admin", { replace: true });
-    }
-    // Si no es staff, redirige a la página de inicio
-    else if (requireStaff && !user.is_staff) {
-      console.log("User is not staff, redirecting to /");
-      navigate("/", { replace: true });
-    }
-  }, [user, requireStaff, navigate]);
+// function ProtectedRoute({ children, requireStaff }) {
+//   const { user } = useAuth();
+//   const navigate = useNavigate();
 
-  // Renderizar si el usuario está autenticado y cumple con los requisitos de staff
-  if (user && (!requireStaff || user.is_staff)) {
-    return children;
-  }
+//   useEffect(() => {
+//     console.log("User state in ProtectedRoute:", user);
 
-  return <div>Loading...</div>;
-}
+//     // Si no hay usuario, redirige a /signin
+//     if (!user) {
+//       console.log("No user, redirecting to /signin");
+//       navigate("/home", { replace: true });
+//     }
+//     // Si se requiere staff y el usuario es staff, redirige a /admin
+//     else if (requireStaff && user.is_staff) {
+//       console.log("User is staff, redirecting to /admin");
+//       navigate("/admin", { replace: true });
+//     }
+//     // Si no es staff, redirige a la página de inicio
+//     else if (requireStaff && !user.is_staff) {
+//       console.log("User is not staff, redirecting to /");
+//       navigate("/", { replace: true });
+//     }
+//   }, [user, requireStaff, navigate]);
 
-export default ProtectedRoute;
+//   // Renderizar si el usuario está autenticado y cumple con los requisitos de staff
+//   if (user && (!requireStaff || user.is_staff)) {
+//     return children;
+//   }
+
+//   return <div>Loading...</div>;
+// }
+
+// export default ProtectedRoute;
