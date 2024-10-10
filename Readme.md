@@ -13,7 +13,7 @@ on admin
 netstat -aon | findstr :5173
 taskkill /PID 6616 /F
 
-on nolove
+on again
 
 
 

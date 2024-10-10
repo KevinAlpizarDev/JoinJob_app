@@ -25,32 +25,7 @@ export default function LandingPage() {
                   </p>
                 </div>
                 <div className="space-x-4">
-                  {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-                  Get Started
-                </button>
-                <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded-md">
-                  Learn More
-                </button> */}
-
-                  {/* <Link to="/signin">
-
-
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-full text-sm p-6 mt-10 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  animate-bounce">
-
-<svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-</svg>
-<span class="sr-only">Icon description</span>
-</button>
-
-</Link> */}
-                  {/* 
-<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-<svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-</svg>
-<span class="sr-only">Icon description</span>
-</button> */}
+             
 
                   <Link to="/signin">
                     <button
@@ -80,93 +55,71 @@ export default function LandingPage() {
             </div>
           </section>
 
-          <section className="w-full py-12 md:py-24 lg:py-32">
-            <div className="container px-4 md:px-6">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-                Not everything under the sun, just the stuff to get things done
-              </h2>
-              <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 h-6 w-6 flex-none bg-green-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold">Unlimited Projects</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Create and manage as many projects as you need.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 h-6 w-6 flex-none bg-blue-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold">Private Conversations</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Use pings for quick, private chats with team members.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 h-6 w-6 flex-none bg-purple-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold">Essential Reports</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Get summaries of the most important information.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 h-6 w-6 flex-none bg-yellow-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold">Notification Controls</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Stay focused with smart notification management.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 h-6 w-6 flex-none bg-red-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold">Project Timeline</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      See everything that's happening at a glance.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+    
 
-          <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-            <div className="container px-4 md:px-6">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-                Leave the grind behind. Glide through projects instead.
-              </h2>
-              <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-                <div className="border rounded-lg p-4 shadow-sm">
-                  <h3 className="font-bold">Centralized Projects</h3>
-                  <p>
-                    Each project lives on a single page, with everything in
-                    reach and every piece of information tracked and organized.
-                  </p>
-                </div>
-                <div className="border rounded-lg p-4 shadow-sm">
-                  <h3 className="font-bold">Streamlined Communication</h3>
-                  <p>
-                    Everyone knows where to find what they need and say what
-                    they need to say, reducing confusion and increasing
-                    productivity.
-                  </p>
-                </div>
-                <div className="border rounded-lg p-4 shadow-sm">
-                  <h3 className="font-bold">Simplified Management</h3>
-                  <p>
-                    Juggle people, projects, clients, deadlines, and
-                    expectations with ease, even when competing against larger
-                    companies.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section> */}
+<section className="w-full py-12 md:py-24 lg:py-32">
+  <div className="container px-4 md:px-6">
+    <h2 className="text-3xl text-slate-800 font-black tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+      Oportunidades de Capacitación y Proyectos para el Desarrollo
+    </h2>
+    <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+      
+      <div className="flex items-start space-x-4">
+        <div className="mt-1 h-6 w-6 flex-none bg-green-500 rounded-full"></div>
+        <div>
+          <h3 className="font-bold">Capacitación para PYMEs</h3>
+          <p className="text-gray-500 dark:text-gray-400">
+            Programas de formación para fortalecer pequeñas y medianas empresas, cubriendo temas como ventas, marketing y gestión empresarial.
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start space-x-4">
+        <div className="mt-1 h-6 w-6 flex-none bg-blue-500 rounded-full"></div>
+        <div>
+          <h3 className="font-bold">Puente al Desarrollo</h3>
+          <p className="text-gray-500 dark:text-gray-400">
+            Proyecto que busca sacar a las familias de la pobreza extrema mediante el acceso a capacitación y oportunidades laborales.
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start space-x-4">
+        <div className="mt-1 h-6 w-6 flex-none bg-purple-500 rounded-full"></div>
+        <div>
+          <h3 className="font-bold">Empleabilidad de Jóvenes con Discapacidad</h3>
+          <p className="text-gray-500 dark:text-gray-400">
+            Proyectos orientados a la inclusión laboral de jóvenes con discapacidad mediante formación y oportunidades de empleo.
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start space-x-4">
+        <div className="mt-1 h-6 w-6 flex-none bg-yellow-500 rounded-full"></div>
+        <div>
+          <h3 className="font-bold">Educación Dual</h3>
+          <p className="text-gray-500 dark:text-gray-400">
+            Proyecto que combina educación y trabajo en empresas para que los estudiantes adquieran experiencia laboral mientras estudian.
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start space-x-4">
+        <div className="mt-1 h-6 w-6 flex-none bg-red-500 rounded-full"></div>
+        <div>
+          <h3 className="font-bold">Proyectos de Emprendimiento</h3>
+          <p className="text-gray-500 dark:text-gray-400">
+            Asesoría y capital semilla para ayudar a personas en situación vulnerable a iniciar y desarrollar sus propios negocios.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    
           <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
             <div className="container px-4 md:px-6">
               <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
