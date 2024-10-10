@@ -25,27 +25,3 @@ export const loginUser = (email, password) => {
 export const logoutUser = () => {
   return client.post("/api/logout/");
 };
-
-// Nueva función para obtener los cursos
-// export const getCursos = () => {
-//   return client.get("/api/cursos/");
-// };
-// export const getCourses = () => {
-//   return axios.get("/api/cursos/", {
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("token")}`, // o donde guardes el token
-//     },
-//   });
-// };
-// services/service.js
-// export const getCourses = () => {
-//   return client.get("/api/courses/", { // Cambié "/api/cursos/" a "/api/courses/"
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("token")}`, // o donde guardes el token
-//     },
-//   });
-// };
-/////////////////////////////inlove
-export const getCursos = () => {
-  return client.get("/api/cursos/"); // Asegúrate de que esta ruta sea correcta
-};
