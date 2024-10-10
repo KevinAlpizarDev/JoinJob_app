@@ -10,15 +10,19 @@ export default function LandingPage() {
       <Position />
       <div className="flex flex-col min-h-screen">
         {/* <Position/> */}
-        <main className="flex-1">
-          <section className="w-full  py-12 md:py-24 lg:py-32 xl:py-48 bg-slate-100 dark:bg-slate-600">
+        <main className="flex-2">
+          <section className="w-full   md:py-10 lg:py-20  bg-slate-100 dark:bg-slate-600">
             <div className="container px-4 md:px-6 ">
               <div className="flex flex-col items-center space-y-4 text-center ">
                 <div className=" space-y-1">
-                  <h1 className="max-w-5xl text-slate-800 text-2xl sm:text-6xl tracking-tight font-black dark:text-white font-poppins">
-                    Oportunidades de Capacitación y Proyectos para el Desarrollo
+                  <h1 className="mt-8 text-3xl font-bold sm:text-4xl text-blue-950 dark:text-white lg:text-5xl xl:text-6xl">
+                    Oportunidades de Capacitación
+
                   </h1>
-                  <p className="mx-auto font-poppins pt-6 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                  <h1 className="mt-8 text-3xl font-bold sm:text-4xl text-blue-950 dark:text-white lg:text-5xl xl:text-6xl">
+                     y Proyectos para el Desarrollo
+                  </h1>
+                  <p className="mx-auto font-poppins pt-6 max-w-[700px] text-gray-500 md:text- dark:text-gray-400">
                     The project management platform that helps small teams move
                     faster and make more progress than they ever thought
                     possible.
@@ -118,7 +122,7 @@ export default function LandingPage() {
                     <p className="text-gray-500 dark:text-gray-400 font-poppins">
                       Asesoría y capital semilla para ayudar a personas en
                       situación vulnerable a iniciar y desarrollar sus propios
-                      negocios.
+                      negocios.z
                     </p>
                   </div>
                 </div>
