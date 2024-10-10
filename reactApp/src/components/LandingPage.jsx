@@ -55,8 +55,11 @@ export default function LandingPage() {
 
           <section className="w-full  md:py-24 lg: ">
             <div className="container md:px-28">
-              <h2 className="text-3xl text-slate-800 font-black tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 font-poppins">
-                Oportunidades de Capacitación y Proyectos para el Desarrollo
+              {/* <h2 className=" text-slate-800 font-black tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 font-poppins">
+             Lorem, ipsum dolor sit amet consectetur adipisicing elit
+              </h2> */}
+              <h2 className="text-3xl font-poppins text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+               Lorem ipsum dolor sit amet consectetur adipisicing 
               </h2>
               <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
                 <div className="flex items-start space-x-4">
@@ -125,8 +128,11 @@ export default function LandingPage() {
 
           <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
             <div className="container px-4 md:px-28">
-              <h2 className="text-3xl font-black text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              {/* <h2 className="text-3xl font-poppins text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
                 Oportunidades de Capacitación y Proyectos en Costa Rica
+              </h2> */}
+                  <h2 className="text-3xl font-poppins text-slate-800 tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
               </h2>
               <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
                 {/* INA */}
