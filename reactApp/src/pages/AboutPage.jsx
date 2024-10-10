@@ -1,14 +1,14 @@
 import NavBar from "../components/main/NavBar";
 import Position from "../components/Position";
 import FooterPage from "../components/FooterPage";
-// import Position from "../components/Position";
+
 export default function AboutPage() {
   return (
     <>
     
     
 < NavBar />
-{/* <Position/> */}
+<Position/>
 
     <div className="flex flex-col min-h-screen bg-slate-200">
       <main className="flex-1">

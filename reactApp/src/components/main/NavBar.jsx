@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
 import { Link } from "react-router-dom";
 
+import Logo from "../../assets/imgs/Logo.png"
+
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +19,7 @@ export default function NavBar() {
             <Link to="/" className="flex-shrink-0">
               <img
                 className="h-8 w-8"
-                src="/placeholder.svg?height=32&width=32"
+                src={Logo}
                 alt="Logo"
               />
             </Link>

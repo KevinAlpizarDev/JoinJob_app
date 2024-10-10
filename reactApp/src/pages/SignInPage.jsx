@@ -123,10 +123,10 @@ export default function SignInPage() {
           // Navegar a otra página o realizar otra acción según sea necesario
           if (user.is_staff) {
             navigate("/admin");
-            console.log("Porque soy admin");
+         
           } else {
             navigate("/home");
-            console.log("Porque soy pobre");
+           
             
           }
         })
