@@ -18,28 +18,20 @@ export default function SignInPage() {
   const [networkError, setNetworkError] = useState("");
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   getCurrentUser()
-  //     .then(() => setUser(true))
-  //     .catch(() => setUser(null));
-  // }, [setUser]);
-
   useEffect(() => {
     getCurrentUser()
-      .then(() => {
-        setUser(true);
-      })
-      .catch(() => {
-        setUser(null);
-      });
+      .then(() => setUser(true))
+      .catch(() => setUser(null));
   }, [setUser]);
+
 
   useEffect(() => {
     if (user) {
-      navigate("/home");
-      // console.log("1"); // Usuario logueado
-    } else {
-      // console.log("0"); // Usuario no logueado
+      if (user.is_staff) {
+        navigate("/admin"); // Redirect to /admin if user is staff
+      } else {
+        navigate("/home"); // Redirect to /home if user is not staff
+      }
     }
   }, [user, navigate]);
 
@@ -115,15 +107,7 @@ export default function SignInPage() {
     }
   }
 
-  // function submitLogin(e) {
-  //   e.preventDefault();
-  //   if (validateForm()) {
-  //     loginUser(email, password)
-  //       .then(() => setUser(true))
-  //       .catch((error) => handleNetworkError(error));
-  //   }
-  // }
-  ////////////////////////////////////////////////////////////////////////////////77
+
 
   function submitLogin(e) {
     e.preventDefault();
@@ -133,10 +117,18 @@ export default function SignInPage() {
           // Suponiendo que `response` contiene el objeto del usuario
           const { user } = response.data;
           setUser(true);
-          console.log(
-            user.is_staff ? "Usuario es staff" : "Usuario no es staff"
-          );
+          // console.log(
+          //   user.is_staff ?    navigate("/admin") : "Usuario no es staff"
+          // );
           // Navegar a otra página o realizar otra acción según sea necesario
+          if (user.is_staff) {
+            navigate("/admin");
+            console.log("Porque soy admin");
+          } else {
+            navigate("/home");
+            console.log("Porque soy pobre");
+            
+          }
         })
         .catch((error) => handleNetworkError(error));
     }
