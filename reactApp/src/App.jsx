@@ -134,6 +134,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import AboutPage from "./pages/AboutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
+import AdminPage from "./pages/AdminPage";
 // import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
@@ -154,6 +155,15 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     errorElement: <NotFoundPage />,
+  },
+
+  {
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <AdminPage />
+      </ProtectedRoute>
+    ),
   },
 
   {

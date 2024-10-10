@@ -1,4 +1,3 @@
-
 ##########username error #####################################################
 
 
@@ -43,11 +42,25 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user_obj
 
 
+# class UserLoginSerializer(serializers.Serializer):
+#     email = serializers.EmailField()
+#     password = serializers.CharField()
+
+#     ##
+#     def check_user(self, clean_data):
+#         user = authenticate(
+#             username=clean_data["email"], password=clean_data["password"]
+#         )
+#         if not user:
+#             raise ValidationError("user not found")
+#         return user
+
+######################################################################################
+# En tu serializador de inicio de sesión
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
 
-    ##
     def check_user(self, clean_data):
         user = authenticate(
             username=clean_data["email"], password=clean_data["password"]
@@ -55,6 +68,14 @@ class UserLoginSerializer(serializers.Serializer):
         if not user:
             raise ValidationError("user not found")
         return user
+
+    def to_representation(self, instance):
+        # Retorna los datos del usuario junto con el campo is_staff
+        return {
+            "email": instance.email,
+            "username": instance.username,
+            "is_staff": instance.is_staff,
+        }
 
 
 class UserSerializer(serializers.ModelSerializer):
