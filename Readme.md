@@ -19,3 +19,4 @@ on again
 
 The email and password you entered did not match our records. Please double-check and try again.
 
+inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200
