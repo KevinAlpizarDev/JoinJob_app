@@ -1,6 +1,7 @@
 import NavBar from "./main/NavBar";
 import FooterPage from "./FooterPage";
 import Position from "./Position";
+import List  from "../components/List";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
@@ -32,7 +33,7 @@ export default function LandingPage() {
                   <Link to="/signin">
                     <button
                       type="button"
-                      className="animate-bounce text-white bg-blue-700 mt-10 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-8 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transform transition-transform duration-300 ease-in-out hover:-translate-y-1 active:translate-y-0"
+                      className="animate-bounce text-white bg-blue-700 my-10 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-6 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transform transition-transform duration-300 ease-in-out hover:-translate-y-1 active:translate-y-0"
                     >
                       <svg
                         className="w-8 h-8"
@@ -52,6 +53,7 @@ export default function LandingPage() {
                       <span className="sr-only">Icon description</span>
                     </button>
                   </Link>
+                  {/* <List/> */}
                 </div>
               </div>
             </div>
