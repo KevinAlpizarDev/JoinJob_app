@@ -24,9 +24,7 @@ export default function LandingPage() {
                      y Proyectos para el Desarrollo
                   </h1>
                   <p className="mx-auto font-poppins pt-6 max-w-[700px] text-gray-500 md:text- dark:text-gray-400">
-                    The project management platform that helps small teams move
-                    faster and make more progress than they ever thought
-                    possible.
+                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa id ullam architecto voluptatibus provident beatae numquam
                   </p>
                 </div>
                 <div className="space-x-4">

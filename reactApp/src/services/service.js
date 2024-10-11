@@ -25,3 +25,7 @@ export const loginUser = (email, password) => {
 export const logoutUser = () => {
   return client.post("/api/logout/");
 };
+
+export const getAllCourse = () => {
+ return axios.get("http://localhost:8000/api/cursos/");
+};
