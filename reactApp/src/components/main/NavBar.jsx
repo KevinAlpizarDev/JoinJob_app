@@ -13,12 +13,12 @@ export default function NavBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="shadow-sm bg-slate-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 shadow-sm">
-        <div className="flex items-center justify-between h-16 ">
+    <nav className="shadow-md w-full bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
+      <div className="max-w-full mx-auto  sm:px-6 lg:px-8 shadow-md rounded-lg">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
-              <img className="h-8 w-8" src={Logo} alt="Logo" />
+              <img className="h-10 w-10 rounded-lg" src={Logo} alt="Logo" />
             </Link>
             <div className="hidden md:block ml-10">
               <div className="flex items-baseline space-x-4">
@@ -29,37 +29,33 @@ export default function NavBar() {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-         
               {/* Dropdown menu */}
               <div className="relative inline-block text-left">
                 <div>
                   <button
                     type="button"
                     onClick={toggleDropdown}
-                    className="inline-flex justify-center w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    className="inline-flex justify-center w-full rounded-md bg-white dark:bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                     id="menu-button"
                     aria-expanded={isDropdownOpen}
                     aria-haspopup="true"
                   >
-               
-               <Menu className="block h-6 w-6" aria-hidden="true" />
+                    <Menu className="block h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
 
                 {/* Dropdown menu */}
                 {isDropdownOpen && (
-                  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1 px-8" role="none">
-                    <ThemeToggle />
-
-{/*                     
-                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
-                        Support
-                      </Link> */}
-                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-2 px-8" role="none">
+                      <ThemeToggle />
+                      <Link
+                        to="#"
+                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                        role="menuitem"
+                      >
                         License
                       </Link>
-                  
                     </div>
                   </div>
                 )}
@@ -69,7 +65,7 @@ export default function NavBar() {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:text-gray-300"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
@@ -84,8 +80,8 @@ export default function NavBar() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavLink to="/about">About Us</NavLink>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavLink to="/about" mobile={true}>About Us</NavLink>
+            <NavLink to="/contact" mobile={true}>Contact Us</NavLink>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5">
@@ -99,9 +95,9 @@ export default function NavBar() {
 }
 
 function NavLink({ to, children, mobile = false }) {
-  const baseClasses = "text-sm font-medium text-gray-900 dark:text-gray-100";
-  const desktopClasses = "px-3 py-2";
-  const mobileClasses = "block px-3 py-2";
+  const baseClasses = "text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200";
+  const desktopClasses = "px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
+  const mobileClasses = "block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
 
   return (
     <Link to={to} className={`${baseClasses} ${mobile ? mobileClasses : desktopClasses}`}>
