@@ -1,15 +1,16 @@
-// export default NavBar;
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
 import { Link } from "react-router-dom";
 
-import Logo from "../../assets/imgs/Logo.png"
+import Logo from "../../assets/imgs/Logo.png";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
     <nav className="shadow-sm bg-slate-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
@@ -17,24 +18,52 @@ export default function NavBar() {
         <div className="flex items-center justify-between h-16 ">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
-              <img
-                className="h-8 w-8"
-                src={Logo}
-                alt="Logo"
-              />
+              <img className="h-8 w-8" src={Logo} alt="Logo" />
             </Link>
             <div className="hidden md:block ml-10">
               <div className="flex items-baseline space-x-4">
-                {/* <NavLink to="/signin">Signin</NavLink> */}
                 <NavLink to="/about">About Us</NavLink>
                 <NavLink to="/contact">Contact Us</NavLink>
-                {/* <NavLink to="/projects">Projects</NavLink> */}
               </div>
             </div>
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <ThemeToggle />
+         
+              {/* Dropdown menu */}
+              <div className="relative inline-block text-left">
+                <div>
+                  <button
+                    type="button"
+                    onClick={toggleDropdown}
+                    className="inline-flex justify-center w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    id="menu-button"
+                    aria-expanded={isDropdownOpen}
+                    aria-haspopup="true"
+                  >
+               
+               <Menu className="block h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+
+                {/* Dropdown menu */}
+                {isDropdownOpen && (
+                  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1 px-8" role="none">
+                    <ThemeToggle />
+
+{/*                     
+                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                        Support
+                      </Link> */}
+                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                        License
+                      </Link>
+                  
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -75,10 +104,7 @@ function NavLink({ to, children, mobile = false }) {
   const mobileClasses = "block px-3 py-2";
 
   return (
-    <Link
-      to={to}
-      className={`${baseClasses} ${mobile ? mobileClasses : desktopClasses}`}
-    >
+    <Link to={to} className={`${baseClasses} ${mobile ? mobileClasses : desktopClasses}`}>
       {children}
     </Link>
   );
