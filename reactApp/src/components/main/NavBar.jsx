@@ -13,8 +13,8 @@ export default function NavBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="shadow-md w-full bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
-      <div className="max-w-full mx-auto  sm:px-6 lg:px-8 shadow-md rounded-lg">
+    <nav className="w-full bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
@@ -32,33 +32,32 @@ export default function NavBar() {
               {/* Dropdown menu */}
               <div className="relative inline-block text-left">
                 <div>
-                  <button
-                    type="button"
-                    onClick={toggleDropdown}
-                    className="inline-flex justify-center w-full rounded-md bg-white dark:bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-                    id="menu-button"
-                    aria-expanded={isDropdownOpen}
-                    aria-haspopup="true"
-                  >
-                    <Menu className="block h-6 w-6" aria-hidden="true" />
-                  </button>
+                <button
+  type="button"
+  onClick={toggleDropdown}
+  className="inline-flex justify-center w-full rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-none hover:bg-gray-50 dark:hover:bg-gray-700"
+  id="menu-button"
+  aria-expanded={isDropdownOpen}
+  aria-haspopup="true"
+>
+  <Menu className="block h-6 w-6" aria-hidden="true" />
+</button>
                 </div>
-
-                {/* Dropdown menu */}
                 {isDropdownOpen && (
-                  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-2 px-8" role="none">
-                      <ThemeToggle />
-                      <Link
-                        to="#"
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-                        role="menuitem"
-                      >
-                        License
-                      </Link>
-                    </div>
-                  </div>
-                )}
+  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg focus:outline-none">
+    <div className="py-4 mx-6" role="none">
+      <ThemeToggle />
+      <Link
+        to="#"
+        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200"
+        role="menuitem"
+      >
+        License
+      </Link>
+    </div>
+  </div>
+)}
+
               </div>
             </div>
           </div>
