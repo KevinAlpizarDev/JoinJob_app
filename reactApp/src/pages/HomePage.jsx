@@ -43,8 +43,8 @@ const HomePage = () => {
   return (
     <>
       <NavBar />
-      <div className="h-screen bg-red-500 dark:bg-black">
-        <h1 className="text-xl font-extrabold mb-4 text-blue-500">JoinJob</h1>
+      <div className="h-screen bg-gray-50 dark:bg-black">
+      
         <h2>You're logged in!</h2>
 
 
