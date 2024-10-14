@@ -46,8 +46,8 @@ const HomePage = () => {
       <div className="h-screen bg-gray-50 dark:bg-black">
       
         <h2>You're logged in!</h2>
-
-
+{/* 
+<Modal/> */}
         <form onSubmit={submitLogout}>
           <button type="submit">Log out</button>
         </form>
