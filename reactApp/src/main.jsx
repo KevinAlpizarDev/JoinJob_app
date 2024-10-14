@@ -115,8 +115,6 @@
 //   },
 // ]);
 
-
-
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   <React.StrictMode>
 //     <AuthProvider isSignedIn={false}>
@@ -132,13 +130,19 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import App from "./App";
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+// const rootElement = document.getElementById("root");
+// const root = createRoot(rootElement);
 
-root.render(
- 
-    <Provider store={store}>
+// root.render(
+
+//     <Provider store={store}>
+//     <App />
+//   </Provider>,
+
+// );
+
+createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
     <App />
-  </Provider>,
-  
+  </Provider>
 );

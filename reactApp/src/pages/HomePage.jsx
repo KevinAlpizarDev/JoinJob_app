@@ -33,6 +33,8 @@
 // HomePage.jsx
 import React from "react";
 import { useLogout } from "../utils/authUtils"; // Ajusta la ruta según sea necesario
+import CourseList from "../components/CourseList";
+
 import NavBar from "../components/main/NavBar";
 
 const HomePage = () => {
@@ -44,6 +46,11 @@ const HomePage = () => {
       <div className="h-screen bg-red-500 dark:bg-black">
         <h1 className="text-xl font-extrabold mb-4 text-blue-500">JoinJob</h1>
         <h2>You're logged in!</h2>
+
+
+<CourseList/>
+
+
         <form onSubmit={submitLogout}>
           <button type="submit">Log out</button>
         </form>
