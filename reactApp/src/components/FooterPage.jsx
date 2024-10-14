@@ -52,7 +52,7 @@ import { Link } from "react-router-dom";
 
 export default function FooterPage() {
   return (
-    <footer className="bg-white dark:bg-gray-900 py-4 px-6 sm:px-8 lg:px-10 shadow-md">
+    <footer className=" bg-gray-200 dark:bg-gray-900 py-4 px-6 sm:px-8 lg:px-10 shadow-md">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <div className="text-center sm:text-left">
@@ -93,7 +93,7 @@ export default function FooterPage() {
         <div className="mt-6 flex justify-center p-6">
           <a
             href="#"
-            className="inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-[#0079BF] hover:bg-[#005f9e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+            className=" animate-bounce  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-teal-700  hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
           >
             Join our newsletter
             <ArrowUpRight className="ml-2 -mr-1 h-4 w-4" />

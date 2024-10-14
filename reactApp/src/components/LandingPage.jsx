@@ -58,7 +58,7 @@ export default function LandingPage() {
     <>
       <NavBar />
 
-      <section class="py-24 h-screen">
+      <section class="py-24 h-screen bg-gray-50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
           {/* <div class="mb-14 mx-40 md:mx-34 text-center">
             <h1 class="text-5xl text-center font-bold text-gray-900 py-5">
@@ -103,7 +103,7 @@ export default function LandingPage() {
               </button> */}
               <button
                 type="button"
-                class="text-blue-700 hover:text-white border border-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                class="text-blue-700 border hover:text-white  border-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
               >
                 Siguiente
               </button>

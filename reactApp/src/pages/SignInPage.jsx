@@ -454,7 +454,7 @@ export default function SignInPage() {
     <>
       <NavBar />
       <Position />
-      <div className="min-w-fit bg-white flex items-center justify-center p-4 dark:bg-[#3b3627] py-8 h-max">
+      <div className="min-w-fi h-screen bg-gray-50 flex items-center justify-center p-4 dark:bg-[#3b3627] py-8">
         <div className="bg-white rounded-3xl max-w-md w-full mb-12 shadow-lg">
           <div className="p-6">
             {/* <h1 className="text-4xl font-extrabold text-center text-[#1D3557] mb-8">
@@ -579,12 +579,19 @@ export default function SignInPage() {
                   />
                   {passwordError && <p style={errorStyle}>{passwordError}</p>}
                 </div>
-                <button
+                {/* <button
                   type="submit"
                   className="w-full bg-[#457B9D] text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
                 >
                   Log In
-                </button>
+                </button> */}
+                <button
+  type="submit"
+  className="w-full bg-blue-600  hover:text-white border-blue-600 hover:bg-blue-800 text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
+>
+  Log In
+</button>
+
               </form>
             )}
           </div>

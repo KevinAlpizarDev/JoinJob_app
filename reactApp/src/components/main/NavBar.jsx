@@ -13,8 +13,8 @@ export default function NavBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="w-full bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
+    <nav className="w-full bg-gray-50 dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
+      <div className="max-w-full mx-16 bg-yellow-400  px-4 sm:px-6 lg:px-8 rounded-lg">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
@@ -45,7 +45,7 @@ export default function NavBar() {
                 </div>
                 {isDropdownOpen && (
   <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg focus:outline-none">
-    <div className="py-4 mx-6" role="none">
+    <div className="py-4 mx-6 " role="none">
       <ThemeToggle />
       <Link
         to="#"
@@ -77,12 +77,12 @@ export default function NavBar() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden ">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NavLink to="/about" mobile={true}>About Us</NavLink>
             <NavLink to="/contact" mobile={true}>Contact Us</NavLink>
           </div>
-          <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
+          <div className="pt-4 pb-3 border-t  border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5">
               <ThemeToggle />
             </div>
