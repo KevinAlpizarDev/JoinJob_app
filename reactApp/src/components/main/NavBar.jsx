@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <nav className="w-full bg-gray-50 dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
-      <div className="max-w-full mx-16 bg-yellow-400  px-4 sm:px-6 lg:px-8 rounded-lg">
+      <div className="max-w-full  bg-yellow-400  px-4 sm:px-6 lg:px-8 ">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">

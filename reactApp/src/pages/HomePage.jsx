@@ -48,12 +48,12 @@ const HomePage = () => {
         <h2>You're logged in!</h2>
 
 
-<CourseList/>
-
-
         <form onSubmit={submitLogout}>
           <button type="submit">Log out</button>
         </form>
+<CourseList/>
+
+
       </div>
     </>
   );
