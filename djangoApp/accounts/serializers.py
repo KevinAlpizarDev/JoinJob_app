@@ -3,11 +3,26 @@ from rest_framework import serializers
 
 from .models import CustomUser
 
+# class CustomUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = CustomUser
+#         fields = ("id", "username", "email")
+
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ("id", "username", "email")
+        fields = (
+            "id",
+            "username",
+            "email",
+            "is_active",
+        )  # Agregamos el campo is_active
+# user = CustomUser.objects.get(email="example@example.com")
+# user.is_active = False  # Para desactivar la cuenta
+# user.save()
+# user.is_active = True
+# user.save()
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
