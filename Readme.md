@@ -13,7 +13,7 @@ on admin
 netstat -aon | findstr :5173
 taskkill /PID 6616 /F
 
-on again
+on auth
 
 
 
@@ -28,3 +28,4 @@ inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight d
 
 
 
+necesito crear una base de datos para registrar cursos, donde el usuario se pueda matricular a esos cursos 
