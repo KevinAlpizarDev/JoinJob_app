@@ -1,13 +1,138 @@
-from django.contrib.auth import authenticate
-from rest_framework import serializers
+# from django.contrib.auth import authenticate
+# from rest_framework import serializers
+# ###################################################
+# from rest_framework import viewsets
+# from .models import Institution, Campus, Course, Enrollment
+# from .serializers import InstitutionSerializer, CampusSerializer, CourseSerializer, EnrollmentSerializer
 
-from .models import CustomUser
+
+# from .models import CustomUser
+
+# # class CustomUserSerializer(serializers.ModelSerializer):
+# #     class Meta:
+# #         model = CustomUser
+# #         fields = ("id", "username", "email")
+
 
 # class CustomUserSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = CustomUser
-#         fields = ("id", "username", "email")
+#         fields = (
+#             "id",
+#             "username",
+#             "email",
+#             "is_active",
+#         )  # Agregamos el campo is_active
+# # user = CustomUser.objects.get(email="example@example.com")
+# # user.is_active = False  # Para desactivar la cuenta
+# # user.save()
+# # user.is_active = True
+# # user.save()
 
+
+# class UserRegistrationSerializer(serializers.ModelSerializer):
+#     password1 = serializers.CharField(write_only=True)
+#     password2 = serializers.CharField(write_only=True)
+
+#     class Meta:
+#         model = CustomUser
+#         fields = ("id", "username", "email", "password1", "password2")
+#         extra_kwargs = {"password": {"write_only": True}}
+
+#     def validate(self, attrs):
+#         if attrs["password1"] != attrs["password2"]:
+#             raise serializers.ValidationError("Passwords do not match!")
+
+#         password = attrs.get("password1", "")
+#         if len(password) < 8:
+#             raise serializers.ValidationError(
+#                 "Passwords must be at least 8 characters!"
+#             )
+
+#         return attrs
+
+#     def create(self, validated_data):
+#         password = validated_data.pop("password1")
+#         validated_data.pop("password2")
+
+#         return CustomUser.objects.create_user(password=password, **validated_data)
+
+
+# class UserLoginSerializer(serializers.Serializer):
+#     email = serializers.CharField()
+#     password = serializers.CharField(write_only=True)
+
+#     def validate(self, data):
+#         user = authenticate(**data)
+#         if user and user.is_active:
+#             return user
+#         raise serializers.ValidationError("Incorrect Credentials!")
+
+
+# ##############################################################################################
+
+# # class InstitutionSerializer(serializers.ModelSerializer):
+# #     class Meta:
+# #         model = Institution
+# #         fields = '__all__'
+
+
+# # class CampusSerializer(serializers.ModelSerializer):
+# #     institution = InstitutionSerializer(read_only=True)
+    
+# #     class Meta:
+# #         model = Campus
+# #         fields = '__all__'
+
+
+# # class CourseSerializer(serializers.ModelSerializer):
+# #     campus = CampusSerializer(read_only=True)
+    
+# #     class Meta:
+# #         model = Course
+# #         fields = '__all__'
+
+
+# # class EnrollmentSerializer(serializers.ModelSerializer):
+# #     user = serializers.StringRelatedField(read_only=True)
+# #     course = CourseSerializer(read_only=True)
+    
+# #     class Meta:
+# #         model = Enrollment
+# #         fields = '__all__'
+# #########################################################################
+
+# class InstitutionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Institution
+#         fields = '__all__'
+
+# class CampusSerializer(serializers.ModelSerializer):
+#     institution = InstitutionSerializer(read_only=True)
+    
+#     class Meta:
+#         model = Campus
+#         fields = '__all__'
+
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus = CampusSerializer(read_only=True)
+    
+#     class Meta:
+#         model = Course
+#         fields = '__all__'
+
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.StringRelatedField(read_only=True)
+#     course = CourseSerializer(read_only=True)
+    
+#     class Meta:
+#         model = Enrollment
+#         fields = '__all__'
+
+
+from django.contrib.auth import authenticate
+from rest_framework import serializers
+from .models import CustomUser, Institution, Campus, Course, Enrollment
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,13 +142,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "is_active",
-        )  # Agregamos el campo is_active
-# user = CustomUser.objects.get(email="example@example.com")
-# user.is_active = False  # Para desactivar la cuenta
-# user.save()
-# user.is_active = True
-# user.save()
-
+        )
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)
@@ -40,9 +159,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
         password = attrs.get("password1", "")
         if len(password) < 8:
-            raise serializers.ValidationError(
-                "Passwords must be at least 8 characters!"
-            )
+            raise serializers.ValidationError("Passwords must be at least 8 characters!")
 
         return attrs
 
@@ -52,13 +169,39 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
         return CustomUser.objects.create_user(password=password, **validated_data)
 
-
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
-        user = authenticate(**data)
+        user = authenticate(email=data.get('email'), password=data.get('password'))
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials!")
+
+class InstitutionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Institution
+        fields = '__all__'
+
+class CampusSerializer(serializers.ModelSerializer):
+    institution = InstitutionSerializer(read_only=True)
+    
+    class Meta:
+        model = Campus
+        fields = '__all__'
+
+class CourseSerializer(serializers.ModelSerializer):
+    campus = CampusSerializer(read_only=True)
+    
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+class EnrollmentSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+    course = CourseSerializer(read_only=True)
+    
+    class Meta:
+        model = Enrollment
+        fields = '__all__'
