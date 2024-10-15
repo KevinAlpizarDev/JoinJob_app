@@ -1,75 +1,7 @@
-// import React, { useEffect, useState } from "react";
-// // import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import NotFoundPage from "./pages/NotFoundPage";
-// import LoginForm from "./components/RegisterForm";
-// // const router = createBrowserRouter([
-// //   {
-// //     path: "/",
-// //     element: <HomePage />,
-// //     errorElement: <NotFoundPage />,
-// //   },
-// // ]);
-
-// const App = () => {
-//   //   const [theme, setTheme] = useState(() => {
-//   //     return window.matchMedia("(prefers-color-scheme: dark)").matches
-//   //       ? "dark"
-//   //       : "light";
-//   //   });
-//   //   useEffect(() => {
-//   //     const htmlElement = document.documentElement;
-//   //     htmlElement.classList.toggle("dark", theme === "dark");
-//   //     const handleMediaChange = (event) => {
-//   //       setTheme(event.matches ? "dark" : "light");
-//   //     };
-//   //     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-//   //     mediaQuery.addEventListener("change", handleMediaChange);
-//   //     return () => {
-//   //       mediaQuery.removeEventListener("change", handleMediaChange);
-//   //     };
-//   //   }, [theme]);
-//   //   const handleChangeTheme = () => {
-//   //     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-//   //   };
-//   //   return (
-//   //     <>
-//   //       <div className="h-screen flex flex-col justify-center items-center dark:bg-neutral-900">
-//   //         {/* <RouterProvider router={router} /> */}
-//   //         <button
-//   //           className="bg-slate-200 px-4 py-2 rounded hover:bg-slate-300 dark:bg-slate-950 dark:text-white dark:hover:bg-slate-900"
-//   //           onClick={handleChangeTheme}
-//   //         >
-//   //           Change Theme
-//   //         </button>
-//   //       </div>
-//   //       <LoginForm/>
-//   //     </>
-//   //   );
-// };
-
-// export default App;
-
-// src/index.js
-// import React from "react";
-// import { createRoot } from "react-dom/client"; // Cambiado
-// import App from "./App";
-// import { Provider } from "react-redux";
-// import store from "./store";
-
-// const rootElement = document.getElementById("root");
-// const root = createRoot(rootElement); // Usar createRoot
-
-// root.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>
-// );
-// App.jsx
+// ///////////////////////////////////////////////is stuff
 // import React from "react";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import { BrowserRouter } from "react-router-dom";
 // import NotFoundPage from "./pages/NotFoundPage";
 // import NavBar from "./components/main/NavBar";
 // import AuthProvider from "./components/AuthProvider";
@@ -77,12 +9,24 @@
 // import SignInPage from "./pages/SignInPage";
 // import FooterPage from "./components/FooterPage";
 // import ContactUsPage from "./pages/ContactUsPage";
+// import AboutPage from "./pages/AboutPage";
 // import ProtectedRoute from "./components/ProtectedRoute";
-// import ProtectedRoute from "./components/ProtectedRoute";
+// import LandingPage from "./components/LandingPage";
+// import AdminPage from "./pages/AdminPage";
+// // import AdminPage from "./pages/AdminPage";
 
 // const router = createBrowserRouter([
+//   // {
+//   //   path: "/",
+//   //   element: (
+//   //     <ProtectedRoute>
+//   //       <HomePage />
+//   //     </ProtectedRoute>
+//   //   ),
+//   //   errorElement: <NotFoundPage />,
+//   // },
 //   {
-//     path: "/",
+//     path: "/home",
 //     element: (
 //       <ProtectedRoute>
 //         <HomePage />
@@ -92,27 +36,39 @@
 //   },
 
 //   {
-//     path: "/signin",
-//     element: <SignInPage />,
-//     // element: < ContactUsPage />,
-//     // ContactUsPage
-//   },
-//   {
 //     path: "/admin",
 //     element: (
 //       <ProtectedRoute>
 //         <AdminPage />
 //       </ProtectedRoute>
 //     ),
+//   },
+
+//   {
+//     path: "/",
+//     element: <LandingPage />,
+//   },
+
+//   {
+//     path: "/signin",
+//     element: <SignInPage />,
+//   },
+//   {
+//     path: "/about",
+//     element: <AboutPage />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
 // ]);
 
 // const App = () => {
 //   return (
 //     <React.StrictMode>
 //       <AuthProvider isSignedIn={false}>
-//         <NavBar />
 //         <RouterProvider router={router} />
-//         <FooterPage />
+//         {/* <FooterPage /> */}
 //       </AuthProvider>
 //     </React.StrictMode>
 //   );
@@ -120,80 +76,98 @@
 
 // export default App;
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////is stuff
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import React from "react";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import NotFoundPage from "./pages/NotFoundPage";
-import NavBar from "./components/main/NavBar";
-import AuthProvider from "./components/AuthProvider";
-import HomePage from "./pages/HomePage";
-import SignInPage from "./pages/SignInPage";
-import FooterPage from "./components/FooterPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import AboutPage from "./pages/AboutPage";
-import ProtectedRoute from "./components/ProtectedRoute";
-import LandingPage from "./components/LandingPage";
-import AdminPage from "./pages/AdminPage";
+// import NotFoundPage from "./pages/NotFoundPage";
+// import NavBar from "./components/main/NavBar";
+// import AuthProvider from "./components/AuthProvider";
+// import HomePage from "./pages/HomePage";
+// import SignInPage from "./pages/SignInPage";
+// import FooterPage from "./components/FooterPage";
+// import ContactUsPage from "./pages/ContactUsPage";
+// import AboutPage from "./pages/AboutPage";
+// import ProtectedRoute from "./components/ProtectedRoute";
+// import LandingPage from "./components/LandingPage";
 // import AdminPage from "./pages/AdminPage";
+// // import AdminPage from "./pages/AdminPage";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Layout from "./pages/Layout";
+// import Register from "./pages/Register";
 
-const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <HomePage />
-  //     </ProtectedRoute>
-  //   ),
-  //   errorElement: <NotFoundPage />,
-  // },
-  {
-    path: "/home",
-    element: (
-      <ProtectedRoute>
-        <HomePage />
-      </ProtectedRoute>
-    ),
-    errorElement: <NotFoundPage />,
-  },
+// const router = createBrowserRouter([
+//   {
+//     path: "/home",
+//     element: (
+//       <ProtectedRoute>
+//         <HomePage />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
 
-  {
-    path: "/admin",
-    element: (
-      <ProtectedRoute>
-        <AdminPage />
-      </ProtectedRoute>
-    ),
-  },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+//   },
 
-  {
-    path: "/",
-    element: <LandingPage />,
-  },
+//   {
+//     path: "/",
+//     element: <Layout />,
+//   },
 
-  {
-    path: "/signin",
-    element: <SignInPage />,
-  },
-  {
-    path: "/about",
-    element: <AboutPage />,
-  },
-  {
-    path: "/contact",
-    element: <ContactUsPage />,
-  },
-]);
+//   {
+//     path: "/login",
+//     element: <Login />,
+//   },
+//   {
+//     path: "/register",
+//     element: <Register />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
+// ]);
 
-const App = () => {
+// const App = () => {
+//   return (
+//     <React.StrictMode>
+//       <AuthProvider isSignedIn={false}>
+//         <RouterProvider router={router} />
+//         {/* <FooterPage /> */}
+//       </AuthProvider>
+//     </React.StrictMode>
+//   );
+// };
+
+// export default App;
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+function App() {
   return (
-    <React.StrictMode>
-      <AuthProvider isSignedIn={false}>
-        <RouterProvider router={router} />
-        {/* <FooterPage /> */}
-      </AuthProvider>
-    </React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

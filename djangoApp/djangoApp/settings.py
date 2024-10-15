@@ -26,8 +26,25 @@ SECRET_KEY = "django-insecure-=sdu&=!$$oqmhd72$_5hhact#vd2s&owuak!=&zvdt$&l5fp#d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://react_app:5173",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+# ALLOWED_HOSTS = ["*"]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost",
+#     "http://127.0.0.1",
+#     "http://0.0.0.0",
+# ]
 
 # Application definition
 
@@ -50,7 +67,8 @@ INSTALLED_APPS = [
     # "user_api.apps.UserApiConfig",
     "accounts.apps.AccountsConfig",  # Agregar la nueva app aquí
     "rest_framework",  # Django REST framework
-    # "corsheaders",  # Django CORS headers
+    "rest_framework_simplejwt.token_blacklist",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -61,6 +79,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # Add this line
 ]
 
 ROOT_URLCONF = "djangoApp.urls"
@@ -179,3 +198,5 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
