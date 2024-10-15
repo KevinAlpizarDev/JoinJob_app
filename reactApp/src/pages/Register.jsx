@@ -213,6 +213,9 @@
 //     </div>
 //   );
 // }
+
+
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/service"; // Importar el servicio
