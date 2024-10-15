@@ -105,14 +105,14 @@ const CourseList = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start">
                     <h2 className="text-xl font-medium text-gray-900">
-                      {course.nombre}
+                      {course.name}
                     </h2>
 
                     <div className="text-sm text-gray-500">
                       <span className="block font-semibold text-gray-700">
                         Código
                       </span>
-                      {course.codigo}
+                      {course.code}
                     </div>
                   </div>
                   <p className="text-sm text-gray-600 my-2">
@@ -120,17 +120,17 @@ const CourseList = () => {
                   </p>
                   <div className="flex space-x-1 mb-3">
                     <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
-                      {course.cupo} Cupo
+                      {course.seats} Cupo
                     </span>
                     <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
-                      {course.sede}
+                      {course.description}
                     </span>
                   </div>
                 </div>
                 <div className="border-t border-gray-200 p-6 flex justify-between items-center">
                   <div className="flex items-center text-sm text-gray-500">
                     <span>
-                      Desde: {course.fecha_inicio} - Hasta: {course.fecha_fin}
+                      Desde: {course.start_date} - Hasta: {course.end_date}
                     </span>
                   </div>
                   <div className="flex -space-x-2">
