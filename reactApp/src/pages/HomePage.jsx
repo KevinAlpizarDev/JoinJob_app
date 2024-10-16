@@ -31,32 +31,38 @@
 
 // export default HomePage;
 // HomePage.jsx
-import React from "react";
-import { useLogout } from "../utils/authUtils"; // Ajusta la ruta según sea necesario
-import CourseList from "../components/CourseList";
 
-import NavBar from "../components/main/NavBar";
 
-const HomePage = () => {
-  const submitLogout = useLogout(); // Usa la función de logout
 
-  return (
-    <>
-      <NavBar />
-      <div className="h-screen bg-gray-50 dark:bg-black">
+// import React from "react";
+
+
+
+// //import { useLogout } from "../utils/authUtils"; // Ajusta la ruta según sea necesario
+// import CourseList from "../components/CourseList";
+
+// import NavBar from "../components/main/NavBar";
+
+// const HomePage = () => {
+//   const submitLogout = useLogout(); // Usa la función de logout
+
+//   return (
+//     <>
+//       <NavBar />
+//       <div className="h-screen bg-gray-50 dark:bg-black">
       
-        <h2>You're logged in!</h2>
-{/* 
-<Modal/> */}
-        <form onSubmit={submitLogout}>
-          <button type="submit">Log out</button>
-        </form>
-<CourseList/>
+//         <h2>You're logged in!</h2>
+// {/* 
+// <Modal/> */}
+//         <form onSubmit={submitLogout}>
+//           <button type="submit">Log out</button>
+//         </form>
+// <CourseList/>
 
 
-      </div>
-    </>
-  );
-};
+//       </div>
+//     </>
+//   );
+// };
 
-export default HomePage;
+// export default HomePage;

@@ -80,14 +80,13 @@
 
 ///////////////////////////////////////////////is stuff
 
-
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/main/NavBar";
 import AuthProvider from "./components/AuthProvider";
-import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
 import ContactUsPage from "./pages/ContactUsPage";
@@ -105,19 +104,14 @@ import Register from "./pages/Register";
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: (
-
-      <Home />
-   
-
-    ),
+    element: <Home />,
     errorElement: <NotFoundPage />,
   },
 
   {
     path: "/admin",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute requiresStaff={true}>
         <AdminPage />
       </ProtectedRoute>
     ),
@@ -125,23 +119,21 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <LandingPage/>,
+    element: <LandingPage />,
   },
   {
     path: "/about",
-    element: <AboutPage/>,
+    element: <AboutPage />,
   },
   {
     path: "/contact",
-    element: <ContactUsPage/>,
+    element: <ContactUsPage />,
   },
-
 
   {
     path: "/account",
-    element: <Account/>,
+    element: <Account />,
   },
-
 
   {
     path: "/contact",
@@ -162,10 +154,7 @@ const App = () => {
 
 export default App;
 
-
-
 // import "./App.css";
-
 
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Home from "./pages/Home";
