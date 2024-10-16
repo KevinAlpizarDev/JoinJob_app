@@ -74,8 +74,8 @@ export default function Home() {
         {isLoggedIn ? (
           <>
           <h2>Hi, {username}. Thanks for logging in!</h2>
-            <CourseList />
             <button onClick={handleLogout}>Logout</button>
+            <CourseList />
           </>
         ) : (
           <Link to="/account"></Link>
