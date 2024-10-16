@@ -78,8 +78,8 @@
 
 # #     def __str__(self):
 # #         return f"{self.first_name} {self.last_name} - {self.course.name}"
-    
-    
+
+
 # #     ##
 
 # ###################################################################################
@@ -135,9 +135,10 @@
 #     def __str__(self):
 #         return f"{self.first_name} {self.last_name} - {self.course.name}"
 
-from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -146,6 +147,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
+
 
 class Institution(models.Model):
     name = models.CharField(max_length=255)
@@ -156,6 +158,7 @@ class Institution(models.Model):
     def __str__(self):
         return self.name
 
+
 class Campus(models.Model):
     name = models.CharField(max_length=255)
     province = models.CharField(max_length=100)
@@ -164,10 +167,13 @@ class Campus(models.Model):
     phone_number = models.CharField(max_length=15)
     director = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
-    institution = models.ForeignKey(Institution, on_delete=models.CASCADE, related_name='campuses')
+    institution = models.ForeignKey(
+        Institution, on_delete=models.CASCADE, related_name="campuses"
+    )
 
     def __str__(self):
         return f"{self.name} - {self.institution.name}"
+
 
 class Course(models.Model):
     name = models.CharField(max_length=255)
@@ -178,10 +184,28 @@ class Course(models.Model):
     year = models.IntegerField()
     seats = models.IntegerField()
     is_active = models.BooleanField(default=True)
-    campus = models.ForeignKey(Campus, on_delete=models.CASCADE, related_name='courses')
+    campus = models.ForeignKey(Campus, on_delete=models.CASCADE, related_name="courses")
 
     def __str__(self):
         return f"{self.name} - {self.code}"
+
+
+# class Enrollment(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     first_name = models.CharField(max_length=100)
+#     middle_name = models.CharField(max_length=100, blank=True, null=True)
+#     last_name = models.CharField(max_length=100)
+#     second_last_name = models.CharField(max_length=100)
+#     id_number = models.CharField(max_length=20)
+#     email = models.EmailField()
+#     phone_number = models.CharField(max_length=15)
+#     age = models.IntegerField()
+#     gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')])
+#     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='enrollments')
+
+#     def __str__(self):
+#         return f"{self.first_name} {self.last_name} - {self.course.name}"
+
 
 class Enrollment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -193,8 +217,13 @@ class Enrollment(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=15)
     age = models.IntegerField()
-    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')])
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='enrollments')
+    gender = models.CharField(
+        max_length=10, choices=[("male", "Male"), ("female", "Female")]
+    )
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name="enrollments"
+    )
+    is_active = models.BooleanField(default=True)  # Nuevo campo
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.course.name}"
