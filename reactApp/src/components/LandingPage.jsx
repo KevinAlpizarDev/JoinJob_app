@@ -92,7 +92,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex justify-center">
-  <Link to="/signin">
+  <Link to="/account">
     <button
       type="button"
       className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center transition-all duration-200"

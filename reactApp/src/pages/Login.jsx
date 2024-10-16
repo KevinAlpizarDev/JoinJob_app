@@ -214,7 +214,7 @@ export default function Login() {
       localStorage.setItem("refreshToken", response.data.tokens.refresh);
 
       // Redirigir a Home después de un inicio de sesión exitoso
-      navigate("/"); // Navegar a Home
+      navigate("/home"); // Navegar a Home
     } catch (error) {
       console.log("Error during Login!", error.response?.data);
       if (error.response && error.response.data) {

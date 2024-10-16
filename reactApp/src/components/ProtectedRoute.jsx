@@ -10,7 +10,7 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     // Si el usuario es null, redirige a /signin
     if (!user) {
-      navigate("/signin", { replace: true });
+      navigate("/home", { replace: true });
     }
   }, [user, navigate]);
 

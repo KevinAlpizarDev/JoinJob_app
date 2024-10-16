@@ -29,3 +29,14 @@ inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight d
 
 
 necesito crear una base de datos para registrar cursos, donde el usuario se pueda matricular a esos cursos 
+
+
+  useEffect(() => {
+    if (user) {
+      if (user.is_staff) {
+        navigate("/admin"); // Redirect to /admin if user is staff
+      } else {
+        navigate("/home"); // Redirect to /home if user is not staff
+      }
+    }
+  }, [user, navigate]);

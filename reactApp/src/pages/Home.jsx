@@ -1,12 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import CourseList from "../components/CourseList";
-
+import NavBar from "../components/main/NavBar";
+import FooterPage from "../components/FooterPage";
 
 export default function Home() {
   const [username, setUsername] = useState("");
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate(); // Crear una instancia de useNavigate
 
   useEffect(() => {
     const checkLoggedInUser = async () => {
@@ -57,26 +60,28 @@ export default function Home() {
         setLoggedIn(false);
         setUsername("");
         console.log("Log out successful!");
+        navigate("/account"); // Navegar a /account después de logout
       }
     } catch (error) {
       console.error("Failed to logout", error.response?.data || error.message);
     }
   };
+
   return (
-    <> 
-    <div>
-      {isLoggedIn ? (
-        <>
-        <CourseList/>
-          <h2>Hi, {username}. Thanks for loggin in!</h2>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        <h2>Please Login</h2>
-      )}
-
-    </div>
-
+    <>
+      <NavBar />
+      <div>
+        {isLoggedIn ? (
+          <>
+          <h2>Hi, {username}. Thanks for logging in!</h2>
+            <CourseList />
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <Link to="/account"></Link>
+        )}
+      </div>
+      <FooterPage />
     </>
   );
 }
