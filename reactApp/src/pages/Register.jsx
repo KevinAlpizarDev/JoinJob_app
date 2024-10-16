@@ -306,54 +306,88 @@ export default function Register() {
 
   return (
     <div>
+      {/* {error && <p style={{ color: "red" }}>{error}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+      <h2>Register:</h2> */}
+
+      {/* /////////// */}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-      <h2>Register:</h2>
-      <form>
-        <label>username:</label>
-        <br />
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-        <br />
-        <br />
-        <label>email:</label>
-        <br />
-        <input
-          type="email"
+     
+      <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Username
+                </label>
+                <input
+                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+                  type="text"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <input
+                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+                           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-        />
-        <br />
-        <br />
-        <label>password:</label>
-        <br />
-        <input
-          type="password"
-          name="password1"
-          value={formData.password1}
-          onChange={handleChange}
-        />
-        <br />
-        <br />
-        <label>confirm password:</label>
-        <br />
-        <input
-          type="password"
-          name="password2"
-          value={formData.password2}
-          onChange={handleChange}
-        />
-        <br />
-        <br />
-        <button type="submit" disabled={isLoading} onClick={handleSubmit}>
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Password
+                </label>
+                <input
+                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+                  type="password"
+                  name="password1"
+                  value={formData.password1}
+                  onChange={handleChange}
+                />
+              </div>
+
+
+
+
+
+
+
+              <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                confirm password</label>
+                <input
+                  className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+                  type="password"
+                  name="password2"
+                  value={formData.password2}
+                  onChange={handleChange}
+                />
+              </div>
+
+
+
+
+
+
+
+
+
+              {/* <button
+                type="submit"
+                className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
+              >
+                Register
+              </button> */}
+                 <button       className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md" type="submit" disabled={isLoading} onClick={handleSubmit}>
           Register
         </button>
-      </form>
+            </form>
     </div>
   );
 }
