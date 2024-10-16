@@ -76,7 +76,7 @@
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../services/service";
 import Modal from "../components/Modal";
-import FooterPage from "../components/FooterPage";
+// import FooterPage from "../components/FooterPage";
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -142,7 +142,7 @@ const CourseList = () => {
           </div>
         </div>
       </div>
-      <FooterPage />
+      {/* <FooterPage /> */}
     </>
   );
 };
