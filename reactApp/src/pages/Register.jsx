@@ -288,7 +288,7 @@ export default function Register() {
       );
       console.log("Success!", response.data);
       setSuccessMessage("Registration Successful!");
-      navigate("/"); // Redirigir a Home
+      navigate("/account"); // Redirigir a Home
     } catch (error) {
       console.log("Error during registration!", error.response?.data);
       if (error.response && error.response.data) {

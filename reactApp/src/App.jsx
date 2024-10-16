@@ -80,6 +80,7 @@
 
 ///////////////////////////////////////////////is stuff
 
+
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -104,14 +105,19 @@ import Register from "./pages/Register";
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: <Home />,
+    element: (
+
+      <Home />
+   
+
+    ),
     errorElement: <NotFoundPage />,
   },
 
   {
     path: "/admin",
     element: (
-      <ProtectedRoute requiresStaff={true}>
+      <ProtectedRoute>
         <AdminPage />
       </ProtectedRoute>
     ),
@@ -119,21 +125,23 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <LandingPage />,
+    element: <LandingPage/>,
   },
   {
     path: "/about",
-    element: <AboutPage />,
+    element: <AboutPage/>,
   },
   {
     path: "/contact",
-    element: <ContactUsPage />,
+    element: <ContactUsPage/>,
   },
+
 
   {
     path: "/account",
-    element: <Account />,
+    element: <Account/>,
   },
+
 
   {
     path: "/contact",
@@ -154,7 +162,10 @@ const App = () => {
 
 export default App;
 
+
+
 // import "./App.css";
+
 
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Home from "./pages/Home";
