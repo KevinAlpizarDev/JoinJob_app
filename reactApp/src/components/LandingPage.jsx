@@ -59,8 +59,8 @@ export default function LandingPage() {
     <>
       <NavBar />
 
-      <section class="py-24 h-screen bg-gray-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
+      <section className="py-24 h-screen bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
           {/* <div class="mb-14 mx-40 md:mx-34 text-center">
             <h1 class="text-5xl text-center font-bold text-gray-900 py-5">
               Impulsa tu Desarrollo con{" "}
@@ -72,7 +72,7 @@ export default function LandingPage() {
               third party apps (calendar / Google drive), creating subtasks.
             </p>
           </div> */}
-          <div class="mb-14 mx-4 sm:mx-10 md:mx-16 lg:mx-36 text-center">
+          <div className="mb-14 mx-4 sm:mx-10 md:mx-16 lg:mx-36 text-center">
             {/* <h1 class="text-4xl md:text-5xl font-bold text-gray-900 py-5">
               Impulsa tu Desarrollo con{" "}
               <span class="text-[#0079BF]">Oportunidades</span> de Crecimiento
@@ -80,12 +80,12 @@ export default function LandingPage() {
 
 
 
-<h1 class="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-200 py-5">
+<h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-200 py-5">
   Impulsa tu Desarrollo con{" "}
-  <span class="text-[#0079BF]">Oportunidades</span> de Crecimiento
+  <span className="text-[#0079BF]">Oportunidades</span> de Crecimiento
 </h1>
 
-            <p class="text-base md:text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
+            <p className="text-base md:text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
               Provides advanced features like time tracking, integrating with
               third-party apps (calendar / Google Drive), creating subtasks.
             </p>
