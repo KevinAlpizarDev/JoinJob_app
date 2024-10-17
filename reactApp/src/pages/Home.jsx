@@ -78,7 +78,9 @@ export default function Home() {
             <CourseList />
           </>
         ) : (
-          <Link to="/account"></Link>
+          // navigate("/account") // Navegar a /account después de logout
+          <Link to="/account">
+          </Link>
         )}
       </div>
       <FooterPage />
