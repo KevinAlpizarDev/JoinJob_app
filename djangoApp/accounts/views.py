@@ -179,11 +179,20 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 
 # CRUD de Matriculaciones (Enrollments)
+# class EnrollmentViewSet(viewsets.ModelViewSet):
+#     queryset = Enrollment.objects.all()
+#     serializer_class = EnrollmentSerializer
+#     permission_classes = [IsAuthenticated]
+
+#     def perform_create(self, serializer):
+#         # Asignar el usuario autenticado a la matrícula
+#         serializer.save(user=self.request.user)
+####################################################################re
+
+
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
-    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
-        # Asignar el usuario autenticado a la matrícula
-        serializer.save(user=self.request.user)
+        serializer.save(user=self.request.user)  # Asociar el usuario autenticado

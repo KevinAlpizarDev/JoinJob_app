@@ -84,10 +84,38 @@ class CourseSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Enrollment
 #         fields = '__all__'
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.StringRelatedField(read_only=True)
+#     course = CourseSerializer(read_only=True)
+
+#     class Meta:
+#         model = Enrollment
+#         fields = "__all__"
+#############################################################re
+
+
 class EnrollmentSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True)
-    course = CourseSerializer(read_only=True)
+    user = serializers.StringRelatedField(
+        read_only=True
+    )  # Mostrar el usuario como string, pero no modificarlo
+    course_id = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all(), source="course"
+    )  # Para aceptar el ID del curso
 
     class Meta:
         model = Enrollment
-        fields = "__all__"
+        fields = [
+            "id",
+            "user",
+            "id_number",
+            "phone_number",
+            "age",
+            "gender",
+            "course_id",
+            "is_active",
+        ]
+
+    def create(self, validated_data):
+        user = self.context["request"].user  # Tomar el usuario autenticado
+        enrollment = Enrollment.objects.create(user=user, **validated_data)
+        return enrollment

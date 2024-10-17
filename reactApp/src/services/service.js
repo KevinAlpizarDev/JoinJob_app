@@ -30,6 +30,9 @@
 // export const getAllCourses = () => {
 //   return axios.get("http://localhost:8000/api/courses/");
 // };
+
+
+
 import axios from "axios";
 
 axios.defaults.xsrfCookieName = "csrftoken";
