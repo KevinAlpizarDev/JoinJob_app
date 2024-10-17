@@ -126,6 +126,9 @@ const CourseList = () => {
                     <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
                       {course.description}
                     </span>
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                      {course.modality}
+                    </span>
                   </div>
                 </div>
                 <div className="border-t border-gray-200 p-6 flex justify-between items-center">
@@ -136,7 +139,7 @@ const CourseList = () => {
                   </div>
                   <div className="flex -space-x-2">
                     {/* <Modal courseId={index + 1} /> */}
-                    <EnrollmentForm  courseId={index + 1} />
+                    <EnrollmentForm courseId={index + 1} />
                   </div>
                 </div>
               </div>

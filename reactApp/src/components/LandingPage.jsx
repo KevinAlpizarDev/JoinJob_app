@@ -59,7 +59,7 @@ export default function LandingPage() {
     <>
       <NavBar />
 
-      <section className="py-24 h-screen bg-gray-50">
+      <section className="py-24 h-screen bg-gray-50 dark:bg-slate-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
           {/* <div class="mb-14 mx-40 md:mx-34 text-center">
             <h1 class="text-5xl text-center font-bold text-gray-900 py-5">
@@ -80,7 +80,7 @@ export default function LandingPage() {
 
 
 
-<h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-200 py-5">
+<h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white py-5">
   Impulsa tu Desarrollo con{" "}
   <span className="text-[#0079BF]">Oportunidades</span> de Crecimiento
 </h1>
