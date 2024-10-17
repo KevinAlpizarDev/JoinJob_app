@@ -9,7 +9,7 @@ export const useLogout = () => {
   const submitLogout = (e) => {
     e.preventDefault();
     setUser(null); // Limpia el estado del usuario
-    navigate("/signin"); // Redirige a la página de inicio de sesión
+    navigate("/home"); // Redirige a la página de inicio de sesión
   };
 
   return submitLogout;

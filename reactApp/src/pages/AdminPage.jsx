@@ -20,7 +20,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { useLogout } from "../utils/authUtils"; // Ajusta la ruta según sea necesario
+// import { useLogout } from "../utils/authUtils"; // Ajusta la ruta según sea necesario
 
 // Componente principal
 export default function AdminTrelloBoard() {
