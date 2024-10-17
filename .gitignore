@@ -24,7 +24,10 @@ dist-ssr
 *.sln
 *.sw?
 
-
+# Ignorar archivos específicos
+AuthProvider.jsx
+ProtectedRoute.jsx
+Login.jsx
 
 
 

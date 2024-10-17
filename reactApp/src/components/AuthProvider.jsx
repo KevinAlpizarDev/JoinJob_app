@@ -27,6 +27,7 @@
 // export { useAuth };
 // export default AuthProvider;
 ///////////////////////////////////////////////token
+
 import { createContext, useContext, useState, useEffect } from "react";
 
 // Auth context and provider component
@@ -62,3 +63,36 @@ const useAuth = () => {
 
 export { useAuth };
 export default AuthProvider;
+//////////////////////////////////////////chat
+// AuthProvider.js
+
+
+
+// import React, { createContext, useContext, useState, useEffect } from "react";
+
+// const AuthContext = createContext();
+
+// export const useAuth = () => {
+//   return useContext(AuthContext);
+// };
+
+// const AuthProvider = ({ children }) => {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     const token = localStorage.getItem("accessToken");
+//     if (token) {
+//       // Aquí deberías hacer una llamada a la API para obtener los datos completos del usuario
+//       const userInfo = { id: 1, is_staff: true }; // Ejemplo de respuesta
+//       setUser(userInfo);
+//     }
+//   }, []);
+
+//   return (
+//     <AuthContext.Provider value={{ user, setUser }}>
+//       {children}
+//     </AuthContext.Provider>
+//   );
+// };
+
+// export default AuthProvider;

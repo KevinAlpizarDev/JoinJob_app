@@ -37,8 +37,14 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Si el usuario está autenticado, redirigir a la página correspondiente
     if (user) {
-      navigate("/home", { replace: true });
+      if (user.is_staff) {
+        navigate("/admin");
+      } else {
+        // navigate("/home");
+        navigate("/home", { replace: true });
+      }
     }
   }, [user, navigate]);
 
@@ -46,3 +52,27 @@ function ProtectedRoute({ children }) {
 }
 
 export default ProtectedRoute;
+
+////////////////////////////////////chat
+
+
+// ProtectedRoute.js
+
+// function ProtectedRoute({ children }) {
+//   const { user } = useAuth();
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     if (!user) {
+//       navigate("/account", { replace: true }); // Si no está autenticado, redirigir a iniciar sesión
+//     } else if (user.is_staff) {
+//       navigate("/admin", { replace: true }); // Si es staff, redirigir a /admin
+//     } else {
+//       navigate("/home", { replace: true }); // Si es un usuario normal, redirigir a /home
+//     }
+//   }, [user, navigate]);
+
+//   return user ? children : null;
+// }
+
+// export default ProtectedRoute;
