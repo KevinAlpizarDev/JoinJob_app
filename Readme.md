@@ -180,4 +180,4 @@ export default function Register() {
 }
 
 
-token validate
+next
