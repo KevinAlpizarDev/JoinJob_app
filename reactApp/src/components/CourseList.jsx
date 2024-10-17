@@ -75,7 +75,7 @@
 // export default CourseList;
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../services/service";
-// import Modal from "../components/Modal";
+import Modal from "../components/Modal";
 import EnrollmentForm from "./EnrollementForm";
 // import FooterPage from "../components/FooterPage";
 
@@ -138,8 +138,8 @@ const CourseList = () => {
                     </span>
                   </div>
                   <div className="flex -space-x-2">
-                    {/* <Modal courseId={index + 1} /> */}
-                    <EnrollmentForm courseId={index + 1} />
+                    <Modal courseId={index + 1} />
+                    {/* <EnrollmentForm courseId={index + 1} /> */}
                   </div>
                 </div>
               </div>
