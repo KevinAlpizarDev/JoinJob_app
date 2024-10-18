@@ -670,11 +670,157 @@
 //   );
 // }
 
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { registerUser } from "../services/service"; // Asegúrate de que este servicio esté configurado correctamente.
+// import { useAuth } from "../components/AuthProvider";
+// export default function Register() {
+//   const { setUser } = useAuth();
+//   const navigate = useNavigate();
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     username: "",
+//     email: "",
+//     password1: "",
+//     password2: "",
+//   });
 
+//   const handleChange = (e) => {
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [successMessage, setSuccessMessage] = useState(null);
+//   const [error, setError] = useState(null);
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (isLoading) return;
+
+//     setIsLoading(true);
+
+//     try {
+//       const response = await registerUser(
+//         formData.name, // Asegúrate de pasar el campo name
+//         formData.username,
+//         formData.email,
+//         formData.password1,
+//         formData.password2
+//       );
+//       console.log("Success!", response.data);
+//       setSuccessMessage("Registration Successful!");
+//       setUser(response.data.user); // Actualizar el usuario en el contexto
+//       navigate("/home");
+//     } catch (error) {
+//       console.log("Error during registration!", error.response?.data);
+//       if (error.response && error.response.data) {
+//         Object.keys(error.response.data).forEach((field) => {
+//           const errorMessages = error.response.data[field];
+//           if (errorMessages && errorMessages.length > 0) {
+//             setError(errorMessages[0]);
+//           }
+//         });
+//       }
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+
+//       <form className="space-y-4" onSubmit={handleSubmit}>
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-1">
+//             Name
+//           </label>
+//           <input
+//             className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+//             type="text"
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-1">
+//             Username
+//           </label>
+//           <input
+//             className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+//             type="text"
+//             name="username"
+//             value={formData.username}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-1">
+//             Email
+//           </label>
+//           <input
+//             className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+//             type="email"
+//             name="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-1">
+//             Password
+//           </label>
+//           <input
+//             className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+//             type="password"
+//             name="password1"
+//             value={formData.password1}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <div>
+//           <label className="block text-sm font-medium text-gray-700 mb-1">
+//             Confirm Password
+//           </label>
+//           <input
+//             className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+//             type="password"
+//             name="password2"
+//             value={formData.password2}
+//             onChange={handleChange}
+//             required
+//           />
+//         </div>
+
+//         <button
+//           className="w-full bg-[#E63946] text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
+//           type="submit"
+//           disabled={isLoading}
+//         >
+//           Register
+//         </button>
+//       </form>
+//     </div>
+//   );
+// }
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/service"; // Asegúrate de que este servicio esté configurado correctamente.
 import { useAuth } from "../components/AuthProvider";
+
 export default function Register() {
   const { setUser } = useAuth();
   const navigate = useNavigate();
@@ -713,7 +859,15 @@ export default function Register() {
       );
       console.log("Success!", response.data);
       setSuccessMessage("Registration Successful!");
-      setUser(response.data.user); // Actualizar el usuario en el contexto
+
+      // Guardar tokens en el almacenamiento local
+      localStorage.setItem("accessToken", response.data.tokens.access);
+      localStorage.setItem("refreshToken", response.data.tokens.refresh);
+
+      // Actualizar el usuario en el contexto
+      setUser(response.data.user);
+
+      // Redirigir a Home después de un registro exitoso
       navigate("/home");
     } catch (error) {
       console.log("Error during registration!", error.response?.data);
