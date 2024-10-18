@@ -96,11 +96,12 @@
 //     </div>
 //   );
 // }
+
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/service"; // Importar la función de login
 import { useAuth } from "../components/AuthProvider";
-
 export default function Login() {
   const { setUser } = useAuth();
   const navigate = useNavigate();
