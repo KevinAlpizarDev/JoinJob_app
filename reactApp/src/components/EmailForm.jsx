@@ -167,25 +167,25 @@ export default function EmailForm() {
                   <h2 className="text-lg font-medium text-gray-500">Step 1: Personal Information</h2>
                   <div className="space-y-2 mt-12">
                     <label htmlFor="name" className="block text-sm text-gray-700">Name</label>
-                    <input
+                    {/* <input
                       type="text"
                       id="name"
                       value={formData.name}
                       onChange={handleChange}
                       className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
                       placeholder="Enter your name"
-                    />
+                    /> */}
                   </div>
                   <div className="space-y-2 mt-4">
                     <label htmlFor="email" className="block mb-2">Email</label>
-                    <input
+                    {/* <input
                       type="email"
                       id="email"
                       value={formData.email}
                       onChange={handleChange}
                       className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
                       placeholder="Enter your email"
-                    />
+                    /> */}
                   </div>
                   <div className="mt-4">
                     <button
@@ -204,25 +204,25 @@ export default function EmailForm() {
                   <h2 className="text-lg font-medium text-gray-500 mb-4">Step 2: Account Information</h2>
                   <div className="space-y-2 mt-12">
                     <label htmlFor="username" className="block mb-2">Username</label>
-                    <input
+                    {/* <input
                       type="text"
                       id="username"
                       value={formData.username}
                       onChange={handleChange}
                       className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
                       placeholder="Choose a username"
-                    />
+                    /> */}
                   </div>
                   <div className="space-y-2 mt-4">
                     <label htmlFor="password" className="block mb-2">Password</label>
-                    <input
+                    {/* <input
                       type="password"
                       id="password"
                       value={formData.password}
                       onChange={handleChange}
                       className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
                       placeholder="Enter your password"
-                    />
+                    /> */}
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <button
