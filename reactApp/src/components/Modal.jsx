@@ -355,11 +355,11 @@ const Modal = ({ courseId }) => {
       closeModal(); // Cerrar el modal al completar
 
       // Ejecutar la animación de confeti
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
+      // confetti({
+      //   particleCount: 100,
+      //   spread: 70,
+      //   origin: { y: 0.6 },
+      // });
     } catch (error) {
       setError("Hubo un error al enviar el formulario. Intenta de nuevo.");
       console.error(error);
