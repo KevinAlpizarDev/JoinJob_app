@@ -2,14 +2,24 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+# class CustomUser(AbstractUser):
+#     email = models.EmailField(unique=True)
+#     USERNAME_FIELD = "email"
+#     REQUIRED_FIELDS = ["username"]
 
+
+#     def __str__(self) -> str:
+#         return self.email
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
+    name = models.CharField(max_length=255)  # Obligatorio
+    
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username"]
+    REQUIRED_FIELDS = ["username", "name"]  # Ambos campos son obligatorios
 
     def __str__(self) -> str:
-        return self.email
+        return self.name
+
 
 
 class Institution(models.Model):
@@ -59,7 +69,6 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.code}"
-
 
 
 class Enrollment(models.Model):
