@@ -73,13 +73,10 @@
 // };
 
 // export default CourseList;
-
-
-
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../services/service";
 import Modal from "../components/Modal";
-import EnrollmentForm from "./EnrollementForm";
+// import EnrollmentForm from "./EnrollementForm";
 // import FooterPage from "../components/FooterPage";
 
 const CourseList = () => {

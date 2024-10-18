@@ -94,28 +94,44 @@ class CourseSerializer(serializers.ModelSerializer):
 #############################################################re
 
 
-class EnrollmentSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(
-        read_only=True
-    )  # Mostrar el usuario como string, pero no modificarlo
-    course_id = serializers.PrimaryKeyRelatedField(
-        queryset=Course.objects.all(), source="course"
-    )  # Para aceptar el ID del curso
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.StringRelatedField(
+#         read_only=True
+#     )  # Mostrar el usuario como string, pero no modificarlo
+#     course_id = serializers.PrimaryKeyRelatedField(
+#         queryset=Course.objects.all(), source="course"
+#     )  # Para aceptar el ID del curso
 
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course_id",
+#             "is_active",
+#         ]
+
+#     def create(self, validated_data):
+#         user = self.context["request"].user  # Tomar el usuario autenticado
+#         enrollment = Enrollment.objects.create(user=user, **validated_data)
+#         return enrollment
+
+
+class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
-        fields = [
-            "id",
-            "user",
-            "id_number",
-            "phone_number",
-            "age",
-            "gender",
-            "course_id",
-            "is_active",
-        ]
+        fields = ["id_number", "phone_number", "age", "gender", "course"]
 
-    def create(self, validated_data):
-        user = self.context["request"].user  # Tomar el usuario autenticado
-        enrollment = Enrollment.objects.create(user=user, **validated_data)
-        return enrollment
+    def validate_age(self, value):
+        if value < 0:
+            raise serializers.ValidationError("La edad no puede ser negativa.")
+        return value
+
+    def validate_gender(self, value):
+        if value not in ["male", "female"]:
+            raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
+        return value

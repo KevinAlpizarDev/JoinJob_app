@@ -530,20 +530,26 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 # Vista mejorada:
 
+# class EnrollmentViewSet(viewsets.ModelViewSet):
+#     queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones
+#     serializer_class = EnrollmentSerializer  # Serializador para inscripciones
+#     permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
+
+#     def perform_create(self, serializer):
+#         # Asocia el usuario autenticado a la inscripción
+#         serializer.save(user=self.request.user)
+
+#     def destroy(self, request, *args, **kwargs):
+#         # No es necesario invalidar el token de refresco aquí
+#         # Simplemente eliminamos la inscripción como en cualquier ModelViewSet
+#         return super().destroy(request, *args, **kwargs)
 class EnrollmentViewSet(viewsets.ModelViewSet):
-    queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones
-    serializer_class = EnrollmentSerializer  # Serializador para inscripciones
-    permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
+    permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
-        # Asocia el usuario autenticado a la inscripción
         serializer.save(user=self.request.user)
-
-    def destroy(self, request, *args, **kwargs):
-        # No es necesario invalidar el token de refresco aquí
-        # Simplemente eliminamos la inscripción como en cualquier ModelViewSet
-        return super().destroy(request, *args, **kwargs)
-
 # En resumen:
 # Eliminar lógica del token en destroy: No es necesario invalidar el token en el método destroy del ViewSet de inscripciones. El manejo de tokens, como el refresco o la invalidación, debería estar en las vistas de autenticación (login, logout), no en vistas relacionadas con otras funcionalidades como las inscripciones.
 
