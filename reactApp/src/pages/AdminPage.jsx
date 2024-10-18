@@ -7,7 +7,7 @@ const AdminPage = () => {
 
   return (
     <div>
-      <h1>Si Soy Admin! :)</h1>
+      <h1>Si Soy Admin!</h1>
       <form onSubmit={submitLogout}>
         <button type="submit">Log out</button>
       </form>

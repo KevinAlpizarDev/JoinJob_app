@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
+import SearchInput from "../SearchInput";
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/imgs/Logo.png";
@@ -12,6 +13,35 @@ export default function NavBar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
+  /////////////////////////////////////////////////////////////////////////////
+  // const handleLogout = async () => {
+  //   try {
+  //     const accessToken = localStorage.getItem("accessToken");
+  //     const refreshToken = localStorage.getItem("refreshToken");
+
+  //     if (accessToken && refreshToken) {
+  //       const config = {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       };
+  //       await axios.post(
+  //         "http://127.0.0.1:8000/api/logout/",
+  //         { refresh: refreshToken },
+  //         config
+  //       );
+  //       localStorage.removeItem("accessToken");
+  //       localStorage.removeItem("refreshToken");
+  //       setLoggedIn(false);
+  //       setUsername("");
+  //       console.log("Log out successful!");
+  //       navigate("/account"); // Navegar a /account después de logout
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to logout", error.response?.data || error.message);
+  //   }
+  // };
+  /////////////////////////////////////////////////////////////////////////////
   return (
     <nav className="w-full bg-gray-50 dark:bg-gray-900  border-gray-200 dark:border-gray-800 ">
       <div className="max-w-full  bg-yellow-400  px-4 sm:px-6 lg:px-8 ">
@@ -27,37 +57,38 @@ export default function NavBar() {
               </div>
             </div>
           </div>
+                  
           <div className="hidden md:block">
+            {/* <button onClick={handleLogout}>Logout</button> */}
             <div className="ml-4 flex items-center md:ml-6">
               {/* Dropdown menu */}
               <div className="relative inline-block text-left">
                 <div>
-                <button
-  type="button"
-  onClick={toggleDropdown}
-  className="inline-flex justify-center w-full rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-none hover:bg-gray-50 dark:hover:bg-gray-700"
-  id="menu-button"
-  aria-expanded={isDropdownOpen}
-  aria-haspopup="true"
->
-  <Menu className="block h-6 w-6" aria-hidden="true" />
-</button>
+                  <button
+                    type="button"
+                    onClick={toggleDropdown}
+                    className="inline-flex justify-center w-full rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-none hover:bg-gray-50 dark:hover:bg-gray-700"
+                    id="menu-button"
+                    aria-expanded={isDropdownOpen}
+                    aria-haspopup="true"
+                  >
+                    <Menu className="block h-6 w-6" aria-hidden="true" />
+                  </button>
                 </div>
                 {isDropdownOpen && (
-  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg focus:outline-none">
-    <div className="py-4 mx-6 " role="none">
-      <ThemeToggle />
-      <Link
-        to="#"
-        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200"
-        role="menuitem"
-      >
-        License
-      </Link>
-    </div>
-  </div>
-)}
-
+                  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg focus:outline-none">
+                    <div className="py-4 mx-6 " role="none">
+                      <ThemeToggle />
+                      <Link
+                        to="#"
+                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors duration-200"
+                        role="menuitem"
+                      >
+                        License
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -79,8 +110,12 @@ export default function NavBar() {
       {isOpen && (
         <div className="md:hidden ">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavLink to="/about" mobile={true}>About Us</NavLink>
-            <NavLink to="/contact" mobile={true}>Contact Us</NavLink>
+            <NavLink to="/about" mobile={true}>
+              About Us
+            </NavLink>
+            <NavLink to="/contact" mobile={true}>
+              Contact Us
+            </NavLink>
           </div>
           <div className="pt-4 pb-3 border-t  border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5">
@@ -94,12 +129,18 @@ export default function NavBar() {
 }
 
 function NavLink({ to, children, mobile = false }) {
-  const baseClasses = "text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200";
-  const desktopClasses = "px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
-  const mobileClasses = "block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
+  const baseClasses =
+    "text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200";
+  const desktopClasses =
+    "px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
+  const mobileClasses =
+    "block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700";
 
   return (
-    <Link to={to} className={`${baseClasses} ${mobile ? mobileClasses : desktopClasses}`}>
+    <Link
+      to={to}
+      className={`${baseClasses} ${mobile ? mobileClasses : desktopClasses}`}
+    >
       {children}
     </Link>
   );
