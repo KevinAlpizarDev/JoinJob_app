@@ -355,11 +355,11 @@ const Modal = ({ courseId }) => {
       closeModal(); // Cerrar el modal al completar
 
       // Ejecutar la animación de confeti
-      // confetti({
-      //   particleCount: 100,
-      //   spread: 70,
-      //   origin: { y: 0.6 },
-      // });
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
     } catch (error) {
       setError("Hubo un error al enviar el formulario. Intenta de nuevo.");
       console.error(error);
@@ -370,7 +370,7 @@ const Modal = ({ courseId }) => {
     <div className="flex justify-center p-6 mt-6">
       <button
         onClick={openModal}
-        className="inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+        className="animate-bounce  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
       >
         Matrículas abiertas
       </button>

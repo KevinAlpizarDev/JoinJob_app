@@ -95,14 +95,37 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 # class EnrollmentSerializer(serializers.ModelSerializer):
-# fields = ["id_number", "phone_number", "age", "gender", "course"]
+#     user = serializers.StringRelatedField(
+#         read_only=True
+#     )  # Mostrar el usuario como string, pero no modificarlo
+#     course_id = serializers.PrimaryKeyRelatedField(
+#         queryset=Course.objects.all(), source="course"
+#     )  # Para aceptar el ID del curso
+
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course_id",
+#             "is_active",
+#         ]
+
+#     def create(self, validated_data):
+#         user = self.context["request"].user  # Tomar el usuario autenticado
+#         enrollment = Enrollment.objects.create(user=user, **validated_data)
+#         return enrollment
 
 
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
-
-        fields = ["id_number", "phone_number", "gender", "course"]
+        # fields = ["id_number", "phone_number", "age", "gender", "course"]
+        fields = ["id_number", "phone_number", "age", "gender", "course"]
 
     def validate_age(self, value):
         if value < 0:

@@ -93,7 +93,7 @@ export default function FooterPage() {
         <div className="mt-6 flex justify-center p-6">
           <a
             href="#"
-            className="  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-teal-700  hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+            className="  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-blue-500   hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
           >
             Join our newsletter
             {/* <ArrowUpRight className="ml-2 -mr-1 h-4 w-4" /> */}
