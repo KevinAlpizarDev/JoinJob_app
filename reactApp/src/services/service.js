@@ -65,8 +65,14 @@ export const logoutUser = (refreshToken) => {
   return client.post("/api/logout/", { refresh: refreshToken });
 };
 
-// Función para obtener todos los cursos
 
+// . Incluir el token en las solicitudes protegidas:
+// Para asegurarte de que el token de acceso se envía en cada solicitud protegida, puedes modificar la configuración de Axios para que siempre envíe el accessToken en las solicitudes. Así, debes actualizar la función getAllCourses para enviar el token de autenticación:
 export const getAllCourses = () => {
-  return axios.get("http://localhost:8000/api/courses/");
+  const token = localStorage.getItem("accessToken");  // Obtener el token de acceso almacenado
+  return axios.get("http://localhost:8000/api/courses/", {
+    headers: {
+      Authorization: `Bearer ${token}`  // Enviar el token en los encabezados
+    }
+  });
 };

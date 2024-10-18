@@ -479,25 +479,25 @@ class CourseViewSet(viewsets.ModelViewSet):
 #         serializer.save(user=self.request.user)  # Asociar el usuario autenticado
 
 # CRUD de Inscripciones
-class EnrollmentViewSet(viewsets.ModelViewSet):
-    queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones
-    serializer_class = EnrollmentSerializer  # Serializador para inscripciones
-    permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
+# class EnrollmentViewSet(viewsets.ModelViewSet):
+#     queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones
+#     serializer_class = EnrollmentSerializer  # Serializador para inscripciones
+#     permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
 
-    def perform_create(self, serializer):
-        # Asocia el usuario autenticado a la inscripción
-        serializer.save(user=self.request.user) 
+#     def perform_create(self, serializer):
+#         # Asocia el usuario autenticado a la inscripción
+#         serializer.save(user=self.request.user) 
 
-    def destroy(self, request, *args, **kwargs):
-        # Aquí podrías agregar lógica para invalidar el token de refresco del usuario, si es necesario
-        refresh_token = request.data.get("refresh")  # Obtiene el token de refresco si se envía
-        if refresh_token:  # Verifica si se ha proporcionado un token de refresco
-            try:
-                token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
-                token.blacklist()  # Invalidar el token
-            except Exception:
-                return Response({"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().destroy(request, *args, **kwargs)  # Llama al método original para eliminar la inscripción
+#     def destroy(self, request, *args, **kwargs):
+#         # Aquí podrías agregar lógica para invalidar el token de refresco del usuario, si es necesario
+#         refresh_token = request.data.get("refresh")  # Obtiene el token de refresco si se envía
+#         if refresh_token:  # Verifica si se ha proporcionado un token de refresco
+#             try:
+#                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
+#                 token.blacklist()  # Invalidar el token
+#             except Exception:
+#                 return Response({"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
+#         return super().destroy(request, *args, **kwargs)  # Llama al método original para eliminar la inscripción
 # permission_classes = (IsAuthenticated,):
 
 # Esta clase de permisos garantiza que solo los usuarios autenticados puedan acceder a las funcionalidades de este viewset, lo que es esencial para la seguridad y la integridad de la información.
@@ -514,6 +514,39 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
 # Con estas implementaciones, los usuarios autenticados pueden matricularse en cursos mediante el EnrollmentViewSet, y cada inscripción estará asociada al usuario que la creó. Además, se incluye la lógica para manejar la invalidación del token de refresco en caso de que desees hacerlo cuando se eliminen inscripciones. Esto ayuda a mantener la seguridad y el control sobre las acciones que realizan los usuarios en la aplicación.
 
 
+# Tu vista de EnrollmentViewSet es en su mayoría correcta, pero hay algunos detalles a revisar y mejorar, especialmente en el método destroy y en el contexto de cómo el token de refresco es manejado.
 
+# Análisis y recomendaciones:
+# Autenticación: La autenticación mediante la clase IsAuthenticated está bien aplicada. Esto asegura que solo los usuarios autenticados pueden acceder a las funcionalidades del ViewSet, como crear o eliminar inscripciones.
 
+# Método perform_create: Está correctamente implementado para asociar la inscripción con el usuario autenticado.
 
+# Método destroy: Aquí es donde se pueden hacer algunos ajustes, ya que el método de eliminación de una inscripción no debería requerir invalidar un token JWT, a menos que estés implementando una funcionalidad específica que requiera terminar la sesión del usuario o similar.
+
+# Sugerencias para mejorar el método destroy:
+# Si tu intención es eliminar una inscripción, no necesitas manejar el token JWT de esta manera dentro de este método. El destroy debería simplemente encargarse de eliminar el objeto Enrollment.
+
+# Si quieres agregar funcionalidad para invalidar el token de refresco, eso debería estar en una vista de logout, no en el proceso de eliminación de una inscripción.
+
+# Vista mejorada:
+
+class EnrollmentViewSet(viewsets.ModelViewSet):
+    queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones
+    serializer_class = EnrollmentSerializer  # Serializador para inscripciones
+    permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
+
+    def perform_create(self, serializer):
+        # Asocia el usuario autenticado a la inscripción
+        serializer.save(user=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        # No es necesario invalidar el token de refresco aquí
+        # Simplemente eliminamos la inscripción como en cualquier ModelViewSet
+        return super().destroy(request, *args, **kwargs)
+
+# En resumen:
+# Eliminar lógica del token en destroy: No es necesario invalidar el token en el método destroy del ViewSet de inscripciones. El manejo de tokens, como el refresco o la invalidación, debería estar en las vistas de autenticación (login, logout), no en vistas relacionadas con otras funcionalidades como las inscripciones.
+
+# Seguridad y autenticación: Asegúrate de que cualquier vista protegida esté utilizando la autenticación JWT de manera correcta en las solicitudes. Por ejemplo, las solicitudes a la API deben incluir el encabezado Authorization: Bearer <access_token> para que Django verifique la autenticación.
+
+# ¿Te gustaría implementar algo especial con el manejo de los tokens en otro contexto, o necesitas más ayuda con la lógica de autenticación y autorización?
