@@ -49,12 +49,22 @@
 //   );
 // }
 
-
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
 import { Link } from "react-router-dom";
-
+// import { getCurrentUser } from "../services/service";
+import React, { useEffect } from "react";
 export default function LandingPage() {
+  // useEffect(() => {
+  //   getCurrentUser()
+  //     .then((response) => {
+  //       console.log(response.data); // Inspeccionar la respuesta en el componente
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
+
   return (
     <>
       <NavBar />
@@ -78,12 +88,11 @@ export default function LandingPage() {
               <span class="text-[#0079BF]">Oportunidades</span> de Crecimiento
             </h1> */}
 
-
-
-<h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white py-5">
-  Impulsa tu Desarrollo con{" "}
-  <span className="text-[#0079BF]">Oportunidades</span> de Crecimiento
-</h1>
+            <h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white py-5">
+              Impulsa tu Desarrollo con{" "}
+              <span className="text-[#0079BF]">Oportunidades</span> de
+              Crecimiento
+            </h1>
 
             <p className="text-base md:text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
               Provides advanced features like time tracking, integrating with
@@ -92,16 +101,15 @@ export default function LandingPage() {
           </div>
 
           <div className="flex justify-center">
-  <Link to="/account">
-    <button
-      type="button"
-      className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center transition-all duration-200"
-    >
-      Siguiente
-    </button>
-  </Link>
-</div>
-
+            <Link to="/account">
+              <button
+                type="button"
+                className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center transition-all duration-200"
+              >
+                Siguiente
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
       {/* <div className="flex pt-24 items-start justify-center min-h-screen bg-slate-100 dark:bg-gray-800">

@@ -115,11 +115,31 @@ import axios from "axios";
 import CourseList from "../components/CourseList"; // Importar el componente de lista de cursos
 import NavBar from "../components/main/NavBar"; // Importar la barra de navegación
 import FooterPage from "../components/FooterPage"; // Importar el pie de página
+import { getCurrentUser } from "../services/service";
 
 export default function Home() {
   const [username, setUsername] = useState(""); // Estado para almacenar el nombre de usuario
   const [isLoggedIn, setLoggedIn] = useState(false); // Estado para verificar si el usuario está autenticado
   const navigate = useNavigate(); // Crear una instancia de useNavigate para la navegación
+
+
+
+
+
+  // useEffect(() => {
+  //   getCurrentUser()
+  //     .then((response) => {
+  //       console.log(response.data); // Inspeccionar la respuesta en el componente
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
+
+
+
+
+
 
   useEffect(() => {
     // Efecto para comprobar si el usuario está logueado
@@ -138,6 +158,7 @@ export default function Home() {
           ); // Llamada a la API para obtener el usuario
           setLoggedIn(true); // Marcar al usuario como logueado
           setUsername(response.data.username); // Establecer el nombre de usuario desde la respuesta
+          console.log(response.data.is_staff);
         } else {
           setLoggedIn(false); // Si no hay token, establecer estado de logueo como falso
           setUsername(""); // Limpiar el nombre de usuario
@@ -172,7 +193,6 @@ export default function Home() {
         setUsername(""); // Limpiar el nombre de usuario
         console.log("Log out successful!"); // Mensaje de éxito
         navigate("/account"); // Navegar a la ruta de cuenta después de cerrar sesión
-        
       }
     } catch (error) {
       console.error("Failed to logout", error.response?.data || error.message); // Manejo de errores en caso de fallo
