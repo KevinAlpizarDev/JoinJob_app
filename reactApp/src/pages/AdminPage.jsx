@@ -26,6 +26,8 @@ import { Link, useNavigate } from "react-router-dom"; // Importar useNavigate pa
 import CourseForm from "../components/CourseForm";
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage"; // Importar el pie de página
+import InstitutionForm from "../components/InstitutionForm";
+import InstitutionList from "../components/InstitutionList";
 
 const AdminPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false); // Estado para verificar si el usuario está autenticado
@@ -92,31 +94,31 @@ const AdminPage = () => {
   };
 
   return (
-
-
     <>
-    <NavBar/>
-    <div>
-      {isLoggedIn ? ( // Verificar si el usuario está logueado
-        <>
-          <h2>Hi, admin {username} :)</h2>
-          <button onClick={handleLogout}>Logout</button> 
-          <CourseForm/>
-          {/* <CourseList /> */}
-          {/* Botón para cerrar sesión */}
-          {/* <CourseList />{" "} */}
-          {/* Mostrar la lista de cursos si el usuario está logueado */}
-        </>
-      ) : (
-        // Si el usuario no está logueado, redirigir a la página de cuenta
-        <Link to="/account">
-          {/* Aquí podrías agregar un mensaje o botón para que los usuarios inicien sesión */}
-          {/* <h2>Por favor, inicia sesión para acceder a los cursos.</h2> */}
-        </Link>
-      )}
-    </div>
-    
-    {/* <FooterPage/> */}
+      <NavBar />
+      <div>
+        {isLoggedIn ? ( // Verificar si el usuario está logueado
+          <>
+            <h2>Hi, admin {username} :)</h2>
+            <button onClick={handleLogout}>Logout</button>
+            <InstitutionForm />
+            <InstitutionList />
+            <CourseForm />
+            {/* <CourseList /> */}
+            {/* Botón para cerrar sesión */}
+            {/* <CourseList />{" "} */}
+            {/* Mostrar la lista de cursos si el usuario está logueado */}
+          </>
+        ) : (
+          // Si el usuario no está logueado, redirigir a la página de cuenta
+          <Link to="/account">
+            {/* Aquí podrías agregar un mensaje o botón para que los usuarios inicien sesión */}
+            {/* <h2>Por favor, inicia sesión para acceder a los cursos.</h2> */}
+          </Link>
+        )}
+      </div>
+
+      {/* <FooterPage/> */}
     </>
   );
 };

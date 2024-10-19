@@ -73,6 +73,8 @@
 // };
 
 // export default CourseList;
+
+
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../services/service";
 import Modal from "../components/Modal";

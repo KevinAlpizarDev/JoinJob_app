@@ -64,3 +64,72 @@ export const addCourse = (courseData) => {
     },
   });
 };
+
+// Función para agregar una nueva institución
+export const addInstitution = (institutionData) => {
+  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
+  return axios.post(
+    "http://localhost:8000/api/institutions/",
+    institutionData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // Incluir el token en los headers
+        "Content-Type": "application/json", // Asegurar que los datos se envían en formato JSON
+      },
+    }
+  );
+};
+//GET
+// import axios from "axios";
+
+// export const getInstitutions = () => {
+//   const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
+//   return axios.get("http://localhost:8000/api/institutions/", {
+//     headers: {
+//       Authorization: `Bearer ${token}`, // Incluir el token en los headers
+//       "Content-Type": "application/json",
+//     },
+//   });
+// };
+// Función para actualizar una institución
+// import axios from 'axios';
+
+// Función para obtener las instituciones
+export const getInstitutions = () => {
+  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
+  return axios.get("http://localhost:8000/api/institutions/", {
+    headers: {
+      Authorization: `Bearer ${token}`, // Incluir el token en los headers
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+// // Función para actualizar una institución
+// export const updateInstitutionStatus = (institutionId, isActive) => {
+//   const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
+//   return axios.put(
+//     `http://localhost:8000/api/institutions/${institutionId}/`, 
+//     { is_active: isActive },
+//     {
+//       headers: {
+//         Authorization: `Bearer ${token}`, // Incluir el token en los headers
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   );
+// };
+// Función para actualizar una institución (usando PUT, enviando todos los campos)
+export const updateInstitutionStatus = (institutionId, institutionData) => {
+  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
+  return axios.put(
+    `http://localhost:8000/api/institutions/${institutionId}/`, 
+    institutionData, // Enviar todos los campos de la institución
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // Incluir el token en los headers
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
