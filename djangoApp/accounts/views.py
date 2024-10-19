@@ -498,7 +498,10 @@ class CampusViewSet(viewsets.ModelViewSet):
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()  # Obtiene todos los cursos
     serializer_class = CourseSerializer  # Serializador para cursos
-
+    permission_classes = (IsAuthenticated,)
+    
+    
+    
     def destroy(self, request, *args, **kwargs):
         # Similar a las vistas anteriores, se puede invalidar el token de refresco aquí también
         refresh_token = request.data.get("refresh")  # Obtiene el token de refresco

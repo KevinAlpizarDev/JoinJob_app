@@ -22,7 +22,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "name",  # Añadir el campo name
             "email",
             "is_active",
-            "is_staff"
+            "is_staff",
         )
 
 
@@ -147,8 +147,25 @@ class CampusSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus = CampusSerializer(read_only=True)
+
+#     class Meta:
+#         model = Course
+#         fields = "__all__"
+
+
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus = CampusSerializer()  # Permitir la creación de cursos con campus editable
+
+
+#     class Meta:
+#         model = Course
+#         fields = "__all__"
 class CourseSerializer(serializers.ModelSerializer):
-    campus = CampusSerializer(read_only=True)
+    campus = serializers.PrimaryKeyRelatedField(
+        queryset=Campus.objects.all()
+    )  # Usar ID del campus
 
     class Meta:
         model = Course

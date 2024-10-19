@@ -21,8 +21,11 @@ import axios from "axios";
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importar useNavigate para redireccionar
-// import { useLogout } from "../utils/authUtils"; // Asegúrate de ajustar la ruta
-import CourseList from "../components/CourseList"; // Importar el componente de lista de cursos
+// // import { useLogout } from "../utils/authUtils"; // Asegúrate de ajustar la ruta
+// import CourseList from "../components/CourseList"; // Importar el componente de lista de cursos
+import CourseForm from "../components/CourseForm";
+import NavBar from "../components/main/NavBar";
+import FooterPage from "../components/FooterPage"; // Importar el pie de página
 
 const AdminPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false); // Estado para verificar si el usuario está autenticado
@@ -89,11 +92,17 @@ const AdminPage = () => {
   };
 
   return (
+
+
+    <>
+    <NavBar/>
     <div>
       {isLoggedIn ? ( // Verificar si el usuario está logueado
         <>
           <h2>Hi, admin {username} :)</h2>
-          <button onClick={handleLogout}>Logout</button> <CourseList />
+          <button onClick={handleLogout}>Logout</button> 
+          <CourseForm/>
+          {/* <CourseList /> */}
           {/* Botón para cerrar sesión */}
           {/* <CourseList />{" "} */}
           {/* Mostrar la lista de cursos si el usuario está logueado */}
@@ -106,6 +115,9 @@ const AdminPage = () => {
         </Link>
       )}
     </div>
+    
+    {/* <FooterPage/> */}
+    </>
   );
 };
 
