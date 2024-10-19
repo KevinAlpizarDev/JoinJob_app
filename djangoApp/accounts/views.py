@@ -122,30 +122,51 @@ from .serializers import (
 #         data["tokens"] = {"refresh": str(token), "access": str(token.access_token)}
 #         return Response(data, status=status.HTTP_201_CREATED)
 class UserRegistrationAPIView(GenericAPIView):
-    permission_classes = (AllowAny,)  # La clave: se permite el acceso sin autenticación a esta vista, útil para registro de usuarios.
+    permission_classes = (
+        AllowAny,
+    )  # La clave: se permite el acceso sin autenticación a esta vista, útil para registro de usuarios.
     serializer_class = UserRegistrationSerializer  # El serializador encargado de validar y crear el usuario a partir de los datos recibidos.
 
     def post(self, request, *args, **kwargs):
         # Validación de datos
-        serializer = self.get_serializer(data=request.data)  # Obtiene una instancia del serializador con los datos enviados en la solicitud (request).
-        serializer.is_valid(raise_exception=True)  # Verifica si los datos enviados son válidos según las reglas del serializador. Si no lo son, lanza una excepción automáticamente.
+        serializer = self.get_serializer(
+            data=request.data
+        )  # Obtiene una instancia del serializador con los datos enviados en la solicitud (request).
+        serializer.is_valid(
+            raise_exception=True
+        )  # Verifica si los datos enviados son válidos según las reglas del serializador. Si no lo son, lanza una excepción automáticamente.
 
         # Guardar el usuario y generar tokens
-        user = serializer.save()  # Si los datos son válidos, se guarda el nuevo usuario en la base de datos.
+        user = (
+            serializer.save()
+        )  # Si los datos son válidos, se guarda el nuevo usuario en la base de datos.
 
         # Genera los tokens de refresh y access para el usuario recién registrado.
-        refresh = RefreshToken.for_user(user)  # Crea un token de refresco (refresh token) asociado al nuevo usuario.
-        access = refresh.access_token  # Obtiene el token de acceso (access token) a partir del token de refresco.
+        refresh = RefreshToken.for_user(
+            user
+        )  # Crea un token de refresco (refresh token) asociado al nuevo usuario.
+        access = (
+            refresh.access_token
+        )  # Obtiene el token de acceso (access token) a partir del token de refresco.
 
         # Preparar la respuesta con los tokens
         data = serializer.data  # Toma los datos serializados del usuario creado (los datos que define el serializer).
-        data["tokens"] = {  # Añade los tokens generados (refresh y access) a la respuesta de los datos del usuario.
-            "refresh": str(refresh),  # Convierte el token de refresco en cadena de texto y lo agrega a la respuesta.
-            "access": str(access),  # Convierte el token de acceso en cadena de texto y lo agrega a la respuesta.
+        data[
+            "tokens"
+        ] = {  # Añade los tokens generados (refresh y access) a la respuesta de los datos del usuario.
+            "refresh": str(
+                refresh
+            ),  # Convierte el token de refresco en cadena de texto y lo agrega a la respuesta.
+            "access": str(
+                access
+            ),  # Convierte el token de acceso en cadena de texto y lo agrega a la respuesta.
         }
 
         # Retornar la respuesta con el código de estado 201
-        return Response(data, status=status.HTTP_201_CREATED)  # Retorna los datos serializados y los tokens en una respuesta HTTP con el código 201 (creado).
+        return Response(
+            data, status=status.HTTP_201_CREATED
+        )  # Retorna los datos serializados y los tokens en una respuesta HTTP con el código 201 (creado).
+
 
 #    Explicación por partes:
 # permission_classes = (IsAuthenticated,):
@@ -186,7 +207,6 @@ class UserRegistrationAPIView(GenericAPIView):
 # Este flujo es esencial para manejar la invalidación de tokens de manera segura, garantizando que los usuarios no puedan usar tokens antiguos después de haber cerrado sesión.
 
 
-
 # Claves de la optimización:
 # Separación clara de refresh y access tokens: En lugar de hacer que el token de refresco genere el de acceso en línea, ambos se manejan explícitamente.
 
@@ -209,11 +229,6 @@ class UserRegistrationAPIView(GenericAPIView):
 # Esta estructura es común en vistas de API que manejan registro de usuarios junto con JWT para la autenticación.
 
 
-
-
-
-
-
 ##########################################################################################################################################################
 
 # Login de usuario
@@ -231,35 +246,60 @@ class UserRegistrationAPIView(GenericAPIView):
 #         data["tokens"] = {"refresh": str(token), "access": str(token.access_token)}
 #         return Response(data, status=status.HTTP_200_OK)
 
+
 # Login de usuario
 class UserLoginAPIView(GenericAPIView):
-    permission_classes = (AllowAny,)  # Permite el acceso sin autenticación previa, necesario para el login
-    serializer_class = UserLoginSerializer  # Serializador que valida las credenciales del usuario
+    permission_classes = (
+        AllowAny,
+    )  # Permite el acceso sin autenticación previa, necesario para el login
+    serializer_class = (
+        UserLoginSerializer  # Serializador que valida las credenciales del usuario
+    )
 
     def post(self, request, *args, **kwargs):
         # Validación de los datos de inicio de sesión
-        serializer = self.get_serializer(data=request.data)  # Carga el serializador con los datos del request (email/username, password).
-        serializer.is_valid(raise_exception=True)  # Valida las credenciales. Si son incorrectas, lanza una excepción.
+        serializer = self.get_serializer(
+            data=request.data
+        )  # Carga el serializador con los datos del request (email/username, password).
+        serializer.is_valid(
+            raise_exception=True
+        )  # Valida las credenciales. Si son incorrectas, lanza una excepción.
 
         # Si las credenciales son correctas, se obtienen los datos del usuario validado
         user = serializer.validated_data  # `validated_data` devuelve el usuario autenticado a partir de las credenciales correctas.
 
         # Serialización de los datos del usuario para la respuesta
-        serializer = CustomUserSerializer(user)  # Usamos un serializador personalizado (CustomUserSerializer) para preparar los datos del usuario en la respuesta.
+        serializer = CustomUserSerializer(
+            user
+        )  # Usamos un serializador personalizado (CustomUserSerializer) para preparar los datos del usuario en la respuesta.
 
         # Generar tokens JWT para el usuario
-        token = RefreshToken.for_user(user)  # Crea un refresh token para el usuario autenticado.
-        access_token = token.access_token  # Genera un token de acceso a partir del refresh token.
+        token = RefreshToken.for_user(
+            user
+        )  # Crea un refresh token para el usuario autenticado.
+        access_token = (
+            token.access_token
+        )  # Genera un token de acceso a partir del refresh token.
 
         # Preparar la respuesta con los tokens
-        data = serializer.data  # Obtiene los datos serializados del usuario (ej. nombre, email).
-        data["tokens"] = {  # Añadimos los tokens de acceso y refresh a los datos del usuario.
-            "refresh": str(token),  # Convierte el refresh token en una cadena y lo incluye en la respuesta.
-            "access": str(access_token),  # Convierte el access token en una cadena y lo incluye en la respuesta.
+        data = (
+            serializer.data
+        )  # Obtiene los datos serializados del usuario (ej. nombre, email).
+        data[
+            "tokens"
+        ] = {  # Añadimos los tokens de acceso y refresh a los datos del usuario.
+            "refresh": str(
+                token
+            ),  # Convierte el refresh token en una cadena y lo incluye en la respuesta.
+            "access": str(
+                access_token
+            ),  # Convierte el access token en una cadena y lo incluye en la respuesta.
         }
 
         # Retornar la respuesta con los tokens y los datos del usuario, con el código de estado 200 (OK)
         return Response(data, status=status.HTTP_200_OK)
+
+
 #     Explicación por partes:
 # permission_classes = (AllowAny,): No se requiere autenticación previa, ya que esta es la ruta donde el usuario envía sus credenciales para iniciar sesión.
 
@@ -289,11 +329,12 @@ class UserLoginAPIView(GenericAPIView):
 # Este flujo sigue una lógica muy similar al del registro, pero en este caso las credenciales son validadas para obtener los tokens JWT sin crear un nuevo usuario.
 # Tanto el refresh como el access token se devuelven al cliente, lo cual permite que el usuario se autentique en futuras solicitudes con el token de acceso.
 # Este login funcionaría de manera fluida para autenticar usuarios y generar los tokens necesarios para la autenticación en futuras solicitudes.
-    
+
 
 # Logout de usuario
 # class UserLogoutAPIView(GenericAPIView):
 #     permission_classes = (IsAuthenticated,)
+
 
 #     def post(self, request, *args, **kwargs):
 #         try:
@@ -304,16 +345,28 @@ class UserLoginAPIView(GenericAPIView):
 #         except Exception:
 #             return Response(status=status.HTTP_400_BAD_REQUEST)
 class UserLogoutAPIView(GenericAPIView):
-    permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
+    permission_classes = (
+        IsAuthenticated,
+    )  # Solo permite el acceso a usuarios autenticados
 
     def post(self, request, *args, **kwargs):
         try:
-            refresh_token = request.data["refresh"]  # Obtiene el token de refresco enviado en el cuerpo de la solicitud.
-            token = RefreshToken(refresh_token)  # Crea una instancia del token de refresco.
+            refresh_token = request.data[
+                "refresh"
+            ]  # Obtiene el token de refresco enviado en el cuerpo de la solicitud.
+            token = RefreshToken(
+                refresh_token
+            )  # Crea una instancia del token de refresco.
             token.blacklist()  # Marca el token de refresco como "blacklisted" (invalida el token).
-            return Response(status=status.HTTP_205_RESET_CONTENT)  # Responde con el código 205 que indica que el contenido se ha reiniciado (logout exitoso).
+            return Response(
+                status=status.HTTP_205_RESET_CONTENT
+            )  # Responde con el código 205 que indica que el contenido se ha reiniciado (logout exitoso).
         except Exception:
-            return Response(status=status.HTTP_400_BAD_REQUEST)  # Si ocurre algún error (ej., token inválido), se responde con un código 400 (solicitud incorrecta).
+            return Response(
+                status=status.HTTP_400_BAD_REQUEST
+            )  # Si ocurre algún error (ej., token inválido), se responde con un código 400 (solicitud incorrecta).
+
+
 # Explicación por partes:
 # permission_classes = (IsAuthenticated,):
 
@@ -381,12 +434,20 @@ class UserLogoutAPIView(GenericAPIView):
 
 
 # Información del usuario autenticado
+# class UserInfoAPIView(RetrieveAPIView):
+#     permission_classes = (AllowAny,)  # Solo permite el acceso a usuarios autenticados
+#     serializer_class = CustomUserSerializer  # Serializador para la información del usuario
+
+
+#     def get_object(self):
+#         return self.request.user  # Devuelve el usuario autenticado
 class UserInfoAPIView(RetrieveAPIView):
-    permission_classes = (IsAuthenticated,)  # Solo permite el acceso a usuarios autenticados
-    serializer_class = CustomUserSerializer  # Serializador para la información del usuario
+    permission_classes = (IsAuthenticated,)
+    serializer_class = CustomUserSerializer
 
     def get_object(self):
-        return self.request.user  # Devuelve el usuario autenticado
+        return self.request.user
+
 
 # CRUD de Instituciones
 class InstitutionViewSet(viewsets.ModelViewSet):
@@ -396,14 +457,21 @@ class InstitutionViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         # Aquí podrías agregar lógica para invalidar el token de refresco del usuario, si es necesario
         # Ejemplo de invalidación
-        refresh_token = request.data.get("refresh")  # Obtiene el token de refresco si se envía
+        refresh_token = request.data.get(
+            "refresh"
+        )  # Obtiene el token de refresco si se envía
         if refresh_token:  # Verifica si se ha proporcionado un token de refresco
             try:
                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
                 token.blacklist()  # Invalidar el token
             except Exception:
-                return Response({"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().destroy(request, *args, **kwargs)  # Llama al método original para eliminar la institución
+                return Response(
+                    {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
+                )
+        return super().destroy(
+            request, *args, **kwargs
+        )  # Llama al método original para eliminar la institución
+
 
 # CRUD de Campus
 class CampusViewSet(viewsets.ModelViewSet):
@@ -418,8 +486,13 @@ class CampusViewSet(viewsets.ModelViewSet):
                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
                 token.blacklist()  # Invalidar el token
             except Exception:
-                return Response({"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().destroy(request, *args, **kwargs)  # Llama al método original para eliminar el campus
+                return Response(
+                    {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
+                )
+        return super().destroy(
+            request, *args, **kwargs
+        )  # Llama al método original para eliminar el campus
+
 
 # CRUD de Cursos
 class CourseViewSet(viewsets.ModelViewSet):
@@ -434,8 +507,13 @@ class CourseViewSet(viewsets.ModelViewSet):
                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
                 token.blacklist()  # Invalidar el token
             except Exception:
-                return Response({"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().destroy(request, *args, **kwargs)  # Llama al método original para eliminar el curso
+                return Response(
+                    {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
+                )
+        return super().destroy(
+            request, *args, **kwargs
+        )  # Llama al método original para eliminar el curso
+
 
 # permission_classes = (IsAuthenticated,):
 
@@ -454,9 +532,6 @@ class CourseViewSet(viewsets.ModelViewSet):
 # Códigos de estado: El uso de códigos de estado apropiados ayuda a que el cliente comprenda el resultado de su solicitud y si ocurrió algún error.
 # Resumen:
 # Con estas modificaciones, ahora tienes vistas que requieren autenticación y que implementan el proceso de invalidación de tokens cuando se realizan acciones significativas. Esto es esencial para mantener la seguridad en un sistema donde se manejan recursos sensibles y operaciones administrativas.
-
-
-
 
 
 # CRUD de Matriculaciones (Enrollments)
@@ -486,7 +561,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 #     def perform_create(self, serializer):
 #         # Asocia el usuario autenticado a la inscripción
-#         serializer.save(user=self.request.user) 
+#         serializer.save(user=self.request.user)
 
 #     def destroy(self, request, *args, **kwargs):
 #         # Aquí podrías agregar lógica para invalidar el token de refresco del usuario, si es necesario
@@ -539,6 +614,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 #         # Asocia el usuario autenticado a la inscripción
 #         serializer.save(user=self.request.user)
 
+
 #     def destroy(self, request, *args, **kwargs):
 #         # No es necesario invalidar el token de refresco aquí
 #         # Simplemente eliminamos la inscripción como en cualquier ModelViewSet
@@ -550,6 +626,8 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
 # En resumen:
 # Eliminar lógica del token en destroy: No es necesario invalidar el token en el método destroy del ViewSet de inscripciones. El manejo de tokens, como el refresco o la invalidación, debería estar en las vistas de autenticación (login, logout), no en vistas relacionadas con otras funcionalidades como las inscripciones.
 

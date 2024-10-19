@@ -43,9 +43,50 @@ const client = axios.create({
 });
 
 // Funciones para la autenticación
+// export const getCurrentUser = () => {
+//   return client.get("/api/user/");
+// };
 export const getCurrentUser = () => {
-  return client.get("/api/user/");
+  const token = localStorage.getItem("accessToken");
+  return client.get("/api/user/", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
+
+
+// export const getCurrentUser = async () => {
+//   try {
+//     const token = localStorage.getItem("accessToken"); // Obtener el token desde el almacenamiento local
+//     if (!token) {
+//       throw new Error("No token found");
+//     }
+    
+//     const response = await client.get("/api/user/", {
+//       headers: {
+//         Authorization: `Bearer ${token}`, // Enviar el token en los encabezados
+//       },
+//     });
+//     console.log(response.data); // Ver qué datos trae la respuesta
+//     return response;
+//   } catch (error) {
+//     console.error("Error al obtener el usuario:", error);
+//     throw error;
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
 
 // export const registerUser = (email, username, password) => {
 //   return client.post("/api/register/", { email, username, password });

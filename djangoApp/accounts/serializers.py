@@ -22,6 +22,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "name",  # Añadir el campo name
             "email",
             "is_active",
+            "is_staff"
         )
 
 
