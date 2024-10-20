@@ -175,6 +175,53 @@ import Account from "./pages/Account";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import AdminPagesList from "./pages/AdminPagesList";
+import PagesPage from "./pages/PagesPage";
+import Control from "./components/Control";
+// const router = createBrowserRouter([
+//   {
+//     path: "/home",
+//     element: (
+//       <ProtectedRoute>
+//         <Home />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+//   },
+//   {
+//     path: "/",
+//     element: <LandingPage />,
+
+//   },
+//   {
+//     path: "/admin/Institutions",
+//     element: <LandingPage />,
+//   },
+//   {
+//     path: "/about",
+//     element: <AboutPage />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
+//   {
+//     path: "/account",
+//     element: <Account />,
+//   },
+//   {
+//     path: "/admin/:pageId",
+//     element: <AdminPagesList />,
+//   },
+// ]);
 
 const router = createBrowserRouter([
   {
@@ -209,6 +256,10 @@ const router = createBrowserRouter([
   {
     path: "/account",
     element: <Account />,
+  },
+  {
+    path: "/admin/:pageId", // Ruta para las páginas administrativas
+    element: <Control />, // Control renderiza AdminPagesList y muestra contenido según el pageId
   },
 ]);
 
