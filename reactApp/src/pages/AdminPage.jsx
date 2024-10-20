@@ -28,7 +28,11 @@ import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage"; // Importar el pie de página
 import InstitutionForm from "../components/InstitutionForm";
 import InstitutionList from "../components/InstitutionList";
-
+import CourseList from "../components/CourseList";
+import EnrollmentForm from "../components/EnrollementForm";
+import AdminCourseList from "../components/AdminCourseList";
+import CampusForm from "../components/CampusForm";
+import CampusList from "../components/CampusList";
 const AdminPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false); // Estado para verificar si el usuario está autenticado
   // const submitLogout = useLogout(); // Usa la función del hook
@@ -104,6 +108,9 @@ const AdminPage = () => {
             <InstitutionForm />
             <InstitutionList />
             <CourseForm />
+            <AdminCourseList />
+            <CampusForm />
+            <CampusList />
             {/* <CourseList /> */}
             {/* Botón para cerrar sesión */}
             {/* <CourseList />{" "} */}
