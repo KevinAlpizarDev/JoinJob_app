@@ -158,6 +158,8 @@
 // };
 
 // export default App;
+
+
 import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -175,7 +177,99 @@ import Account from "./pages/Account";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import AdminPagesList from "./pages/AdminPagesList";
+import PagesPage from "./pages/PagesPage";
+import Control from "./components/Control";
+import CampusForm from "./components/CampusForm";
+// const router = createBrowserRouter([
+//   {
+//     path: "/home",
+//     element: (
+//       <ProtectedRoute>
+//         <Home />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+//   },
+//   {
+//     path: "/",
+//     element: <LandingPage />,
 
+//   },
+//   {
+//     path: "/admin/Institutions",
+//     element: <LandingPage />,
+//   },
+//   {
+//     path: "/about",
+//     element: <AboutPage />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
+//   {
+//     path: "/account",
+//     element: <Account />,
+//   },
+//   {
+//     path: "/admin/:pageId",
+//     element: <AdminPagesList />,
+//   },
+// ]);
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/home",
+//     element: (
+//       <ProtectedRoute>
+//         <Home />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+//   },
+//   {
+//     path: "/",
+//     element: <LandingPage />,
+//   },
+//   {
+//     path: "/about",
+//     element: <AboutPage />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
+//   {
+//     path: "/account",
+//     element: <Account />,
+//   },
+
+//   {
+//     path: "/admin/:pageId", // Ruta para las páginas administrativas
+//     element: (
+//       <ProtectedRoute>
+//         <Control />
+//       </ProtectedRoute>
+//     ),
+//   },
+// ]);
 const router = createBrowserRouter([
   {
     path: "/home",
@@ -195,6 +289,15 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/admin/:pageId", // Ruta para las páginas administrativas
+
+
+    element: (
+      
+    <Control/>
+    ),
+  },
+  {
     path: "/",
     element: <LandingPage />,
   },
@@ -210,6 +313,11 @@ const router = createBrowserRouter([
     path: "/account",
     element: <Account />,
   },
+
+  // {
+  //  path: "/admin/Institutions",
+  //   element: <CampusForm />,
+  // },
 ]);
 
 const App = () => {

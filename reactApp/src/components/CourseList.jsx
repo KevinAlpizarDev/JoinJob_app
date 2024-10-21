@@ -75,7 +75,7 @@
 // export default CourseList;
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../services/service";
-import Modal from "../components/Modal";
+import Modal from "./Modal";
 // import EnrollmentForm from "./EnrollementForm";
 // import FooterPage from "../components/FooterPage";
 

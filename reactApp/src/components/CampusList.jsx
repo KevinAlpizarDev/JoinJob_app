@@ -1,19 +1,3 @@
-on registration register
-netstat -ano | findstr :5173
-
-justadmin
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { getAllCampuses, updateCampusStatus } from "../services/service";
 
@@ -69,7 +53,9 @@ const CampusList = () => {
               <td>{campus.is_active ? "Sí" : "No"}</td>
               <td>
                 <button
-                  onClick={() => handleStatusToggle(campus.id, campus.is_active)}
+                  onClick={() =>
+                    handleStatusToggle(campus.id, campus.is_active)
+                  }
                 >
                   {campus.is_active ? "Desactivar" : "Activar"}
                 </button>

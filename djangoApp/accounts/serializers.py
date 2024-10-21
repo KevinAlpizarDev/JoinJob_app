@@ -22,7 +22,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "name",  # Añadir el campo name
             "email",
             "is_active",
-            "is_staff"
+            "is_staff",
         )
 
 
@@ -133,22 +133,49 @@ class UserLoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Incorrect Credentials!")
 
 
+# class InstitutionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Institution
+#         fields = "__all__"
+
+
 class InstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Institution
-        fields = "__all__"
+        fields = [
+            "id",
+            "name",
+            "type",
+            "phone_number",
+            "is_active",
+        ]  # Asegurarse de incluir 'is_active'
 
 
 class CampusSerializer(serializers.ModelSerializer):
-    institution = InstitutionSerializer(read_only=True)
-
     class Meta:
         model = Campus
-        fields = "__all__"
+        fields = "__all__"  # Esto incluirá todos los campos del modelo Campus
 
 
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus = CampusSerializer(read_only=True)
+
+#     class Meta:
+#         model = Course
+#         fields = "__all__"
+
+
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus = CampusSerializer()  # Permitir la creación de cursos con campus editable
+
+
+#     class Meta:
+#         model = Course
+#         fields = "__all__"
 class CourseSerializer(serializers.ModelSerializer):
-    campus = CampusSerializer(read_only=True)
+    campus = serializers.PrimaryKeyRelatedField(
+        queryset=Campus.objects.all()
+    )  # Usar ID del campus
 
     class Meta:
         model = Course

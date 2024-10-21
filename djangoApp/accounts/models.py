@@ -13,7 +13,7 @@ from django.db import models
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=255)  # Obligatorio
-    
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username", "name"]  # Ambos campos son obligatorios
 
@@ -21,10 +21,25 @@ class CustomUser(AbstractUser):
         return self.name
 
 
+# class Institution(models.Model):
+#     name = models.CharField(max_length=255)
+#     type = models.CharField(max_length=100)
+#     phone_number = models.CharField(max_length=15)
+#     is_active = models.BooleanField(default=True)
 
+
+#     def __str__(self):
+#         return self.name
 class Institution(models.Model):
+    TYPE_CHOICES = [
+        ("public", "Pública"),
+        ("private", "Privada"),
+    ]
+
     name = models.CharField(max_length=255)
-    type = models.CharField(max_length=100)
+    type = models.CharField(
+        max_length=10, choices=TYPE_CHOICES, default="public"
+    )  # Campo tipo con opciones
     phone_number = models.CharField(max_length=15)
     is_active = models.BooleanField(default=True)
 

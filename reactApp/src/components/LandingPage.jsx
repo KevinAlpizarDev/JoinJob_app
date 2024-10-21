@@ -88,7 +88,13 @@ export default function LandingPage() {
               <span class="text-[#0079BF]">Oportunidades</span> de Crecimiento
             </h1> */}
 
-            <h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white py-5">
+            {/* <h1 className="mx-auto max-w-2xl text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white py-5">
+              Impulsa tu Desarrollo con{" "}
+              <span className="text-[#0079BF]">Oportunidades</span> de
+              Crecimiento
+            </h1> */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold sm:font-extrabold leading-tight mb-2">
+              {/* Building a calendar component with Tailwind and date-fns */}
               Impulsa tu Desarrollo con{" "}
               <span className="text-[#0079BF]">Oportunidades</span> de
               Crecimiento
