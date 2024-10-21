@@ -27,8 +27,8 @@ dist-ssr
 # Ignorar archivos específicos
 AuthProvider.jsx
 ProtectedRoute.jsx
-Login.jsx
 /src/
+Login.jsx
 
 SignInPage.jsx
 
