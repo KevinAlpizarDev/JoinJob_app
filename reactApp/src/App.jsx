@@ -166,7 +166,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/main/NavBar";
 import AuthProvider from "./components/AuthProvider";
-import SignInPage from "./pages/SignInPage";
+// import SignInPage from "./pages/SignInPage";
 import FooterPage from "./components/FooterPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import AboutPage from "./pages/AboutPage";
