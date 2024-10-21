@@ -28,7 +28,8 @@ dist-ssr
 AuthProvider.jsx
 ProtectedRoute.jsx
 Login.jsx
-/src
+/src/
+
 SignInPage.jsx
 
 # Django #
