@@ -1,143 +1,80 @@
 import React, { useState, useEffect } from "react";
-import { addCourse } from "../services/service";
-import axios from "axios";
+import { getAllCourses } from "../services/service";
+import Modal from "../components/Modal";
+// import EnrollmentForm from "./EnrollementForm";
+// import FooterPage from "../components/FooterPage";
 
-const CourseForm = () => {
-  const [courseData, setCourseData] = useState({
-    name: "",
-    code: "",
-    description: "",
-    start_date: "",
-    end_date: "",
-    year: "",
-    seats: "",
-    campus: "", // Almacenará el ID del campus seleccionado
-    modality: "in-person",
-    is_active: true, // Mantén el campo is_active en el estado, pero no en el formulario
-  });
+const CourseList = () => {
+  const [courses, setCourses] = useState([]);
 
-  const [campuses, setCampuses] = useState([]); // Estado para almacenar los campus
-
-  // Obtener los campus desde la API
   useEffect(() => {
-    const fetchCampuses = async () => {
-      try {
-        const token = localStorage.getItem("accessToken");
-        const response = await axios.get(
-          "http://localhost:8000/api/campuses/",
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        setCampuses(response.data); // Establecer los datos de los campus
-      } catch (error) {
-        console.error("Error al obtener los campus:", error);
-      }
-    };
-
-    fetchCampuses();
+    async function loadCourses() {
+      const res = await getAllCourses();
+      setCourses(res.data);
+    }
+    loadCourses();
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target; // Remover la lógica del checkbox
-    setCourseData({
-      ...courseData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await addCourse(courseData); // Llamar a la función que hace el POST
-      alert("Curso agregado exitosamente");
-    } catch (error) {
-      console.error("Error al agregar el curso:", error);
-      alert("Hubo un error al agregar el curso");
-    }
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Nombre del curso"
-        value={courseData.name}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        name="code"
-        placeholder="Código del curso"
-        value={courseData.code}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="description"
-        placeholder="Descripción"
-        value={courseData.description}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="date"
-        name="start_date"
-        value={courseData.start_date}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="date"
-        name="end_date"
-        value={courseData.end_date}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="number"
-        name="year"
-        placeholder="Año"
-        value={courseData.year}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="number"
-        name="seats"
-        placeholder="Asientos disponibles"
-        value={courseData.seats}
-        onChange={handleChange}
-        required
-      />
-      <select
-        name="modality"
-        value={courseData.modality}
-        onChange={handleChange}
-      >
-        <option value="in-person">Presencial</option>
-        <option value="virtual">Virtual</option>
-      </select>
-      {/* Select para seleccionar el campus */}
-      <select
-        name="campus"
-        value={courseData.campus}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Selecciona un campus</option>
-        {campuses.map((campus) => (
-          <option key={campus.id} value={campus.id}>
-            {campus.name}
-          </option>
-        ))}
-      </select>
-      {/* Eliminar el checkbox para is_active */}
-      <button type="submit">Agregar Curso</button>
-    </form>
+    <>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-slate-700">
+        <div className="w-full max-w-5xl px-4 py-6">
+          <h1 className="text-3xl font-extrabold mb-4 text-blue-500 text-center">
+            JoinJob
+          </h1>
+          <div className="space-y-6">
+            {courses.map((course, index) => (
+              <div
+                key={course.id}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer w-full"
+              >
+                <div className="p-6">
+                  <div className="flex justify-between items-start">
+                    <h2 className="text-xl font-medium text-gray-900">
+                      {course.name}
+                    </h2>
+
+                    <div className="text-sm text-gray-500">
+                      <span className="block font-semibold text-gray-700">
+                        Código
+                      </span>
+                      {course.code}
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 my-2">
+                    {course.descripcion}
+                  </p>
+                  <div className="flex space-x-1 mb-3">
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                      {course.seats} Cupo
+                    </span>
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                      {course.description}
+                    </span>
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                      {course.modality}
+                    </span>
+                  </div>
+                </div>
+                <div className="border-t border-gray-200 p-6 flex justify-between items-center">
+                  <div className="flex items-center text-sm text-gray-500">
+                    <span>
+                      Desde: {course.start_date} - Hasta: {course.end_date}
+                    </span>
+                  </div>
+                  <div className="flex -space-x-2">
+                    <Modal courseId={index + 1} />
+                    {/* <EnrollmentForm courseId={index + 1} /> */}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* <FooterPage /> */}
+    </>
   );
 };
 
-export default CourseForm;
+export default CourseList;

@@ -158,6 +158,8 @@
 // };
 
 // export default App;
+
+
 import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -288,10 +290,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/:pageId", // Ruta para las páginas administrativas
+
+
     element: (
-      <ProtectedRoute>
-        <Control />
-      </ProtectedRoute>
+      
+    <Control/>
     ),
   },
   {
@@ -312,7 +315,7 @@ const router = createBrowserRouter([
   },
 
   // {
-  //   path: "/admin/Institutions",
+  //  path: "/admin/Institutions",
   //   element: <CampusForm />,
   // },
 ]);
