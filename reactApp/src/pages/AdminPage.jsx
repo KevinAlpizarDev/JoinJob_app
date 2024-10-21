@@ -157,7 +157,8 @@ import AdminCourseList from "../components/AdminCourseList";
 import CampusForm from "../components/CampusForm";
 import CampusList from "../components/CampusList";
 import Control from "../components/Control";
-import AdminPages from "../pages/AdminPages"
+import AdminPages from "../pages/AdminPages";
+
 const AdminPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false); // Estado para verificar si el usuario está autenticado
   // const submitLogout = useLogout(); // Usa la función del hook
@@ -225,13 +226,13 @@ const AdminPage = () => {
   return (
     <>
       <NavBar />
-      <div>
+      <div className="bg-yellow-400">
         {isLoggedIn ? ( // Verificar si el usuario está logueado
           <>
             <h2>Hi, admin {username} :)</h2>
             <button onClick={handleLogout}>Logout</button>
-            <Control/>
-         
+            
+            <Control />
           </>
         ) : (
           // Si el usuario no está logueado, redirigir a la página de cuenta

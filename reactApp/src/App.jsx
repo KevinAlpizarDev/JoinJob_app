@@ -178,6 +178,7 @@ import Register from "./pages/Register";
 import AdminPagesList from "./pages/AdminPagesList";
 import PagesPage from "./pages/PagesPage";
 import Control from "./components/Control";
+import CampusForm from "./components/CampusForm";
 // const router = createBrowserRouter([
 //   {
 //     path: "/home",
@@ -223,6 +224,50 @@ import Control from "./components/Control";
 //   },
 // ]);
 
+// const router = createBrowserRouter([
+//   {
+//     path: "/home",
+//     element: (
+//       <ProtectedRoute>
+//         <Home />
+//       </ProtectedRoute>
+//     ),
+//     errorElement: <NotFoundPage />,
+//   },
+//   {
+//     path: "/admin",
+//     element: (
+//       <ProtectedRoute>
+//         <AdminPage />
+//       </ProtectedRoute>
+//     ),
+//   },
+//   {
+//     path: "/",
+//     element: <LandingPage />,
+//   },
+//   {
+//     path: "/about",
+//     element: <AboutPage />,
+//   },
+//   {
+//     path: "/contact",
+//     element: <ContactUsPage />,
+//   },
+//   {
+//     path: "/account",
+//     element: <Account />,
+//   },
+
+//   {
+//     path: "/admin/:pageId", // Ruta para las páginas administrativas
+//     element: (
+//       <ProtectedRoute>
+//         <Control />
+//       </ProtectedRoute>
+//     ),
+//   },
+// ]);
 const router = createBrowserRouter([
   {
     path: "/home",
@@ -242,6 +287,14 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/admin/:pageId", // Ruta para las páginas administrativas
+    element: (
+      <ProtectedRoute>
+        <Control />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: "/",
     element: <LandingPage />,
   },
@@ -257,10 +310,11 @@ const router = createBrowserRouter([
     path: "/account",
     element: <Account />,
   },
-  {
-    path: "/admin/:pageId", // Ruta para las páginas administrativas
-    element: <Control />, // Control renderiza AdminPagesList y muestra contenido según el pageId
-  },
+
+  // {
+  //   path: "/admin/Institutions",
+  //   element: <CampusForm />,
+  // },
 ]);
 
 const App = () => {
