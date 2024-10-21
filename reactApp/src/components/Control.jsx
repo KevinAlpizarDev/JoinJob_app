@@ -14,6 +14,7 @@ import InstitutionForm from "./InstitutionForm";
 import InstitutionList from "./InstitutionList";
 import CourseForm from "../components/CourseForm";
 import AdminCourseList from "../components/AdminCourseList";
+import EnrollmentList from "../components/EnrollmentList"
 const Control = () => {
   const { pageId } = useParams(); // Captura el parámetro de la URL
 
@@ -71,6 +72,12 @@ const Control = () => {
             <AdminCourseList/>
           </div>
         ); // Reemplaza esto con el componente Courses si lo tienes
+        case "Enrollments":
+          return (
+            <div>
+         <EnrollmentList/>
+            </div>
+          ); // Reemplaza esto con el componente Courses si lo tienes
       default:
         return <div>Seleccione una página</div>; // Mensaje por defecto
     }

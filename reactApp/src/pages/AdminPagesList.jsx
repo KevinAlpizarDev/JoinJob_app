@@ -10,6 +10,7 @@ export default function AdminPagesList() {
     { id: "Institutions", label: "Institución" },
     { id: "Campus", label: "Campus" },
     { id: "Courses", label: "Cursos" },
+    { id: "Enrollments", label: "Matriculas" },
   ];
 
   // Estado para manejar la visibilidad del dropdown
