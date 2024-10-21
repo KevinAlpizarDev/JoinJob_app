@@ -29,6 +29,7 @@ AuthProvider.jsx
 ProtectedRoute.jsx
 /src/
 Login.jsx
+/src
 
 SignInPage.jsx
 
