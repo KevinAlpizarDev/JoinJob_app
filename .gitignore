@@ -29,7 +29,7 @@ AuthProvider.jsx
 ProtectedRoute.jsx
 Login.jsx
 
-
+SignInPage.jsx
 
 # Django #
 *.log
