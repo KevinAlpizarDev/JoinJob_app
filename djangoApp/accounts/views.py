@@ -88,7 +88,19 @@
 
 #     def perform_create(self, serializer):
 #         serializer.save(user=self.request.user)  # Asignar el usuario autenticado
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from .models import Course
+from .serializers import CourseSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 
+
+#
+import logging
 
 from rest_framework import status, viewsets
 from rest_framework.generics import GenericAPIView, RetrieveAPIView
@@ -107,6 +119,7 @@ from .serializers import (
     UserRegistrationSerializer,
 )
 
+logger = logging.getLogger(__name__)
 # Registro de usuario
 # class UserRegistrationAPIView(GenericAPIView):
 #     permission_classes = (AllowAny,)
@@ -498,25 +511,111 @@ class CampusViewSet(viewsets.ModelViewSet):
 
 
 # CRUD de Cursos
+# class CourseViewSet(viewsets.ModelViewSet):
+#     queryset = Course.objects.all()  # Obtiene todos los cursos
+#     serializer_class = CourseSerializer  # Serializador para cursos
+#     permission_classes = (IsAuthenticated,)
+
+#     def destroy(self, request, *args, **kwargs):
+#         # Similar a las vistas anteriores, se puede invalidar el token de refresco aquí también
+#         refresh_token = request.data.get("refresh")  # Obtiene el token de refresco
+#         if refresh_token:  # Verifica si se ha proporcionado un token de refresco
+#             try:
+#                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
+#                 token.blacklist()  # Invalidar el token
+#             except Exception:
+#                 return Response(
+#                     {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
+#                 )
+#         return super().destroy(
+#             request, *args, **kwargs
+#         )  # Llama al método original para eliminar el curso
+
+
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()  # Obtiene todos los cursos
-    serializer_class = CourseSerializer  # Serializador para cursos
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
     permission_classes = (IsAuthenticated,)
 
-    def destroy(self, request, *args, **kwargs):
-        # Similar a las vistas anteriores, se puede invalidar el token de refresco aquí también
-        refresh_token = request.data.get("refresh")  # Obtiene el token de refresco
-        if refresh_token:  # Verifica si se ha proporcionado un token de refresco
-            try:
-                token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
-                token.blacklist()  # Invalidar el token
-            except Exception:
-                return Response(
-                    {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
-                )
-        return super().destroy(
-            request, *args, **kwargs
-        )  # Llama al método original para eliminar el curso
+    def perform_create(self, serializer):
+        course = serializer.save()
+        self.send_update(course)
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        self.send_update(course)
+
+    def perform_destroy(self, instance):
+        self.send_update(instance)  # Envía la información antes de eliminar
+        instance.delete()
+
+    def send_update(self, course):
+        channel_layer = get_channel_layer()
+        message = {
+            "id": course.id,
+            "name": course.name,
+            "code": course.code,
+            "description": course.description,
+            "modality": course.modality,
+            "seats": course.seats,
+            "start_date": course.start_date,
+            "end_date": course.end_date,
+            "is_active": course.is_active,
+        }
+        async_to_sync(channel_layer.group_send)(
+            "realtime_updates",
+            {
+                "type": "course_update",
+                "message": message,
+            },
+        )
+
+
+# class CourseViewSet(viewsets.ModelViewSet):
+#     queryset = Course.objects.all()
+#     serializer_class = CourseSerializer
+#     permission_classes = (IsAuthenticated,)
+
+#     def create(self, request, *args, **kwargs):
+#         response = super().create(request, *args, **kwargs)
+
+#         # Envía un mensaje a través de WebSocket
+#         channel_layer = get_channel_layer()
+#         async_to_sync(channel_layer.group_send)(
+#             "realtime_updates",
+#             {
+#                 "type": "course_update",
+#                 "message": response.data,  # Envía los datos del curso creado
+#             },
+#         )
+
+#         return response
+
+#     def destroy(self, request, *args, **kwargs):
+#         # Similar a las vistas anteriores, se puede invalidar el token de refresco aquí también
+#         refresh_token = request.data.get("refresh")  # Obtiene el token de refresco
+#         if refresh_token:  # Verifica si se ha proporcionado un token de refresco
+#             try:
+#                 token = RefreshToken(refresh_token)  # Crea un objeto RefreshToken
+#                 token.blacklist()  # Invalidar el token
+#             except Exception:
+#                 return Response(
+#                     {"detail": "Invalid token."}, status=status.HTTP_400_BAD_REQUEST
+#                 )
+
+#         response = super().destroy(request, *args, **kwargs)
+
+#         # Envía un mensaje a través de WebSocket
+#         channel_layer = get_channel_layer()
+#         async_to_sync(channel_layer.group_send)(
+#             "realtime_updates",
+#             {
+#                 "type": "course_update",
+#                 "message": response.data,  # Envía los datos del curso eliminado
+#             },
+#         )
+
+#         return response
 
 
 # permission_classes = (IsAuthenticated,):
