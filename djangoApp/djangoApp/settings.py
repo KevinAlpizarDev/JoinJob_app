@@ -59,7 +59,11 @@ CORS_ALLOW_CREDENTIALS = True
 #     'django.contrib.staticfiles',
 
 # ]
+
+
 INSTALLED_APPS = [
+    "channels",
+    "channels_redis",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -103,6 +107,37 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "djangoApp.wsgi.application"
+
+ASGI_APPLICATION = "djangoApp.asgi.application"
+
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [(os.environ.get("CHANNELS_URLS", "redis://localhost:6379/0"))],
+#         },
+#     },
+# }
+
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [(os.environ.get("CHANNELS_URLS", "redis://localhost:6379/0"))],
+#         },
+#     },
+# }
+# settings.py
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],  # Cambia "localhost" si es necesario
+        },
+    },
+}
 
 
 # Database
