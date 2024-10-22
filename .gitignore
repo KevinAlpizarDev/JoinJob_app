@@ -29,6 +29,7 @@ AuthProvider.jsx
 ProtectedRoute.jsx
 src/
 Login.jsx
+accounts/views.py
 
 
 SignInPage.jsx
