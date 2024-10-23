@@ -133,8 +133,6 @@ class UserLoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Incorrect Credentials!")
 
 
-
-
 class InstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Institution
@@ -144,30 +142,17 @@ class InstitutionSerializer(serializers.ModelSerializer):
             "type",
             "phone_number",
             "is_active",
-        ]  # Asegurarse de incluir 'is_active'
+        ]
 
 
 class CampusSerializer(serializers.ModelSerializer):
+    institution = serializers.PrimaryKeyRelatedField(queryset=Institution.objects.all())
+
     class Meta:
         model = Campus
         fields = "__all__"  # Esto incluirá todos los campos del modelo Campus
 
 
-# class CourseSerializer(serializers.ModelSerializer):
-#     campus = CampusSerializer(read_only=True)
-
-#     class Meta:
-#         model = Course
-#         fields = "__all__"
-
-
-# class CourseSerializer(serializers.ModelSerializer):
-#     campus = CampusSerializer()  # Permitir la creación de cursos con campus editable
-
-
-#     class Meta:
-#         model = Course
-#         fields = "__all__"
 class CourseSerializer(serializers.ModelSerializer):
     campus = serializers.PrimaryKeyRelatedField(
         queryset=Campus.objects.all()
@@ -241,18 +226,87 @@ class CourseSerializer(serializers.ModelSerializer):
 #         return value
 
 
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Enrollment
+#         # fields = ["id_number", "phone_number", "age", "gender", "course"]
+#         fields = ["id_number", "phone_number", "age", "gender", "course"]
+
+#     def validate_age(self, value):
+#         if value < 0:
+#             raise serializers.ValidationError("La edad no puede ser negativa.")
+#         return value
+
+
+#     def validate_gender(self, value):
+#         if value not in ["male", "female"]:
+#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
+#         return value
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["name", "username"]
+
+
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = UserSerializer(read_only=True)
+
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course",
+#             "is_active",
+#             "user",
+#         ]
+
+#     def validate_age(self, value):
+#         if value < 0:
+#             raise serializers.ValidationError("La edad no puede ser negativa.")
+#         return value
+
+
+#     def validate_gender(self, value):
+#         if value not in ["male", "female"]:
+#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
+#         return value
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.StringRelatedField()  # Muestra el nombre del usuario relacionado
+#     course = serializers.StringRelatedField()  # Muestra el nombre del curso relacionado
+
+
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course",
+#             "is_active",
+#         ]
 class EnrollmentSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(
+        read_only=True
+    )  # Solo lectura, se asigna automáticamente en el servidor
+    course = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all()
+    )  # Acepta un ID de curso
+
     class Meta:
         model = Enrollment
-        # fields = ["id_number", "phone_number", "age", "gender", "course"]
-        fields = ["id_number", "phone_number", "age", "gender", "course"]
-
-    def validate_age(self, value):
-        if value < 0:
-            raise serializers.ValidationError("La edad no puede ser negativa.")
-        return value
-
-    def validate_gender(self, value):
-        if value not in ["male", "female"]:
-            raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
-        return value
+        fields = [
+            "id",
+            "user",
+            "id_number",
+            "phone_number",
+            "age",
+            "gender",
+            "course",
+            "is_active",
+        ]
