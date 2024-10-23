@@ -133,10 +133,6 @@ class UserLoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Incorrect Credentials!")
 
 
-# class InstitutionSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Institution
-#         fields = "__all__"
 
 
 class InstitutionSerializer(serializers.ModelSerializer):
