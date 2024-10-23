@@ -146,28 +146,13 @@ class InstitutionSerializer(serializers.ModelSerializer):
 
 
 class CampusSerializer(serializers.ModelSerializer):
-    institution = InstitutionSerializer()  # Incluir la institución como un subobjeto
+    institution = serializers.PrimaryKeyRelatedField(queryset=Institution.objects.all())
 
     class Meta:
         model = Campus
         fields = "__all__"  # Esto incluirá todos los campos del modelo Campus
 
 
-# class CourseSerializer(serializers.ModelSerializer):
-#     campus = CampusSerializer(read_only=True)
-
-#     class Meta:
-#         model = Course
-#         fields = "__all__"
-
-
-# class CourseSerializer(serializers.ModelSerializer):
-#     campus = CampusSerializer()  # Permitir la creación de cursos con campus editable
-
-
-#     class Meta:
-#         model = Course
-#         fields = "__all__"
 class CourseSerializer(serializers.ModelSerializer):
     campus = serializers.PrimaryKeyRelatedField(
         queryset=Campus.objects.all()
