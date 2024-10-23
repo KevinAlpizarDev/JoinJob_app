@@ -30,7 +30,8 @@ ProtectedRoute.jsx
 src/
 Login.jsx
 accounts/views.py
-
+views.py
+djangoApp/accounts/views.py
 
 SignInPage.jsx
 
