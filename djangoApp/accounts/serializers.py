@@ -133,8 +133,6 @@ class UserLoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Incorrect Credentials!")
 
 
-
-
 class InstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Institution
@@ -144,10 +142,12 @@ class InstitutionSerializer(serializers.ModelSerializer):
             "type",
             "phone_number",
             "is_active",
-        ]  # Asegurarse de incluir 'is_active'
+        ]
 
 
 class CampusSerializer(serializers.ModelSerializer):
+    institution = InstitutionSerializer()  # Incluir la institución como un subobjeto
+
     class Meta:
         model = Campus
         fields = "__all__"  # Esto incluirá todos los campos del modelo Campus
@@ -241,11 +241,42 @@ class CourseSerializer(serializers.ModelSerializer):
 #         return value
 
 
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Enrollment
+#         # fields = ["id_number", "phone_number", "age", "gender", "course"]
+#         fields = ["id_number", "phone_number", "age", "gender", "course"]
+
+#     def validate_age(self, value):
+#         if value < 0:
+#             raise serializers.ValidationError("La edad no puede ser negativa.")
+#         return value
+
+
+#     def validate_gender(self, value):
+#         if value not in ["male", "female"]:
+#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
+#         return value
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["name", "username"]
+
+
 class EnrollmentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
     class Meta:
         model = Enrollment
-        # fields = ["id_number", "phone_number", "age", "gender", "course"]
-        fields = ["id_number", "phone_number", "age", "gender", "course"]
+        fields = [
+            "id_number",
+            "phone_number",
+            "age",
+            "gender",
+            "course",
+            "is_active",
+            "user",
+        ]
 
     def validate_age(self, value):
         if value < 0:
