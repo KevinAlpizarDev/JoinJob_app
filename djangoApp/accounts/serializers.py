@@ -146,11 +146,15 @@ class InstitutionSerializer(serializers.ModelSerializer):
 
 
 class CampusSerializer(serializers.ModelSerializer):
-    institution = serializers.PrimaryKeyRelatedField(queryset=Institution.objects.all())
+    institution_name = serializers.SerializerMethodField()  # Campo adicional para el nombre de la institución
 
     class Meta:
         model = Campus
-        fields = "__all__"  # Esto incluirá todos los campos del modelo Campus
+        fields = "__all__"  # Incluir todos los campos del modelo Campus y el campo adicional
+
+    def get_institution_name(self, obj):
+        return obj.institution.name  # Acceder al nombre de la institución
+
 
 
 class CourseSerializer(serializers.ModelSerializer):
