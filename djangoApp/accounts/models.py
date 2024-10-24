@@ -30,6 +30,8 @@ class CustomUser(AbstractUser):
 
 #     def __str__(self):
 #         return self.name
+
+
 class Institution(models.Model):
     TYPE_CHOICES = [
         ("public", "Pública"),

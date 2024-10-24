@@ -146,106 +146,43 @@ class InstitutionSerializer(serializers.ModelSerializer):
 
 
 class CampusSerializer(serializers.ModelSerializer):
-    institution_name = serializers.SerializerMethodField()  # Campo adicional para el nombre de la institución
+    institution_name = (
+        serializers.SerializerMethodField()
+    )  # Campo adicional para el nombre de la institución
 
     class Meta:
         model = Campus
-        fields = "__all__"  # Incluir todos los campos del modelo Campus y el campo adicional
+        fields = (
+            "__all__"  # Incluir todos los campos del modelo Campus y el campo adicional
+        )
 
     def get_institution_name(self, obj):
         return obj.institution.name  # Acceder al nombre de la institución
 
 
-
 class CourseSerializer(serializers.ModelSerializer):
-    campus = serializers.PrimaryKeyRelatedField(
-        queryset=Campus.objects.all()
-    )  # Usar ID del campus
+    campus_name = serializers.CharField(
+        source="campus.name", read_only=True
+    )  # Campo para mostrar el nombre del campus
 
     class Meta:
         model = Course
-        fields = "__all__"
+        fields = [
+            "id",
+            "name",
+            "code",
+            "description",
+            "start_date",
+            "end_date",
+            "year",
+            "seats",
+            "modality",
+            "is_active",
+            "campus",
+            "campus_name",
+        ]
 
 
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = serializers.StringRelatedField(read_only=True)
-#     course = CourseSerializer(read_only=True)
-
-
-#     class Meta:
-#         model = Enrollment
-#         fields = '__all__'
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = serializers.StringRelatedField(read_only=True)
-#     course = CourseSerializer(read_only=True)
-
-#     class Meta:
-#         model = Enrollment
-#         fields = "__all__"
-#############################################################re
-
-
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = serializers.StringRelatedField(
-#         read_only=True
-#     )  # Mostrar el usuario como string, pero no modificarlo
-#     course_id = serializers.PrimaryKeyRelatedField(
-#         queryset=Course.objects.all(), source="course"
-#     )  # Para aceptar el ID del curso
-
-#     class Meta:
-#         model = Enrollment
-#         fields = [
-#             "id",
-#             "user",
-#             "id_number",
-#             "phone_number",
-#             "age",
-#             "gender",
-#             "course_id",
-#             "is_active",
-#         ]
-
-#     def create(self, validated_data):
-#         user = self.context["request"].user  # Tomar el usuario autenticado
-#         enrollment = Enrollment.objects.create(user=user, **validated_data)
-#         return enrollment
-
-
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Enrollment
-#         # fields = ["id_number", "phone_number", "age", "gender", "course"]
-#         fields = ["id_number", "phone_number", "age", "gender", "course"]
-
-#     def validate_age(self, value):
-#         if value < 0:
-#             raise serializers.ValidationError("La edad no puede ser negativa.")
-#         return value
-
-
-#     def validate_gender(self, value):
-#         if value not in ["male", "female"]:
-#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
-#         return value
-
-
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Enrollment
-#         # fields = ["id_number", "phone_number", "age", "gender", "course"]
-#         fields = ["id_number", "phone_number", "age", "gender", "course"]
-
-#     def validate_age(self, value):
-#         if value < 0:
-#             raise serializers.ValidationError("La edad no puede ser negativa.")
-#         return value
-
-
-#     def validate_gender(self, value):
-#         if value not in ["male", "female"]:
-#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
-#         return value
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -253,33 +190,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 # class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = UserSerializer(read_only=True)
-
-#     class Meta:
-#         model = Enrollment
-#         fields = [
-#             "id_number",
-#             "phone_number",
-#             "age",
-#             "gender",
-#             "course",
-#             "is_active",
-#             "user",
-#         ]
-
-#     def validate_age(self, value):
-#         if value < 0:
-#             raise serializers.ValidationError("La edad no puede ser negativa.")
-#         return value
-
-
-#     def validate_gender(self, value):
-#         if value not in ["male", "female"]:
-#             raise serializers.ValidationError("Género debe ser 'male' o 'female'.")
-#         return value
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = serializers.StringRelatedField()  # Muestra el nombre del usuario relacionado
-#     course = serializers.StringRelatedField()  # Muestra el nombre del curso relacionado
+#     user = serializers.PrimaryKeyRelatedField(
+#         read_only=True
+#     )  # Solo lectura, se asigna automáticamente en el servidor
+#     course = serializers.PrimaryKeyRelatedField(
+#         queryset=Course.objects.all()
+#     )  # Acepta un ID de curso
 
 
 #     class Meta:
@@ -295,22 +211,20 @@ class UserSerializer(serializers.ModelSerializer):
 #             "is_active",
 #         ]
 class EnrollmentSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=True
-    )  # Solo lectura, se asigna automáticamente en el servidor
-    course = serializers.PrimaryKeyRelatedField(
-        queryset=Course.objects.all()
-    )  # Acepta un ID de curso
+    user = UserSerializer(read_only=True)  # Anidar el serializador del usuario
+    course = serializers.CharField(
+        source="course.name", read_only=True
+    )  # Mostrar el nombre del curso
 
     class Meta:
         model = Enrollment
         fields = [
             "id",
-            "user",
+            "user",  # Aquí vendrá el nombre del usuario en lugar del ID
             "id_number",
             "phone_number",
             "age",
             "gender",
-            "course",
+            "course",  # Ya no solo será el ID del curso, sino su nombre
             "is_active",
         ]
