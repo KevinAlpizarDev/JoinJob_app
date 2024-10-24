@@ -189,42 +189,44 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["name", "username"]
 
 
-# class EnrollmentSerializer(serializers.ModelSerializer):
-#     user = serializers.PrimaryKeyRelatedField(
-#         read_only=True
-#     )  # Solo lectura, se asigna automáticamente en el servidor
-#     course = serializers.PrimaryKeyRelatedField(
-#         queryset=Course.objects.all()
-#     )  # Acepta un ID de curso
-
-
-#     class Meta:
-#         model = Enrollment
-#         fields = [
-#             "id",
-#             "user",
-#             "id_number",
-#             "phone_number",
-#             "age",
-#             "gender",
-#             "course",
-#             "is_active",
-#         ]
 class EnrollmentSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)  # Anidar el serializador del usuario
-    course = serializers.CharField(
-        source="course.name", read_only=True
-    )  # Mostrar el nombre del curso
+    user = serializers.PrimaryKeyRelatedField(
+        read_only=True
+    )  # Solo lectura, se asigna automáticamente en el servidor
+    course = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all()
+    )  # Acepta un ID de curso
+
 
     class Meta:
         model = Enrollment
         fields = [
             "id",
-            "user",  # Aquí vendrá el nombre del usuario en lugar del ID
+            "user",
             "id_number",
             "phone_number",
             "age",
             "gender",
-            "course",  # Ya no solo será el ID del curso, sino su nombre
+            "course",
             "is_active",
         ]
+
+
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = UserSerializer(read_only=True)  # Anidar el serializador del usuario
+#     course = serializers.CharField(
+#         source="course.name", read_only=True
+#     )  # Mostrar el nombre del curso
+
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",  # Aquí vendrá el nombre del usuario en lugar del ID
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course",  # Ya no solo será el ID del curso, sino su nombre
+#             "is_active",
+#         ]
