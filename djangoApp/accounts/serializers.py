@@ -4,15 +4,6 @@ from rest_framework import serializers
 from .models import Campus, Course, CustomUser, Enrollment, Institution
 
 
-# class CustomUserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = CustomUser
-#         fields = (
-#             "id",
-#             "username",
-#             "email",
-#             "is_active",
-#         )
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -26,67 +17,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
         )
 
 
-# class UserRegistrationSerializer(serializers.ModelSerializer):
-#     password1 = serializers.CharField(write_only=True)
-#     password2 = serializers.CharField(write_only=True)
-
-#     class Meta:
-#         model = CustomUser
-#         fields = ("id", "username", "email", "password1", "password2")
-#         extra_kwargs = {"password": {"write_only": True}}
-
-#     def validate(self, attrs):
-#         if attrs["password1"] != attrs["password2"]:
-#             raise serializers.ValidationError("Passwords do not match!")
-
-#         password = attrs.get("password1", "")
-#         if len(password) < 8:
-#             raise serializers.ValidationError(
-#                 "Passwords must be at least 8 characters!"
-#             )
-
-#         return attrs
-
-#     def create(self, validated_data):
-#         password = validated_data.pop("password1")
-#         validated_data.pop("password2")
-
-
-#         return CustomUser.objects.create_user(password=password, **validated_data)
-# class UserRegistrationSerializer(serializers.ModelSerializer):
-#     password1 = serializers.CharField(write_only=True)
-#     password2 = serializers.CharField(write_only=True)
-
-#     class Meta:
-#         model = CustomUser
-#         fields = (
-#             "id",
-#             "username",
-#             "name",
-#             "email",
-#             "password1",
-#             "password2",
-#         )
-#         extra_kwargs = {"password": {"write_only": True}}
-
-#     def validate(self, attrs):
-#         if attrs["password1"] != attrs["password2"]:
-#             raise serializers.ValidationError("Passwords do not match!")
-
-#         password = attrs.get("password1", "")
-#         if len(password) < 8:
-#             raise serializers.ValidationError(
-#                 "Passwords must be at least 8 characters!"
-#             )
-
-#         return attrs
-
-#     def create(self, validated_data):
-#         password = validated_data.pop("password1")
-#         validated_data.pop("password2")
-
-
-#         return CustomUser.objects.create_user(password=password, **validated_data)
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)
@@ -160,14 +90,34 @@ class CampusSerializer(serializers.ModelSerializer):
         return obj.institution.name  # Acceder al nombre de la institución
 
 
+# class CourseSerializer(serializers.ModelSerializer):
+#     campus_name = serializers.CharField(
+#         source="campus.name", read_only=True
+#     )  # Campo para mostrar el nombre del campus
+
+
+#     class Meta:
+#         model = Course
+#         fields = [
+#             "id",
+#             "name",
+#             "code",
+#             "description",
+#             "start_date",
+#             "end_date",
+#             "year",
+#             "seats",
+#             "modality",
+#             "is_active",
+#             "campus",
+#             "campus_name",
+#         ]
 class CourseSerializer(serializers.ModelSerializer):
-    campus_name = serializers.CharField(
-        source="campus.name", read_only=True
-    )  # Campo para mostrar el nombre del campus
+    campus_name = serializers.SerializerMethodField()  # Nuevo campo personalizado
 
     class Meta:
         model = Course
-        fields = [
+        fields = (
             "id",
             "name",
             "code",
@@ -176,11 +126,13 @@ class CourseSerializer(serializers.ModelSerializer):
             "end_date",
             "year",
             "seats",
-            "modality",
             "is_active",
-            "campus",
-            "campus_name",
-        ]
+            "modality",
+            "campus_name",  # Incluye el nombre del campus
+        )
+
+    def get_campus_name(self, obj):
+        return obj.campus.name  # Devuelve el nombre del campus
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -196,7 +148,6 @@ class EnrollmentSerializer(serializers.ModelSerializer):
     course = serializers.PrimaryKeyRelatedField(
         queryset=Course.objects.all()
     )  # Acepta un ID de curso
-
 
     class Meta:
         model = Enrollment
