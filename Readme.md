@@ -7,4 +7,4 @@ docker run --name redis-container -p 6379:6379 -d redis
 accounts/views.py
 git rm --cached accounts/views.
 end
-adore2
+adore
