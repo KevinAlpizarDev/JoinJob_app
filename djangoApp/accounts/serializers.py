@@ -86,6 +86,10 @@ class CampusSerializer(serializers.ModelSerializer):
             "__all__"  # Incluir todos los campos del modelo Campus y el campo adicional
         )
 
+    # class Meta:
+    #     model = Campus
+    #     fields = ['id', 'name', 'latitude', 'longitude']  # Añadir latitud y longitud aquí
+
     def get_institution_name(self, obj):
         return obj.institution.name  # Acceder al nombre de la institución
 
@@ -113,11 +117,17 @@ class CampusSerializer(serializers.ModelSerializer):
 #             "campus_name",
 #         ]
 class CourseSerializer(serializers.ModelSerializer):
-    campus_name = serializers.SerializerMethodField()  # Nuevo campo personalizado
+    campus_name = serializers.CharField(source="campus.name", read_only=True)
+    campus_latitude = serializers.FloatField(
+        source="campus.latitude", read_only=True
+    )  # Añade latitud
+    campus_longitude = serializers.FloatField(
+        source="campus.longitude", read_only=True
+    )  # Añade longitud
 
     class Meta:
         model = Course
-        fields = (
+        fields = [
             "id",
             "name",
             "code",
@@ -126,13 +136,13 @@ class CourseSerializer(serializers.ModelSerializer):
             "end_date",
             "year",
             "seats",
-            "is_active",
             "modality",
-            "campus_name",  # Incluye el nombre del campus
-        )
-
-    def get_campus_name(self, obj):
-        return obj.campus.name  # Devuelve el nombre del campus
+            "is_active",
+            "campus",
+            "campus_name",
+            "campus_latitude",  # Incluye latitud en los campos del curso
+            "campus_longitude",  # Incluye longitud en los campos del curso
+        ]
 
 
 class UserSerializer(serializers.ModelSerializer):

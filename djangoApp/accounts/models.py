@@ -188,6 +188,32 @@ class Course(models.Model):
         return f"{self.name} - {self.code}"
 
 
+# class Enrollment(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     id_number = models.CharField(max_length=20)
+#     phone_number = models.CharField(max_length=15)
+#     age = models.IntegerField()
+#     gender = models.CharField(
+#         max_length=10, choices=[("male", "Male"), ("female", "Female")]
+#     )
+#     course = models.ForeignKey(
+#         Course, on_delete=models.CASCADE, related_name="enrollments"
+#     )
+#     enrollment_date = models.DateTimeField(
+#         auto_now_add=True
+#     )  # Nueva columna de fecha de matriculación
+#     is_active = models.BooleanField(default=True)
+
+#     class Meta:
+#         unique_together = (
+#             "user",
+#             "course",
+#         )  # Restringe una sola matrícula por usuario en cada curso
+
+#     def __str__(self):
+#         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
+
+
 class Enrollment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     id_number = models.CharField(max_length=20)
@@ -205,10 +231,8 @@ class Enrollment(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        unique_together = (
-            "user",
-            "course",
-        )  # Restringe una sola matrícula por usuario en cada curso
+        # Elimina la restricción de única matrícula por usuario en cada curso
+        pass
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"

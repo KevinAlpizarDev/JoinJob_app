@@ -6,7 +6,9 @@ docker run --name redis-container -p 6379:6379 -d redis
 
 accounts/views.py
 git rm --cached accounts/views.
-map
+maps
 
 
 
+
+9.984616881430895, -84.72906796205685
