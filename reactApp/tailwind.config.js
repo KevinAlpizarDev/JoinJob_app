@@ -4,7 +4,7 @@
 //   darkMode: "class",
 //   theme: {
 //     extend: {
-      
+
 //       fontFamily: {
 //         poppins: ["Poppins", "sans-serif"],
 //       },
@@ -38,25 +38,39 @@ export default {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
-        'amarillo-mostaza': {
-          DEFAULT: '#FFD700',   // Color principal
-          dark: '#FFD700',      // Versión más oscura
-          light: '#D6E2F1',     // Versión más clara
+        "amarillo-mostaza": {
+          DEFAULT: "#FFD700", // Color principal
+          dark: "#FFD700", // Versión más oscura
+          light: "#D6E2F1", // Versión más clara
         },
-        'gris-oscuro': {
-          DEFAULT: '#333333',   // Color principal
-          dark: '#FFD700',      // Versión más oscura
-          light: '#D6E2F1',     // Versión más clara
+        "gris-oscuro": {
+          DEFAULT: "#333333", // Color principal
+          dark: "#FFD700", // Versión más oscura
+          light: "#D6E2F1", // Versión más clara
         },
-        'dark-gray': {
-          DEFAULT: '#1a1a1a', // Cambia este valor al código hexadecimal de tu color personalizado
-          dark: '#1a1a1a', // Cambia este valor al código hexadecimal de tu color personalizado
-          light: '#1a1a1a', // Cambia este valor al código hexadecimal de tu color personalizado
+        "dark-gray": {
+          DEFAULT: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+          dark: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+          light: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
         },
+        "light-blue": {
+          // DEFAULT: '#E0F7FA', // Cambia este valor al código hexadecimal de tu color personalizado
+          // DEFAULT: #98FF98, // Cambia este valor al código hexadecimal de tu color personalizado
+          //  DEFAULT: '#B2E1D9', // Cambia este valor al código hexadecimal de tu color personalizado
+          DEFAULT: "#E0F7FA", // Cambia este valor al código hexadecimal de tu color personalizado
 
+          dark: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+          light: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+        },
+        footer: {
+          // DEFAULT: '#E0F7FA', // Cambia este valor al código hexadecimal de tu color personalizado
+          // DEFAULT: #98FF98, // Cambia este valor al código hexadecimal de tu color personalizado
+          //  DEFAULT: '#B2E1D9', // Cambia este valor al código hexadecimal de tu color personalizado
+          DEFAULT: "#424242", // Cambia este valor al código hexadecimal de tu color personalizado
 
-
-
+          dark: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+          light: "#1a1a1a", // Cambia este valor al código hexadecimal de tu color personalizado
+        },
       },
       keyframes: {
         "move-down": {

@@ -33,7 +33,7 @@ export default function SignInPage() {
   return (
     <>
       <Position />
-      <div className="min-w-fi h-screen bg-gray-50 flex items-center justify-center p-4 dark:bg-[#3b3627] py-8">
+      <div className="min-w-fi h-screen bg-light-blue flex items-center justify-center p-4 dark:bg-[#3b3627] py-8">
         <div className="bg-white rounded-3xl max-w-md w-full mb-12 shadow-lg">
           <div className="p-6">
             <button

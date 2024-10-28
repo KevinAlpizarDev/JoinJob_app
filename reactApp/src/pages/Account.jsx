@@ -4,7 +4,7 @@ import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
 const Account = () => {
   return (
-    <div>
+    <div className="bg-black">
       <NavBar />
       <SignInPage />
       <FooterPage />

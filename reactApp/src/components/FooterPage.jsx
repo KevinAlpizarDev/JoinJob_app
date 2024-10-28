@@ -22,7 +22,7 @@ export default function FooterPage() {
 
 
   return (
-    <footer className=" bg-gray-200 dark:bg-gray-900 py-4 px-6 sm:px-8 lg:px-10 shadow-md">
+    <footer className=" bg-footer dark:bg-gray-900 py-4 px-6 sm:px-8 lg:px-10 shadow-md">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <div className="text-center sm:text-left">
