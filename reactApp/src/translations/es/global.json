@@ -1,0 +1,40 @@
+{
+  "publicAccess": {
+    "navbar": {
+      "aboutUs": "Acerca de nosotros",
+      "contactUs": "Contáctanos",
+      "logout": "Cerrar sesión"
+    },
+    "landingPage": {
+      "header": "Impulsa tu desarrollo",
+      "description": "hola",
+      "continue": "Continuar"
+    },
+    "account": {
+      "login": {
+        "switch": "Cambiar a Registro",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "password": "Contraseña",
+        "passwordlaceholder": "********",
+        "loginButton": "Acceso"
+      },
+      "register": {
+        "switch": "Cambiar a login",
+        "personalInformation": "Paso 1: Información Personal",
+        "name": "Nombre personal",
+        "namePlaceholder": "ej: Paola",
+        "userName": "Nombre de usuario",
+        "userNamePlaceholder": "Pelusa54",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "registerButton": "Continuar"
+      }
+    },
+    "footer": {
+      "stayCurious": "Mantén la curiosidad",
+      "description": "Descubre algo nuevo cada día.",
+       "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados."
+    }
+  }
+}
