@@ -74,3 +74,6 @@ export default function FooterPage() {
     </footer>
   );
 }
+
+
+
