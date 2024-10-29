@@ -151,26 +151,26 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["name", "username"]
 
 
-class EnrollmentSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=True
-    )  # Solo lectura, se asigna automáticamente en el servidor
-    course = serializers.PrimaryKeyRelatedField(
-        queryset=Course.objects.all()
-    )  # Acepta un ID de curso
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.PrimaryKeyRelatedField(
+#         read_only=True
+#     )  # Solo lectura, se asigna automáticamente en el servidor
+#     course = serializers.PrimaryKeyRelatedField(
+#         queryset=Course.objects.all()
+#     )  # Acepta un ID de curso
 
-    class Meta:
-        model = Enrollment
-        fields = [
-            "id",
-            "user",
-            "id_number",
-            "phone_number",
-            "age",
-            "gender",
-            "course",
-            "is_active",
-        ]
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course",
+#             "is_active",
+#         ]
 
 
 # class EnrollmentSerializer(serializers.ModelSerializer):
@@ -191,3 +191,25 @@ class EnrollmentSerializer(serializers.ModelSerializer):
 #             "course",  # Ya no solo será el ID del curso, sino su nombre
 #             "is_active",
 #         ]
+
+
+class EnrollmentSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(
+        read_only=True
+    )  # Solo lectura, se asigna automáticamente en el servidor
+    course = serializers.PrimaryKeyRelatedField(
+        queryset=Course.objects.all()
+    )  # Acepta un ID de curso
+
+    class Meta:
+        model = Enrollment
+        fields = [
+            "id",
+            "user",
+            "id_number",
+            "phone_number",
+            "age",
+            "gender",
+            "course",
+            "is_active",
+        ]

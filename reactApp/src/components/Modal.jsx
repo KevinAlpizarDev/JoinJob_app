@@ -52,7 +52,7 @@ const Modal = ({ courseId }) => {
       confetti({
         particleCount: 100,
         spread: 70,
-        origin: { y: 0.4 },
+        origin: { y: 0.3 },
       });
     } catch (error) {
       setError("Hubo un error al enviar el formulario. Intenta de nuevo.");

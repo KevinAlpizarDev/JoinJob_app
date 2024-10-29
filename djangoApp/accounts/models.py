@@ -107,7 +107,7 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.core.validators import RegexValidator
+# from django.core.validators import RegexValidator
 
 
 class CustomUser(AbstractUser):
@@ -215,69 +215,69 @@ class Course(models.Model):
 #         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
 
 
-# class Enrollment(models.Model):
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-#     id_number = models.CharField(max_length=20)
-#     phone_number = models.CharField(max_length=15)
-#     age = models.IntegerField()
-#     gender = models.CharField(
-#         max_length=10, choices=[("male", "Male"), ("female", "Female")]
-#     )
-#     course = models.ForeignKey(
-#         Course, on_delete=models.CASCADE, related_name="enrollments"
-#     )
-#     enrollment_date = models.DateTimeField(
-#         auto_now_add=True
-#     )  # Nueva columna de fecha de matriculación
-#     is_active = models.BooleanField(default=True)
-
-#     class Meta:
-#         # Elimina la restricción de única matrícula por usuario en cada curso
-#         pass
-
-#     def __str__(self):
-#         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
-
 class Enrollment(models.Model):
-    # Relación con el usuario autenticado
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-    # Validación de id_number usando RegexValidator para formatos como "000-0000000-0"
-    id_number = models.CharField(
-        max_length=20,
-        validators=[
-            RegexValidator(
-                regex=r"^\d{3}-\d{7}-\d{1}$",  # Formato: 3 dígitos - 7 dígitos - 1 dígito
-                message="El ID debe seguir el formato '000-0000000-0'."
-            )
-        ],
-        help_text="Número de cédula en formato 000-0000000-0"  # Ayuda en el formulario para el usuario
-    )
-
-    # Campo de número de teléfono
+    id_number = models.CharField(max_length=20)
     phone_number = models.CharField(max_length=15)
-
-    # Campo de edad
     age = models.IntegerField()
-
-    # Campo de género con opciones predefinidas
     gender = models.CharField(
-        max_length=10,
-        choices=[("male", "Masculino"), ("female", "Femenino")]
+        max_length=10, choices=[("male", "Male"), ("female", "Female")]
     )
-
-    # Campos relacionados con el curso y otros detalles
     course = models.ForeignKey(
-        'Course', on_delete=models.CASCADE, related_name="enrollments"
+        Course, on_delete=models.CASCADE, related_name="enrollments"
     )
-    enrollment_date = models.DateTimeField(auto_now_add=True)  # Fecha de matriculación automática
-    is_active = models.BooleanField(default=True)  # Estado de inscripción
+    enrollment_date = models.DateTimeField(
+        auto_now_add=True
+    )  # Nueva columna de fecha de matriculación
+    is_active = models.BooleanField(default=True)
 
     class Meta:
-        # Opciones de configuración del modelo
-        verbose_name = "Enrollment"
-        verbose_name_plural = "Enrollments"
+        # Elimina la restricción de única matrícula por usuario en cada curso
+        pass
 
-    # Representación en texto del objeto
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
+
+# class Enrollment(models.Model):
+#     # Relación con el usuario autenticado
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+#     # Validación de id_number usando RegexValidator para formatos como "000-0000000-0"
+#     id_number = models.CharField(
+#         max_length=20,
+#         validators=[
+#             RegexValidator(
+#                 regex=r"^\d{3}-\d{7}-\d{1}$",  # Formato: 3 dígitos - 7 dígitos - 1 dígito
+#                 message="El ID debe seguir el formato '000-0000000-0'."
+#             )
+#         ],
+#         help_text="Número de cédula en formato 000-0000000-0"  # Ayuda en el formulario para el usuario
+#     )
+
+#     # Campo de número de teléfono
+#     phone_number = models.CharField(max_length=15)
+
+#     # Campo de edad
+#     age = models.IntegerField()
+
+#     # Campo de género con opciones predefinidas
+#     gender = models.CharField(
+#         max_length=10,
+#         choices=[("male", "Masculino"), ("female", "Femenino")]
+#     )
+
+#     # Campos relacionados con el curso y otros detalles
+#     course = models.ForeignKey(
+#         'Course', on_delete=models.CASCADE, related_name="enrollments"
+#     )
+#     enrollment_date = models.DateTimeField(auto_now_add=True)  # Fecha de matriculación automática
+#     is_active = models.BooleanField(default=True)  # Estado de inscripción
+
+#     class Meta:
+#         # Opciones de configuración del modelo
+#         verbose_name = "Enrollment"
+#         verbose_name_plural = "Enrollments"
+
+#     # Representación en texto del objeto
+#     def __str__(self):
+#         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
