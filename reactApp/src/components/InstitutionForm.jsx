@@ -73,6 +73,8 @@
 // };
 
 // export default InstitutionForm;
+
+
 import React, { useState } from "react";
 import { addInstitution } from "../services/service";
 

@@ -37,7 +37,7 @@ const EnrollmentForm = () => {
     try {
       await createEnrollment(enrollmentData);
       alert("Inscripción creada exitosamente");
-      // Opcional: Reiniciar formulario
+      // Reiniciar formulario
       setEnrollmentData({
         id_number: "",
         phone_number: "",
@@ -52,58 +52,109 @@ const EnrollmentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="id_number"
-        placeholder="Número de Identificación"
-        value={enrollmentData.id_number}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        name="phone_number"
-        placeholder="Teléfono"
-        value={enrollmentData.phone_number}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="number"
-        name="age"
-        placeholder="Edad"
-        value={enrollmentData.age}
-        onChange={handleChange}
-        required
-      />
-      <select
-        name="gender"
-        value={enrollmentData.gender}
-        onChange={handleChange}
-      >
-        <option value="male">Masculino</option>
-        <option value="female">Femenino</option>
-      </select>
-      <select
-        name="course"
-        value={enrollmentData.course}
-        onChange={handleChange}
-        required
-      >
-        <option value="" disabled>
-          Selecciona un curso
-        </option>
-        {courses.map((course) => (
-          <option key={course.id} value={course.id}>
-            {course.name}
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
+    >
+      <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
+        Crear Inscripción
+      </h2>
+
+      <div>
+        <label htmlFor="id_number" className="block text-sm font-medium text-gray-700">
+          Número de Identificación
+        </label>
+        <input
+          type="text"
+          id="id_number"
+          name="id_number"
+          placeholder="Número de Identificación"
+          value={enrollmentData.id_number}
+          onChange={handleChange}
+          required
+          className="mt-1 p-2 w-full border rounded-md"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700">
+          Teléfono
+        </label>
+        <input
+          type="text"
+          id="phone_number"
+          name="phone_number"
+          placeholder="Teléfono"
+          value={enrollmentData.phone_number}
+          onChange={handleChange}
+          required
+          className="mt-1 p-2 w-full border rounded-md"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="age" className="block text-sm font-medium text-gray-700">
+          Edad
+        </label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Edad"
+          value={enrollmentData.age}
+          onChange={handleChange}
+          required
+          className="mt-1 p-2 w-full border rounded-md"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
+          Género
+        </label>
+        <select
+          id="gender"
+          name="gender"
+          value={enrollmentData.gender}
+          onChange={handleChange}
+          className="mt-1 p-2 w-full border rounded-md"
+        >
+          <option value="male">Masculino</option>
+          <option value="female">Femenino</option>
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="course" className="block text-sm font-medium text-gray-700">
+          Curso
+        </label>
+        <select
+          id="course"
+          name="course"
+          value={enrollmentData.course}
+          onChange={handleChange}
+          required
+          className="mt-1 p-2 w-full border rounded-md"
+        >
+          <option value="" disabled>
+            Selecciona un curso
           </option>
-        ))}
-      </select>
-      <button type="submit">Crear Inscripción</button>
+          {courses.map((course) => (
+            <option key={course.id} value={course.id}>
+              {course.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <button
+        type="submit"
+        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+      >
+        Crear Inscripción
+      </button>
     </form>
   );
 };
 
 export default EnrollmentForm;
-

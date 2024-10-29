@@ -189,33 +189,45 @@ const Control = () => {
       case "Campus":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 p-6 rounded-lg bg-purple-100 shadow-md">
+            {/* <div className="w-1/2 p-6 rounded-lg bg-purple-100 shadow-md">
               <CampusForm />
+            </div> */}
+            <div className="w-1/2 rounded-lg bg-blue-100 shadow-md">
+            <CampusForm />
             </div>
-            <div className="w-1/2 p-6 rounded-lg bg-pink-100 shadow-md">
+            {/* <div className="w-1/2 p-6 rounded-lg bg-pink-100 shadow-md">
               <CampusList />
+            </div> */}
+            <div className="w-1/2 overflow-auto rounded-lg bg-blue-100 shadow-md">
+            <CampusList />
             </div>
           </div>
         );
       case "Courses":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 p-6 rounded-lg bg-teal-100 shadow-md">
+            {/* <div className="w-1/2 p-6 rounded-lg bg-teal-100 shadow-md">
               <CourseForm />
+            </div> */}
+            <div className="w-1/2 rounded-lg bg-blue-100 shadow-md">
+            <CourseForm />
             </div>
-            <div className="w-1/2 p-6 rounded-lg bg-yellow-100 shadow-md">
-              <AdminCourseList />
+          
+            <div className="w-1/2 overflow-auto rounded-lg bg-blue-100 shadow-md">
+            <AdminCourseList />
             </div>
           </div>
         );
       case "Enrollments":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 p-6 rounded-lg bg-indigo-100 shadow-md">
-              <EnrollmentForm />
+      
+            <div className="w-1/2 rounded-lg bg-blue-100 shadow-md">
+            <EnrollmentForm />
             </div>
-            <div className="w-1/2 p-6 rounded-lg bg-rose-100 shadow-md">
-              <EnrollmentList />
+      
+            <div className="w-1/2 overflow-auto rounded-lg bg-blue-100 shadow-md">
+            <EnrollmentList />
             </div>
           </div>
         );
