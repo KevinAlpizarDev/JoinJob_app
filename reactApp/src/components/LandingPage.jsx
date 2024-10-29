@@ -14,10 +14,10 @@ export default function LandingPage() {
       <NavBar />
       <main className="flex-1 ">
         <section className="w-full h-screen py-12 md:py-24 lg:py-22 xl:py-30">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="container px-3 md:px-2">
+            <div className="flex flex-col  space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 {t("publicAccess.landingPage.header")}
 
                 </h1>
