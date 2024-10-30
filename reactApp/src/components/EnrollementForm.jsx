@@ -1,6 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { createEnrollment, getAllCourses } from "../services/service";
 
+
+
+
+
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
+
+
+
+
+
+
+
 const EnrollmentForm = () => {
   const [enrollmentData, setEnrollmentData] = useState({
     id_number: "",
@@ -13,6 +27,9 @@ const EnrollmentForm = () => {
 
   const [courses, setCourses] = useState([]);
 
+  const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
+
+  
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -57,7 +74,9 @@ const EnrollmentForm = () => {
       className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
-        Crear Inscripción
+      {      t("adminAccess.control.registerEnrollmentsy") }
+  
+  
       </h2>
 
       <div>

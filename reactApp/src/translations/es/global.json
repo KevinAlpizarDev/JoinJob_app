@@ -39,7 +39,7 @@
   },
   "userAccess": {
     "welcome": {
-        "header": "Bienvenido, a JoinJob"
+      "header": "Bienvenido, a JoinJob"
     },
     "availableCourses": {
       "available": "Cursos disponibles",
@@ -55,15 +55,31 @@
   "adminAccess": {
     "control": {
       "header": "Administración",
-      "dropDown": "Paginas Administrativas",
+      "dropDown": "Paginas administrativas",
       "noPages": "Seleccione una página",
-      "logout": "Cerrar sesión"
+      "institution": "Instituciónes",
+      "campus": "Sedes",
+      "courses": "Cursos",
+      "enrollments": "Matrículas",
+      "registerInstitutions": "Registra instituciones",
+         "registerCampuses": "Registra Sedes",
+   
+         "registerCourses": "Registra cursos",
+       "registerEnrollments": "Register matrículas"
     },
     "dashboard": {
       "header": "Bienvenido al Panel de administración",
       "overview": "Visión general",
       "stats": "Estadísticas",
       "manageCourses": "Gestionar cursos"
+    },
+    "theme":{
+      "on": "Claro",
+      "off": "Oscuro"
+    }, 
+    "language":{
+      "es": "Español",
+      "en": "Inglés"
     },
     "users": {
       "header": "Gestión de usuarios",

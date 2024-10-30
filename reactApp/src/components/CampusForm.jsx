@@ -478,6 +478,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { addCampus } from "../services/service";
 
+
+
+import { useTranslation } from "react-i18next";
+
+
 const CampusForm = () => {
   const [campusData, setCampusData] = useState({
     name: "",
@@ -492,6 +497,8 @@ const CampusForm = () => {
   });
 
   const [institutions, setInstitutions] = useState([]);
+  const { t } = useTranslation("global");
+
 
   useEffect(() => {
     const fetchInstitutions = async () => {
@@ -538,8 +545,9 @@ const CampusForm = () => {
       onSubmit={handleSubmit}
       className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
+      
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
-        Agregar Campus
+      {      t("adminAccess.control.registerCampuses") }
       </h2>
 
       <div>

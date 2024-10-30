@@ -61,7 +61,7 @@ const Modal = ({ courseId }) => {
   };
 
   return (
-    <div className="flex justify-center p-6 mt-6">
+    <div className="flex justify-center p-6 mt-6 ">
       <button
         onClick={openModal}
         className="animate-bounce  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-extra-rounded shadow-sm text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
@@ -72,7 +72,7 @@ const Modal = ({ courseId }) => {
       {/* Modal */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 transition-all duration-300 transform scale-100">
+          <div className="bg-white rounded-extra-rounded shadow-lg max-w-md w-full p-6 transition-all duration-300 transform scale-100">
             <h2 className="text-lg font-semibold mb-4">
               Formulario de Inscripción
             </h2>
@@ -87,7 +87,7 @@ const Modal = ({ courseId }) => {
                   name="id_number"
                   value={formData.id_number}
                   onChange={handleChange}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-complete shadow-sm focus:ring-teal-500 focus:border-teal-500"
                   placeholder="Ingresa tu DNI"
                   required
                 />
@@ -102,7 +102,7 @@ const Modal = ({ courseId }) => {
                   name="phone_number"
                   value={formData.phone_number}
                   onChange={handleChange}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-complete  shadow-sm focus:ring-teal-500 focus:border-teal-500"
                   placeholder="Ingresa tu número de teléfono"
                   required
                 />
@@ -117,7 +117,7 @@ const Modal = ({ courseId }) => {
                   name="age"
                   value={formData.age}
                   onChange={handleChange}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-complete  shadow-sm focus:ring-teal-500 focus:border-teal-500"
                   placeholder="Ingresa tu edad"
                   required
                 />
@@ -131,7 +131,7 @@ const Modal = ({ courseId }) => {
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-complete  shadow-sm focus:ring-teal-500 focus:border-teal-500"
                 >
                   <option value="male">Masculino</option>
                   <option value="female">Femenino</option>
@@ -144,13 +144,13 @@ const Modal = ({ courseId }) => {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="px-4 py-2 text-sm font-medium text-white bg-teal-700 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+                  className="px-4 py-2 text-sm font-medium text-white bg-teal-700 rounded-standard hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
                 >
                   Cerrar
                 </button>
                 <button
                   type="submit"
-                  className="ml-2 px-4 py-2 text-sm font-medium text-white bg-teal-700 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+                  className="ml-2 px-4 py-2 text-sm font-medium text-white bg-teal-700  rounded-standard hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
                 >
                   Enviar
                 </button>

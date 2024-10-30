@@ -45,7 +45,7 @@ const CourseList = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-slate-700">
       <div className="w-full max-w-3xl px-4 py-6">
-        <h1 className="text-3xl font-extrabold mb-4 text-blue-500 text-center">
+        <h1 className="text-3xl font-extrabold mb-4 text-blue-600 text-center">
         {t("userAccess.availableCourses.available")}
         </h1>
         <div className="space-y-6 ">

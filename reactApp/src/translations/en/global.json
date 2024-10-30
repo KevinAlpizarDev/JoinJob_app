@@ -53,16 +53,19 @@
     }
   },
 
-
-
-
-
   "adminAccess": {
     "control": {
       "header": "Adminitration",
-      "dropDown": "Administration Pages",
+      "dropDown": "Administration pages",
       "noPages": "Select a page",
-      "logout": "Logout"
+      "institution": "Institution",
+      "campus": "Campuses",
+      "courses": "Courses",
+      "enrollments": "Enrollments",
+      "registerInstitutions": "Register institutions",
+      "registerCampuses": "Register campuses",
+      "registerCourses": "Register Courses",
+      "registerEnrollments": "Register Enrollments"
     },
     "dashboard": {
       "header": "Welcome to the Admin Dashboard",
@@ -70,6 +73,15 @@
       "stats": "Statistics",
       "manageCourses": "Manage Courses"
     },
+    "theme": {
+      "on": "Light",
+      "off": "Dark"
+    }, 
+    "language":{
+      "es": "Español",
+      "en": "Inglés"
+    },
+
     "users": {
       "header": "User Management",
       "addUser": "Add User",

@@ -153,12 +153,12 @@
 
 
 
-
-
-
 import React, { useState, useEffect } from "react";
 import { addCourse } from "../services/service";
 import axios from "axios";
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
 
 const CourseForm = () => {
   const [courseData, setCourseData] = useState({
@@ -175,6 +175,7 @@ const CourseForm = () => {
 
   const [campuses, setCampuses] = useState([]); // Estado para almacenar los campus
 
+  const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
   // Obtener los campus desde la API
   useEffect(() => {
     const fetchCampuses = async () => {
@@ -231,7 +232,8 @@ const CourseForm = () => {
       className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
-        Agregar Curso
+      {      t("adminAccess.control.registerCourses") }
+
       </h2>
 
       <div>

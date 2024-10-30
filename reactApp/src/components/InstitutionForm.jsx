@@ -78,6 +78,14 @@
 import React, { useState } from "react";
 import { addInstitution } from "../services/service";
 
+
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
+
+
+
+
 const InstitutionForm = () => {
   const [institutionData, setInstitutionData] = useState({
     name: "",
@@ -92,6 +100,10 @@ const InstitutionForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -116,7 +128,7 @@ const InstitutionForm = () => {
       className="flex  flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-400 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
-        Agregar Institución
+{      t("adminAccess.control.registerInstitutions") }
       </h2>
 
       <div>
