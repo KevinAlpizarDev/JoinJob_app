@@ -80,10 +80,23 @@ import CourseList from "../components/CourseList";
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
 
+
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
+
+
+
+
+
+
+
 export default function Home() {
   const [username, setUsername] = useState("");
   const [isLoggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
+
 
   useEffect(() => {
     const verifyUser = async () => {
@@ -118,9 +131,9 @@ export default function Home() {
       <div>
         {isLoggedIn ? (
           <>
-     <h2 className="bg-gray-100 text-3xl p-8 font-semibold text-gray-800 tracking-wide">
-  Welcome, to  <span className="text-3xl font-extrabold mb-4  text-center">        JoinJob </span>   {username}!
-</h2>
+     <h1 className="bg-gray-100 text-3xl p-8 font-bold text-gray-800 tracking-wide">
+     {t("userAccess.welcome.header")}, {username}!
+</h1>
 
             <CourseList />
           </>

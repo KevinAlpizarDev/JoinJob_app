@@ -16,7 +16,7 @@
         "email": "Correo electrónico",
         "emailPlaceholder": "ej: JoinJob@gmail.com",
         "password": "Contraseña",
-        "passwordlaceholder": "********",
+        "passwordPlaceholder": "********",
         "loginButton": "Acceso"
       },
       "register": {
@@ -34,7 +34,50 @@
     "footer": {
       "stayCurious": "Mantén la curiosidad",
       "description": "Descubre algo nuevo cada día.",
-       "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados."
+      "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados."
+    }
+  },
+  "userAccess": {
+    "welcome": {
+        "header": "Bienvenido, a JoinJob"
+    },
+    "availableCourses": {
+      "available": "Cursos disponibles",
+      "noAvailable": "No hay cursos disponibles.",
+      "viewProfile": "Ver perfil"
+    },
+    "settings": {
+      "header": "Configuraciones",
+      "changePassword": "Cambiar contraseña",
+      "notifications": "Preferencias de notificación"
+    }
+  },
+  "adminAccess": {
+    "control": {
+      "header": "Administración",
+      "dropDown": "Paginas Administrativas",
+      "noPages": "Seleccione una página",
+      "logout": "Cerrar sesión"
+    },
+    "dashboard": {
+      "header": "Bienvenido al Panel de administración",
+      "overview": "Visión general",
+      "stats": "Estadísticas",
+      "manageCourses": "Gestionar cursos"
+    },
+    "users": {
+      "header": "Gestión de usuarios",
+      "addUser": "Agregar usuario",
+      "editUser": "Editar usuario",
+      "deleteUser": "Eliminar usuario",
+      "searchUser": "Buscar usuarios"
+    },
+    "settings": {
+      "header": "Configuración del sitio",
+      "siteInfo": "Información del sitio",
+      "permissions": "Permisos de usuario",
+      "dataBackup": "Copia de seguridad de datos",
+      "maintenance": "Modo de mantenimiento"
     }
   }
 }

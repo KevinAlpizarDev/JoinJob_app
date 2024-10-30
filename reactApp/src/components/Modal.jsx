@@ -64,7 +64,7 @@ const Modal = ({ courseId }) => {
     <div className="flex justify-center p-6 mt-6">
       <button
         onClick={openModal}
-        className="animate-bounce  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
+        className="animate-bounce  inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-extra-rounded shadow-sm text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0079BF] transition-all duration-150"
       >
         Matrícular
       </button>

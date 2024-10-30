@@ -93,7 +93,7 @@ export default function Login() {
           {t("publicAccess.account.login.email")}
           </label>
           <input
-            className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+            className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
             type="email"
             name="email"
             value={formData.email}
@@ -105,7 +105,7 @@ export default function Login() {
           {t("publicAccess.account.login.password")}
           </label>
           <input
-            className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+            className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
             type="password"
             name="password"
             value={formData.password}
@@ -114,7 +114,7 @@ export default function Login() {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:text-white border-blue-600 hover:bg-blue-800 text-white rounded-full py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
+          className="w-full bg-blue-600 hover:text-white border-blue-600 hover:bg-blue-800 text-white rounded-extra-rounded py-3 px-6 font-bold text-lg transition-all duration-200 hover:scale-105 shadow-md"
           disabled={isLoading}
         >
            {t("publicAccess.account.login.loginButton")}

@@ -7,34 +7,82 @@
     },
     "landingPage": {
       "header": "Boost your development today",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio repellendus ut laborum quo praesentium at magnam",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio repellendus ut laborum quo praesentium at magnam.",
       "continue": "Continue"
     },
     "account": {
       "login": {
         "switch": "Switch to Register",
         "email": "Email",
-        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "emailPlaceholder": "e.g. JoinJob@gmail.com",
         "password": "Password",
-        "passwordlaceholder": "********",
+        "passwordPlaceholder": "********",
         "loginButton": "Login"
       },
       "register": {
         "switch": "Switch to Login",
         "personalInformation": "Step 1: Personal Information",
-        "name": "Personal name",
-        "namePlaceholder": "ej: Paola",
+        "name": "Personal Name",
+        "namePlaceholder": "e.g. Paola",
         "userName": "Username",
         "userNamePlaceholder": "Pelusa54",
         "email": "Email",
-        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "emailPlaceholder": "e.g. JoinJob@gmail.com",
         "registerButton": "Continue"
       }
     },
     "footer": {
-      "stayCurious": "Stay courious",
+      "stayCurious": "Stay Curious",
       "description": "Discover something new every day.",
-       "copyright": "© 2024 JoinJob, Inc. All rights reserved."
+      "copyright": "© 2024 JoinJob, Inc. All rights reserved."
+    }
+  },
+  "userAccess": {
+    "welcome": {
+      "header": "Welcome, to JoinJob"
+    },
+    "availableCourses": {
+      "available": "Available courses",
+      "noAvailable": "There are no courses available.",
+      "viewProfile": "View Profile"
+    },
+    "settings": {
+      "header": "Settings",
+      "changePassword": "Change Password",
+      "notifications": "Notification Preferences"
+    }
+  },
+
+
+
+
+
+  "adminAccess": {
+    "control": {
+      "header": "Adminitration",
+      "dropDown": "Administration Pages",
+      "noPages": "Select a page",
+      "logout": "Logout"
+    },
+    "dashboard": {
+      "header": "Welcome to the Admin Dashboard",
+      "overview": "Overview",
+      "stats": "Statistics",
+      "manageCourses": "Manage Courses"
+    },
+    "users": {
+      "header": "User Management",
+      "addUser": "Add User",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "searchUser": "Search Users"
+    },
+    "settings": {
+      "header": "Site Settings",
+      "siteInfo": "Site Information",
+      "permissions": "User Permissions",
+      "dataBackup": "Data Backup",
+      "maintenance": "Maintenance Mode"
     }
   }
 }

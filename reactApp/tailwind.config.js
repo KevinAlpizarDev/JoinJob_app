@@ -33,6 +33,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
+
+   borderRadius: {
+        'extra-rounded':  '1.5rem', // Borde redondeado personalizado de 24px
+        'complete': '16px', // Cambia este valor al que desees para el borde redondeado estándar
+        'standard': '8px', // Cambia este valor al que desees para el borde redondeado estándar
+      },
+
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

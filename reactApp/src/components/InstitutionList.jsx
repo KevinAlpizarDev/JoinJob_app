@@ -73,25 +73,25 @@ const InstitutionList = () => {
   }
 
   return (
-    <div className="relative flex flex-col rounded-lg bg-white shadow-sm border border-slate-200 w-full overflow-hidden">
-      <nav className="flex flex-col gap-1 p-1.5 overflow-y-auto ">
+    <div className="relative flex flex-col rounded-extra-rounded bg-white shadow-sm border border-slate-200 w-full overflow-hidden">
+      <nav className="flex rounded-extra-rounded flex-col gap-1 p-1.5 overflow-y-auto ">
         {institutions.map((institution) => (
           <div
             key={institution.id}
-            className={`flex justify-between items-center mt-1 rounded-md transition-all ${
+            className={`flex justify-between items-center mt-1 rounded-standard transition-all ${
               institution.is_active ? "hover:bg-slate-100" : "bg-gray-200"
             }`}
           >
             <div
               role="button"
-              className={`flex w-full items-center p-3 transition-all ${
+              className={`flex w-full items-center p-3 transition-all rounded-extra-rounded ${
                 institution.is_active ? "text-slate-800" : "text-slate-500"
               }`}
             >
               {institution.name} - {institution.type} - {institution.phone_number}
             </div>
             <button
-              className={`px-3 py-1 text-sm rounded-md text-white transition-all ${
+              className={`px-3 py-1 text-sm rounded-extra-rounded text-white transition-all ${
                 institution.is_active
                   ? "bg-red-500 hover:bg-red-400"
                   : "bg-green-500 hover:bg-green-400"

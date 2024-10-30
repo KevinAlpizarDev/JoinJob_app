@@ -67,7 +67,7 @@ const CampusList = () => {
 
   // Renderizado de la tabla de campus
   return (
-    <div className="relative flex flex-col rounded-lg bg-white shadow-sm border border-slate-200 w-full overflow-hidden">
+    <div className="relative flex flex-col rounded-extra-rounded bg-white shadow-sm border border-slate-200 w-full overflow-hidden">
       <nav className="flex flex-col gap-1 p-1.5 overflow-y-auto">
         {campuses.map((campus) => (
           <div

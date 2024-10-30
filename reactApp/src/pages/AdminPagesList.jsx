@@ -74,6 +74,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
+
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
+
 export default function AdminPagesList() {
   const pages = [
     { id: "Institutions", label: "Institución" },
@@ -87,16 +93,17 @@ export default function AdminPagesList() {
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
+  const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
 
   return (
-    <div className="relative mt-4   bg-slate-600">
+    <div className="relative mt-4  rounded-extra-rounded">
       {/* Botón del dropdown */}
       <button
-        className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition duration-200"
+        className="flex items-center  rounded-standard px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition duration-200"
         onClick={toggleDropdown}
         aria-expanded={isDropdownOpen}
       >
-        Páginas Administrativas
+ {t("adminAccess.control.dropDown")}
         <span className="ml-2 w-4 h-4 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"

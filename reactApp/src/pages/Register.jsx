@@ -131,7 +131,7 @@ export default function Register() {
             {t("publicAccess.account.register.name")}
             </label>
             <input
-              className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+              className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
               type="text"
               name="name"
               value={formData.name}
@@ -145,7 +145,7 @@ export default function Register() {
             {t("publicAccess.account.register.userName")}
             </label>
             <input
-              className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+              className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
               type="text"
               name="username"
               value={formData.username}
@@ -159,7 +159,7 @@ export default function Register() {
             {t("publicAccess.account.register.email")}
             </label>
             <input
-              className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
+              className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-[#1D3557] focus:outline-none shadow-sm"
               type="email"
               name="email"
               value={formData.email}
@@ -169,7 +169,7 @@ export default function Register() {
           </div>
 
           <button
-            className="rounded-full bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full mt-4"
+            className="rounded-extra-rounded bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full mt-4"
             onClick={handleNext}
           >
         {t("publicAccess.account.register.registerButton")}

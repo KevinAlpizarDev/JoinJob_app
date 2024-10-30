@@ -113,7 +113,7 @@ const InstitutionForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
+      className="flex  flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-400 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
         Agregar Institución
@@ -131,12 +131,12 @@ const InstitutionForm = () => {
           value={institutionData.name}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
       <div>
-        <label htmlFor="type" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="type" className="block text-sm font-medium text-gray-700 ">
           Tipo de institución
         </label>
         <select
@@ -144,7 +144,7 @@ const InstitutionForm = () => {
           name="type"
           value={institutionData.type}
           onChange={handleChange}
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         >
           <option value="public">Pública</option>
           <option value="private">Privada</option>
@@ -163,13 +163,13 @@ const InstitutionForm = () => {
           value={institutionData.phone_number}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-complete hover:bg-blue-700"
       >
         Agregar Institución
       </button>

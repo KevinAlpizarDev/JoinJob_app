@@ -19,7 +19,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
     <nav className="w-full bg-amarillo-mostaza dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
               <img className="h-10 w-10 rounded-lg" src={Logo} alt="Logo" />
             </Link>
@@ -27,15 +27,33 @@ export default function NavBar({ isLoggedIn, onLogout }) {
               <NavLink to="/about">{t("publicAccess.navbar.aboutUs")}</NavLink>
               <NavLink to="/contact">{t("publicAccess.navbar.contactUs")}</NavLink>
             </div>
-          </div>
+          </div> */}
+<div className="flex  w-96 items-center">
+  <Link to="/" className="flex-shrink-0">
+    <img className="h-10 w-10 rounded-lg" src={Logo} alt="Logo" />
+  </Link>
+  <div className="hidden md:flex flex-grow ml-6">
+    <div className="flex-1 flex items-center justify-center">
+      <NavLink to="/about" className="w-24 flex items-center justify-center h-full">
+        {t("publicAccess.navbar.aboutUs")}
+      </NavLink>
+    </div>
+    <div className="flex-1 flex items-center justify-center">
+      <NavLink to="/contact" className="w-24 flex items-center justify-center h-full">
+        {t("publicAccess.navbar.contactUs")}
+      </NavLink>
+    </div>
+  </div>
+</div>
+
 
           <div className="hidden md:flex items-center space-x-6">
             {isLoggedIn && (
               <button
                 onClick={onLogout}
-                className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-lg px-4 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
+                className="text-white w-32 bg-blue-600  rounded-standard hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
               >
-                Logout
+                {t("publicAccess.navbar.logout")}
               </button>
             )}
     
@@ -53,7 +71,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
               //   <ThemeToggle />
               //   <LanguageToggle />
               // </div>
-              <div className=" bg-white absolute top-[15vh] left-[90%] transform -translate-x-1/2 w-[13vw] h-[20vh] dark:bg-gray-800 rounded-lg shadow-lg z-20 py-4 flex flex-col items-center justify-between transition-all duration-300">
+              <div className=" bg-white absolute top-[15vh] left-[90%] transform -translate-x-1/2 w-[13vw] h-[20vh] dark:bg-gray-800 rounded-complete shadow-lg z-20 py-4 flex flex-col items-center justify-between transition-all duration-300">
               <div className="flex-1 flex items-center justify-center">
                 <ThemeToggle />
               </div>
@@ -83,7 +101,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
             <NavLink to="/about" mobile>{t("publicAccess.navbar.aboutUs")}</NavLink>
             <NavLink to="/contact" mobile>{t("publicAccess.navbar.contactUs")}</NavLink>
           </div>
-          <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
+          <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700 ">
             <ThemeToggle />
             <LanguageToggle />
           </div>

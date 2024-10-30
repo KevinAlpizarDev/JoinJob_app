@@ -52,6 +52,10 @@
 //     return <p>{error}</p>;
 //   }
 
+//   if (enrollments.length === 0) {
+//     return <p>No hay inscripciones disponibles.</p>;
+//   }
+
 //   return (
 //     <div>
 //       <h2>Listado de Inscripciones</h2>
@@ -69,10 +73,7 @@
 //         </thead>
 //         <tbody>
 //           {enrollments.map((enrollment) => (
-//             <tr
-//               key={enrollment.id}
-//               className={enrollment.is_active ? "active-row" : "inactive-row"}
-//             >
+//             <tr key={enrollment.id}>
 //               <td>{enrollment.user_name}</td>
 //               <td>{enrollment.id_number}</td>
 //               <td>{enrollment.phone_number}</td>
@@ -93,8 +94,6 @@
 // };
 
 // export default EnrollmentList;
-
-
 import React, { useState, useEffect } from "react";
 import { getEnrollments, updateEnrollmentStatus } from "../services/service";
 
@@ -141,51 +140,43 @@ const EnrollmentList = () => {
     }
   };
 
-  if (loading) {
-    return <p>Cargando inscripciones...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (enrollments.length === 0) {
-    return <p>No hay inscripciones disponibles.</p>;
-  }
+  if (loading) return <p>Cargando inscripciones...</p>;
+  if (error) return <p>{error}</p>;
+  if (enrollments.length === 0) return <p>No hay inscripciones disponibles.</p>;
 
   return (
-    <div>
-      <h2>Listado de Inscripciones</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre del Usuario</th>
-            <th>Número de Identificación</th>
-            <th>Teléfono</th>
-            <th>Edad</th>
-            <th>Género</th>
-            <th>Curso</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {enrollments.map((enrollment) => (
-            <tr key={enrollment.id}>
-              <td>{enrollment.user_name}</td>
-              <td>{enrollment.id_number}</td>
-              <td>{enrollment.phone_number}</td>
-              <td>{enrollment.age}</td>
-              <td>{enrollment.gender}</td>
-              <td>{enrollment.course_name}</td>
-              <td>
-                <button onClick={() => toggleActiveStatus(enrollment.id)}>
-                  {enrollment.is_active ? "Desactivar" : "Activar"}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="relative flex flex-col rounded-lg bg-white shadow-sm border border-slate-200 w-full overflow-hidden">
+      <nav className="flex flex-col gap-1 p-1.5 overflow-y-auto">
+        {enrollments.map((enrollment) => (
+          <div
+            key={enrollment.id}
+            className={`flex justify-between items-center mt-1 rounded-md transition-all ${
+              enrollment.is_active ? "hover:bg-slate-100" : "bg-gray-200"
+            }`}
+          >
+            <div
+              role="button"
+              className={`flex w-full items-center p-3 transition-all ${
+                enrollment.is_active ? "text-slate-800" : "text-slate-500"
+              }`}
+            >
+              {enrollment.user_name} - {enrollment.id_number} -{" "}
+              {enrollment.phone_number} - {enrollment.age} años -{" "}
+              {enrollment.gender} - {enrollment.course_name}
+            </div>
+            <button
+              className={`px-3 py-1 text-sm rounded-md text-white transition-all ${
+                enrollment.is_active
+                  ? "bg-red-500 hover:bg-red-400"
+                  : "bg-green-500 hover:bg-green-400"
+              }`}
+              onClick={() => toggleActiveStatus(enrollment.id)}
+            >
+              {enrollment.is_active ? "Desactivar" : "Activar"}
+            </button>
+          </div>
+        ))}
+      </nav>
     </div>
   );
 };

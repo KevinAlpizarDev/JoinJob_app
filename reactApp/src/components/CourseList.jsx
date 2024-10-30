@@ -3,11 +3,20 @@ import { getAllCourses } from "../services/service";
 import Info from "./Info";
 import Modal from "./Modal";
 
+
+import { useTranslation } from "react-i18next"; // Asegúrate de importar useTranslation
+
+
+
+
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+ 
+    const { t, i18n } = useTranslation("global"); // Llama a useTranslation dentro del componente
+  
+  
   useEffect(() => {
     const loadCourses = async () => {
       setLoading(true); // Establecer loading en verdadero antes de cargar cursos
@@ -37,16 +46,16 @@ const CourseList = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-slate-700">
       <div className="w-full max-w-3xl px-4 py-6">
         <h1 className="text-3xl font-extrabold mb-4 text-blue-500 text-center">
-          Cursos disponibles
+        {t("userAccess.availableCourses.available")}
         </h1>
         <div className="space-y-6 ">
           {courses.length === 0 ? (
-            <p>No hay cursos disponibles.</p> // Mensaje si no hay cursos
+            <p> {t("userAccess.availableCourses.noAvailable")}</p> // Mensaje si no hay cursos
           ) : (
             courses.map((course) => (
               <div
                 key={course.id}
-                className="bg-white p-6 rounded-lg transition-shadow duration-200 cursor-pointer w-full"
+                className="bg-white p-6  rounded-standard transition-shadow duration-200 cursor-pointer w-full"
               >
                 <div className="px-4 py-6">
                   <div className="flex justify-between items-start">
@@ -66,10 +75,10 @@ const CourseList = () => {
                     {course.description}
                   </p> */}
                   <div className="flex space-x-1 mb-3">
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
                       {course.seats} Cupo
                     </span>
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
                       {course.modality}
                     </span>
                   </div>

@@ -472,6 +472,8 @@
 // };
 
 // export default CampusForm;
+
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { addCampus } from "../services/service";
@@ -534,7 +536,7 @@ const CampusForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
+      className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
         Agregar Campus
@@ -552,7 +554,7 @@ const CampusForm = () => {
           value={campusData.name}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -568,7 +570,7 @@ const CampusForm = () => {
           value={campusData.province}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -584,7 +586,7 @@ const CampusForm = () => {
           value={campusData.canton}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -600,7 +602,7 @@ const CampusForm = () => {
           value={campusData.district}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -616,7 +618,7 @@ const CampusForm = () => {
           value={campusData.phone_number}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -632,7 +634,7 @@ const CampusForm = () => {
           value={campusData.director}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -649,7 +651,7 @@ const CampusForm = () => {
           onChange={handleChange}
           step="0.000001"
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -666,7 +668,7 @@ const CampusForm = () => {
           onChange={handleChange}
           step="0.000001"
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -680,7 +682,7 @@ const CampusForm = () => {
           value={campusData.institution}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         >
           <option value="">Selecciona una institución</option>
           {institutions.map((institution) => (
@@ -693,7 +695,7 @@ const CampusForm = () => {
 
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-complete hover:bg-blue-700"
       >
         Agregar Campus
       </button>

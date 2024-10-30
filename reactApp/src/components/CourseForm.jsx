@@ -137,7 +137,25 @@
 //   );
 // };
 
+
+
+
+
 // export default CourseForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import { addCourse } from "../services/service";
 import axios from "axios";
@@ -210,7 +228,7 @@ const CourseForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
+      className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
         Agregar Curso
@@ -228,7 +246,7 @@ const CourseForm = () => {
           value={courseData.name}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -244,7 +262,7 @@ const CourseForm = () => {
           value={courseData.code}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -259,7 +277,7 @@ const CourseForm = () => {
           value={courseData.description}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -274,7 +292,7 @@ const CourseForm = () => {
           value={courseData.start_date}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -289,7 +307,7 @@ const CourseForm = () => {
           value={courseData.end_date}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full borde rounded-complete"
         />
       </div>
 
@@ -305,7 +323,7 @@ const CourseForm = () => {
           value={courseData.year}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -321,7 +339,7 @@ const CourseForm = () => {
           value={courseData.seats}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         />
       </div>
 
@@ -351,7 +369,7 @@ const CourseForm = () => {
           value={courseData.campus}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-md"
+          className="mt-1 p-2 w-full border rounded-complete"
         >
           <option value="">Selecciona un campus</option>
           {campuses.map((campus) => (
@@ -364,7 +382,7 @@ const CourseForm = () => {
 
       <button
         type="submit"
-        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+        className="w-full mt-4 bg-blue-600 text-white p-2 rounded-complete hover:bg-blue-700"
       >
         Agregar Curso
       </button>
