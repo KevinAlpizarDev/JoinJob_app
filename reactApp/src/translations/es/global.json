@@ -1,0 +1,99 @@
+{
+  "publicAccess": {
+    "navbar": {
+      "aboutUs": "Acerca de nosotros",
+      "contactUs": "Contáctanos",
+      "logout": "Cerrar sesión"
+    },
+    "landingPage": {
+      "header": "Impulsa tu desarrollo",
+      "description": "Mejora tus habilidades y avanza en tu carrera con oportunidades de aprendizaje accesibles. ¡Inscríbete y empieza hoy mismo!",
+      "continue": "Continuar"
+    },
+    "account": {
+      "login": {
+        "switch": "Cambiar a Registro",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "password": "Contraseña",
+        "passwordPlaceholder": "********",
+        "loginButton": "Acceso"
+      },
+      "register": {
+        "switch": "Cambiar a login",
+        "personalInformation": "Paso 1: Información Personal",
+        "name": "Nombre personal",
+        "namePlaceholder": "ej: Paola",
+        "userName": "Nombre de usuario",
+        "userNamePlaceholder": "Pelusa54",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "ej: JoinJob@gmail.com",
+        "registerButton": "Continuar"
+      }
+    },
+    "footer": {
+      "stayCurious": "Mantén la curiosidad",
+      "description": "Descubre algo nuevo cada día.",
+      "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados."
+    }
+  },
+  "userAccess": {
+    "welcome": {
+      "header": "Bienvenido, a JoinJob"
+    },
+    "availableCourses": {
+      "available": "Cursos disponibles",
+      "noAvailable": "No hay cursos disponibles.",
+      "viewProfile": "Ver perfil"
+    },
+    "settings": {
+      "header": "Configuraciones",
+      "changePassword": "Cambiar contraseña",
+      "notifications": "Preferencias de notificación"
+    }
+  },
+  "adminAccess": {
+    "control": {
+      "header": "Administración",
+      "dropDown": "Paginas administrativas",
+      "noPages": "Seleccione una página",
+      "institution": "Instituciónes",
+      "campus": "Sedes",
+      "courses": "Cursos",
+      "enrollments": "Matrículas",
+      "registerInstitutions": "Registra instituciones",
+         "registerCampuses": "Registra Sedes",
+   
+         "registerCourses": "Registra cursos",
+       "registerEnrollments": "Register matrículas"
+    },
+    "dashboard": {
+      "header": "Bienvenido al Panel de administración",
+      "overview": "Visión general",
+      "stats": "Estadísticas",
+      "manageCourses": "Gestionar cursos"
+    },
+    "theme":{
+      "on": "Claro",
+      "off": "Oscuro"
+    }, 
+    "language":{
+      "es": "Español",
+      "en": "Inglés"
+    },
+    "users": {
+      "header": "Gestión de usuarios",
+      "addUser": "Agregar usuario",
+      "editUser": "Editar usuario",
+      "deleteUser": "Eliminar usuario",
+      "searchUser": "Buscar usuarios"
+    },
+    "settings": {
+      "header": "Configuración del sitio",
+      "siteInfo": "Información del sitio",
+      "permissions": "Permisos de usuario",
+      "dataBackup": "Copia de seguridad de datos",
+      "maintenance": "Modo de mantenimiento"
+    }
+  }
+}

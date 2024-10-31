@@ -1,0 +1,100 @@
+{
+  "publicAccess": {
+    "navbar": {
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "logout": "Logout"
+    },
+    "landingPage": {
+      "header": "Boost your development",
+      "description": "Improve your skills and advance your career with accessible learning opportunities. Sign up and get started today!",
+      "continue": "Continue"
+    },
+    "account": {
+      "login": {
+        "switch": "Switch to Register",
+        "email": "Email",
+        "emailPlaceholder": "e.g. JoinJob@gmail.com",
+        "password": "Password",
+        "passwordPlaceholder": "********",
+        "loginButton": "Login"
+      },
+      "register": {
+        "switch": "Switch to Login",
+        "personalInformation": "Step 1: Personal Information",
+        "name": "Personal Name",
+        "namePlaceholder": "e.g. Paola",
+        "userName": "Username",
+        "userNamePlaceholder": "Pelusa54",
+        "email": "Email",
+        "emailPlaceholder": "e.g. JoinJob@gmail.com",
+        "registerButton": "Continue"
+      }
+    },
+    "footer": {
+      "stayCurious": "Stay Curious",
+      "description": "Discover something new every day.",
+      "copyright": "© 2024 JoinJob, Inc. All rights reserved."
+    }
+  },
+  "userAccess": {
+    "welcome": {
+      "header": "Welcome, to JoinJob"
+    },
+    "availableCourses": {
+      "available": "Available courses",
+      "noAvailable": "There are no courses available.",
+      "viewProfile": "View Profile"
+    },
+    "settings": {
+      "header": "Settings",
+      "changePassword": "Change Password",
+      "notifications": "Notification Preferences"
+    }
+  },
+
+  "adminAccess": {
+    "control": {
+      "header": "Adminitration",
+      "dropDown": "Administration pages",
+      "noPages": "Select a page",
+      "institution": "Institution",
+      "campus": "Campuses",
+      "courses": "Courses",
+      "enrollments": "Enrollments",
+      "registerInstitutions": "Register institutions",
+      "registerCampuses": "Register campuses",
+      "registerCourses": "Register Courses",
+      "registerEnrollments": "Register Enrollments"
+    },
+    "dashboard": {
+      "header": "Welcome to the Admin Dashboard",
+      "overview": "Overview",
+      "stats": "Statistics",
+      "manageCourses": "Manage Courses"
+    },
+    "theme": {
+      "on": "Light",
+      "off": "Dark"
+    }, 
+    "language":{
+      "es": "Español",
+      "en": "Inglés"
+    },
+
+    "users": {
+      "header": "User Management",
+      "addUser": "Add User",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "searchUser": "Search Users"
+    },
+    "settings": {
+      "header": "Site Settings",
+      "siteInfo": "Site Information",
+      "permissions": "User Permissions",
+      "dataBackup": "Data Backup",
+      "maintenance": "Maintenance Mode"
+    }
+  }
+}
