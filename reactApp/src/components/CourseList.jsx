@@ -155,78 +155,74 @@ const CourseList = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-light-main dark:bg-dark-main">
-      <div className="w-full max-w-3xl px-4 py-6">
-        <h1 className="text-3xl font-extrabold mb-4 text-blue-sky dark:text-second-light-main text-center">
-          {t("userAccess.availableCourses.available")}
-        </h1>
-        <div className="space-y-6">
-          {courses.length === 0 ? (
-            <p className="text-gray-500 dark:text-gray-400">
-              {t("userAccess.availableCourses.noAvailable")}
-            </p> // Mensaje si no hay cursos
-          ) : (
-            courses.map((course) => (
-              <div
-                key={course.id}
-                className="bg-white dark:bg-second-dark-main p-6 rounded-extra-rounded transition-shadow duration-200 cursor-pointer w-full shadow-md"
-              >
-                <div className="px-4 py-6">
-                  <div className="flex justify-between items-start">
-                    <h2 className="text-xl font-bold text-gray-800 dark:text-light-star">
-                      {course.name}
-                    </h2>
-                    <div className="text-sm text-gray-500">
-                      <span className="block font-semibold text-gray-700">
-                        Código
-                      </span>
-                      <div className="flex justify-center">
-                        {course.code}
-                      </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-light-main  dark:bg-second-dark-main">
+    <div className="w-full max-w-3xl px-4 py-6">
+      <div className="space-y-6 ">
+        {courses.length === 0 ? (
+          <p className="text-gray-500  w-full text-center dark:text-gray-400">
+            {t("userAccess.availableCourses.noAvailable")}
+          </p> // Mensaje si no hay cursos
+        ) : (
+          courses.map((course) => (
+            <div
+              key={course.id}
+              className="bg-white dark:bg-second-dark-main p-6 rounded-extra-rounded transition-shadow duration-200 cursor-pointer w-full shadow-md"
+            >
+              <div className="px-4 py-6">
+                <div className="flex justify-between items-start">
+                  <h2 className="text-xl font-bold text-gray-800 dark:text-light-star">
+                    {course.name}
+                  </h2>
+                  <div className="text-sm text-gray-500">
+                    <span className="block font-semibold text-gray-700">Código</span>
+                    <div className="flex justify-center">
+                      {course.code}
                     </div>
                   </div>
-                  {/* <p className="text-sm text-gray-600 my-2">
-                    {course.description}
-                  </p> */}
-                  <div className="flex space-x-1 mb-3">
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
-                      {course.seats} Cupo
-                    </span>
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
-                      {course.modality}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600 my-2 dark:text-gray-400">
-                    {course.description}
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <span className="block font-semibold text-gray-700 dark:text-light-star">
-                      Campus:
-                    </span>
-                    <Info
-                      courseId={course.id}
-                      latitude={course.campus_latitude}
-                      longitude={course.campus_longitude}
-                    />
-                    <span>{course.campus_name}</span>
-                  </div>
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-6 flex justify-between items-center">
-                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <span>
-                      Desde: {course.start_date} - Hasta: {course.end_date}
-                    </span>
-                  </div>
-                  <div className="flex -space-x-2">
-                    <Modal courseId={course.id} />
-                  </div>
+                {/* <p className="text-sm text-gray-600 my-2">
+                  {course.description}
+                </p> */}
+                <div className="flex space-x-1 mb-3">
+                  <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
+                    {course.seats} Cupo
+                  </span>
+                  <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
+                    {course.modality}
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 my-2 dark:text-gray-400">
+                  {course.description}
+                </p>
+                <div className="text-sm text-gray-500">
+                  <span className="block font-semibold text-gray-700 dark:text-light-star">
+                    Campus:
+                  </span>
+                  <Info
+                    courseId={course.id}
+                    latitude={course.campus_latitude}
+                    longitude={course.campus_longitude}
+                  />
+                  <span>{course.campus_name}</span>
                 </div>
               </div>
-            ))
-          )}
-        </div>
+              <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-6 flex justify-between items-center">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                  <span>
+                    Desde: {course.start_date} - Hasta: {course.end_date}
+                  </span>
+                </div>
+                <div className="flex -space-x-2">
+                  <Modal courseId={course.id} />
+                </div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
+  </div>
+  
   );
 };
 

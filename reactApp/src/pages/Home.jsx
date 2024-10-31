@@ -45,7 +45,7 @@ export default function Home() {
       <div className="min-h-screen bg-light-main dark:bg-dark-main">
         {isLoggedIn ? (
           <>
-            <h1 className="bg-gray-100 dark:bg-second-dark-main text-3xl p-8 font-bold text-gray-800 dark:text-light-star tracking-wide">
+            <h1 className="bg-light-main dark:bg-second-dark-main text-3xl p-8 font-bold text-gray-800 dark:text-light-star tracking-wide">
               {t("userAccess.welcome.header")}, {username}!
             </h1>
             <CourseList />

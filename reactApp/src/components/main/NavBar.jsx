@@ -19,15 +19,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
     <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b border-gray-200 dark:border-gray-800  dark:bg-dark-main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex items-center justify-between h-16">
-          {/* <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <img className="h-10 w-10 rounded-lg" src={Logo} alt="Logo" />
-            </Link>
-            <div className="hidden md:flex space-x-8 ml-6">
-              <NavLink to="/about">{t("publicAccess.navbar.aboutUs")}</NavLink>
-              <NavLink to="/contact">{t("publicAccess.navbar.contactUs")}</NavLink>
-            </div>
-          </div> */}
+        
 <div className="flex  w-96 items-center">
   <Link to="/" className="flex-shrink-0">
     <img className="h-10 w-10 rounded-lg" src={Logo} alt="Logo" />
@@ -67,10 +59,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
             </button>
 
             {isDropdownOpen && (
-              // <div className="absolute top-[15vh] left-[89vw] transform -translate-x-1/2 w-[13vw] h-[16vh]  dark:bg-gray-800 rounded-lg shadow-lg z-20 py-4 flex flex-col items-center justify-center space-y-4 transition-all duration-300">
-              //   <ThemeToggle />
-              //   <LanguageToggle />
-              // </div>
+       
               <div className=" bg-white absolute top-[15vh] left-[90%] transform -translate-x-1/2 w-[13vw] h-[20vh] dark:bg-gray-800 rounded-complete shadow-lg z-20 py-4 flex flex-col items-center justify-between transition-all duration-300">
               <div className="flex-1 flex items-center justify-center">
                 <ThemeToggle />
