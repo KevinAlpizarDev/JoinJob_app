@@ -18,6 +18,11 @@ export default {
           dark: "#D6E2F1",
           light: "#D6E2F1",
         },
+    "blue-sky": {
+    DEFAULT: "#2563EB", // Color personalizado para blue-sky
+    light: "#4F94FF",   // Tono más claro (ajusta este valor según sea necesario)
+},
+
         "light-star": {
           DEFAULT: "#ffffff",
           dark: "#0a0a0a",

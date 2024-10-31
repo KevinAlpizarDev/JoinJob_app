@@ -13,11 +13,11 @@ export default function LandingPage() {
     <>
       <NavBar />
       <main className="flex-1 ">
-    <section className="w-full  bg-light-main dark:bg-dark-main h-screen py-12 md:py-24 lg:py-22 xl:py-30">
+    <section className="w-full  bg-light-main dark:bg-second-dark-main h-screen py-12 md:py-24 lg:py-22 xl:py-30">
         <div className="container   px-3 md:px-2">
             <div className="flex flex-col space-y-4 text-center">
                 <div className="space-y-2">
-                    <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                    <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl dark:text-second-light-main">
                         {t("publicAccess.landingPage.header")}
                     </h1>
                     <p className="mx-auto py-8 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">

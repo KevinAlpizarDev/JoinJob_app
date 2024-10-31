@@ -33,9 +33,9 @@ export default function SignInPage() {
   return (
     <>
       <Position />
-      <div className="min-w-fi h-screen bg-light-blue flex items-center justify-center p-4 dark:bg-[#3b3627] py-8">
+      <div className="min-w-fi h-screen bg-light-main flex items-center justify-center p-4 dark:bg-second-dark-main  py-8">
         <div className="bg-white rounded-extra-rounded max-w-md w-full mb-12 shadow-lg">
-          <div className="p-6">
+          <div className="p-6 dark:bg-">
             <button
               onClick={updateFormBtn}
               className="w-full bg-[#1D3557] text-white rounded-extra-rounded py-3 px-6 font-bold text-lg mb-6 transition-all duration-200 hover:scale-105 shadow-md"

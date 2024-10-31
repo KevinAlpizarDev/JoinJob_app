@@ -16,7 +16,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
   const { t } = useTranslation("global");
 
   return (
-    <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b border-gray-200 dark:border-gray-800">
+    <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b border-gray-200 dark:border-gray-800  dark:bg-dark-main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex items-center justify-between h-16">
           {/* <div className="flex items-center">
@@ -51,7 +51,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
             {isLoggedIn && (
               <button
                 onClick={onLogout}
-                className="text-white w-32 bg-blue-600  rounded-standard hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
+                className="text-white font-semibold w-32 bg-blue-sky  rounded-standard hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
               >
                 {t("publicAccess.navbar.logout")}
               </button>

@@ -74,7 +74,7 @@ const EnrollmentForm = () => {
       className="flex flex-col h-full w-full rounded-2xl my-0 bg-gray-200 shadow-sm border border-slate-200 p-6 overflow-auto"
     >
       <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
-      {      t("adminAccess.control.registerEnrollmentsy") }
+      {      t("adminAccess.control.registerEnrollments") }
   
   
       </h2>

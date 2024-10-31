@@ -87,9 +87,9 @@ export default function Login() {
     <div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-      <form className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-4 " onSubmit={handleSubmit}>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className=" block text-sm font-medium text-gray-700 mb-1">
           {t("publicAccess.account.login.email")}
           </label>
           <input
