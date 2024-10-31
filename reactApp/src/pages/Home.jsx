@@ -61,7 +61,7 @@ export default function Home() {
       <div>
         {isLoggedIn ? (
           <>
-     <h1 className="bg-gray-100 text-3xl p-8 font-bold text-gray-800 tracking-wide">
+     <h1 className="bg-gray-100 dark:bg-gray-00  text-3xl p-8 font-bold text-gray-800 tracking-wide">
      {t("userAccess.welcome.header")}, {username}!
 </h1>
 

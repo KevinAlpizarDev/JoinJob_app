@@ -16,7 +16,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
   const { t } = useTranslation("global");
 
   return (
-    <nav className="w-full bg-amarillo-mostaza dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex items-center justify-between h-16">
           {/* <div className="flex items-center">

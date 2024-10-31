@@ -24,7 +24,7 @@ const LanguageToggle = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex  items-center justify-center w-full">
       <label className="flex  w-full  items-center cursor-pointer py-2 rounded-lg">
         <input
           type="checkbox"

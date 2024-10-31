@@ -38,7 +38,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <div className="bg-yellow-400">
+      <div className=" h-screen bg-yellow-400">
         {/* <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />{" "} */}
         {/* Pasar props */}
         {isLoggedIn ? (

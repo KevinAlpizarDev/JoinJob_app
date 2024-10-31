@@ -16,7 +16,7 @@ export default function AdminPagesList() {
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col items-center py-8 rounded-extra-rounded">
+    <div className="flex  flex-col items-center py-8 rounded-extra-rounded">
       {/* Botón del dropdown */}
       <button
         className="flex items-center rounded-standard px-4 py-2 bg-gray-800 text-white hover:bg-gray-700 transition duration-200"

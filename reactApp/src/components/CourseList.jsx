@@ -55,7 +55,7 @@ const CourseList = () => {
             courses.map((course) => (
               <div
                 key={course.id}
-                className="bg-white p-6  rounded-standard transition-shadow duration-200 cursor-pointer w-full"
+                className="bg-white p-6  rounded-extra-rounded transition-shadow duration-200 cursor-pointer w-full"
               >
                 <div className="px-4 py-6">
                   <div className="flex justify-between items-start">
