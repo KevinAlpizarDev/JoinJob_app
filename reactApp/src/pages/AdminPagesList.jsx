@@ -16,25 +16,29 @@ export default function AdminPagesList() {
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col items-center py-8 rounded-extra-rounded">
+    <div className="flex bg-secundary-main flex-col items-center py-8 rounded-extra-rounded">
       {/* Botón del dropdown */}
       <button
         className={`flex items-center rounded-standard px-4 py-2 ${
           isDropdownOpen
-            ? "bg-third-light-main font-semibold dark:bg-third-dark-main"
-            : "bg-second-light-main dark:bg-second-dark-main"
-        } text-dark-main dark:text-light-main hover:bg-light-star dark:hover:bg-dark-main transition duration-200`}
+            ? "bg-primary-dark font-semibold dark:bg-third-dark-main"
+            : "bg-primary-dark dark:bg-second-dark-main"
+        } text-secundary-main dark:text-light-main hover:bg-light-star dark:hover:bg-dark-main transition duration-200`}
         onClick={toggleDropdown}
         aria-expanded={isDropdownOpen}
       >
-        {t("adminAccess.control.dropDown")}
+
+<span className="text-secundary-light"> {t("adminAccess.control.dropDown")}</span>
+
+       
       </button>
 
       {/* Dropdown menu */}
       {isDropdownOpen && (
-        <ul className="absolute mt-14 w-52 border border-gray-200 bg-light-star dark:bg-second-dark-main rounded-extra-rounded shadow-lg z-10">
+        <ul className="absolute mt-14 w-52 border bg-w
+         border-gray-200 bg-tertiary-light  dark:bg-second-dark-main rounded-extra-rounded shadow-lg z-10">
           {pages.map((page) => (
-            <li key={page.id} className="flex justify-center">
+            <li key={page.id} className="flex rounded-extra-rounded hover:bg-primary-light justify-center">
               <Link
                 to={`/admin/${page.id}`}
                 className="w-full flex px-4 py-2 rounded-extra-rounded text-dark-main dark:text-light-main hover:bg-third-light-main dark:hover:bg-third-dark-main transition duration-200"

@@ -148,6 +148,20 @@ export const updateInstitutionStatus = (institutionId, institutionData) => {
     }
   );
 };
+// Función para actualizar una institución
+export const updateInstitution = (institutionId, institutionData) => {
+  const token = localStorage.getItem("accessToken");
+  return axios.put(
+    `http://localhost:8000/api/institutions/${institutionId}/`,
+    institutionData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
 
 // // Función para crear una inscripción
 // export const createEnrollment = async (enrollmentData, token) => {
@@ -248,6 +262,20 @@ export const updateCampusStatus = (campusId, isActive) => {
   return axios.patch(
     `http://localhost:8000/api/campuses/${campusId}/`,
     { is_active: isActive },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
+// Función para actualizar un campus
+export const updateCampus = (campusId, campusData) => {
+  const token = localStorage.getItem("accessToken");
+  return axios.put(
+    `http://localhost:8000/api/campuses/${campusId}/`,
+    campusData,
     {
       headers: {
         Authorization: `Bearer ${token}`,

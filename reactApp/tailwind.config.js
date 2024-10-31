@@ -18,26 +18,31 @@ export default {
           dark: "#D6E2F1",
           light: "#D6E2F1",
         },
-    "blue-sky": {
-    DEFAULT: "#2563EB", // Color personalizado para blue-sky
-    light: "#4F94FF",   // Tono más claro (ajusta este valor según sea necesario)
-},
+        "blue-sky": {
+          DEFAULT: "#2563EB", // Color personalizado para blue-sky
+          light: "#4F94FF", // Tono más claro (ajusta este valor según sea necesario)
+        },
 
-        "light-star": {
+        "primary-light": {
           DEFAULT: "#ffffff",
-          dark: "#0a0a0a",
-          light: "#f8f8f8",
+          dark: "#ffffff",
+          light: "#ffffff",
         },
-        "light-main": {
-          DEFAULT: "#f8f8f8",
-          dark: "#0a0a0a",
-          light: "#f8f8f8",
+        "secundary-light": {
+          DEFAULT: "#f2f2f2",
+          dark: "#f2f2f2",
+          light: "#f2f2f2",
         },
-      
-        "dark-main": {
-          DEFAULT: "#0a0a0a",
-          dark: "#0a0a0a",
-          light: "#f8f8f8",
+
+        "tertiary-light": {
+  DEFAULT: "#e0e0e0",
+  dark: "#bfbfbf",
+  light: "#e0e0e0",
+},
+        "primary-dark": {
+          DEFAULT: "#282c34",
+          dark: "#282c34",
+          light: "#282c34",
         },
 
         "second-light-main": {
@@ -52,13 +57,6 @@ export default {
           light: "#f8f8f8",
         },
 
-   
-
-
-
-
-
-  
         "gris-oscuro": {
           DEFAULT: "#333333",
           dark: "#FFD700",

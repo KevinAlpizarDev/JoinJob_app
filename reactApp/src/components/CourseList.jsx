@@ -155,18 +155,18 @@ const CourseList = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-light-main  dark:bg-second-dark-main">
-    <div className="w-full max-w-3xl px-4 py-6">
-      <div className="space-y-6 ">
+    <div className="min-h-screen flex flex-col items-center bg-primary-light justify-center bg-light-main  dark:bg-second-dark-main">
+    <div className="w-full bg-primary-light max-w-3xl px-4 py-6 darkdark:bg-gray-800">
+      <div className="space-y-6 bg-primary-light ">
         {courses.length === 0 ? (
-          <p className="text-gray-500  w-full text-center dark:text-gray-400">
+          <p className="text-gray-500 bg-black  w-full text-center dark:text-gray-400">
             {t("userAccess.availableCourses.noAvailable")}
           </p> // Mensaje si no hay cursos
         ) : (
           courses.map((course) => (
             <div
               key={course.id}
-              className="bg-white dark:bg-second-dark-main p-6 rounded-extra-rounded transition-shadow duration-200 cursor-pointer w-full shadow-md"
+              className="bg-secundary-light dark:bg-gray-800 p-6 rounded-extra-rounded transition-shadow duration-200 cursor-pointer w-full shadow-md"
             >
               <div className="px-4 py-6">
                 <div className="flex justify-between items-start">
@@ -206,7 +206,7 @@ const CourseList = () => {
                   <span>{course.campus_name}</span>
                 </div>
               </div>
-              <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-6 flex justify-between items-center">
+              <div className="border-t border-gray-200  dark:border-gray-600 px-4 py-6 flex justify-between items-center">
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <span>
                     Desde: {course.start_date} - Hasta: {course.end_date}

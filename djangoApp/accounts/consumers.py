@@ -119,3 +119,4 @@ class CourseConsumer(AsyncWebsocketConsumer):
     async def course_update(self, event):
         message = event["message"]
         await self.send(text_data=json.dumps(message))
+        

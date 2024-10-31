@@ -95,7 +95,7 @@ const Control = () => {
         );
       default:
         return (
-          <div className="flex bg-light-main border dark:border-dark-main justify-center h-full items-center rounded-extra-rounded  font-semibold dark:bg-second-dark-main text-gray-600">
+          <div className="flex bg-secundary-light dark:border-dark-main justify-center h-full items-center rounded-extra-rounded  font-semibold dark:bg-second-dark-main text-gray-600">
             {t("adminAccess.control.noPages")}
           </div>
         );
@@ -105,14 +105,14 @@ const Control = () => {
   return (
     <>
       <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} className="h-16" />
-      <section className="flex bg-black dark:bg-dark-main" style={{ height: "calc(100vh - 4rem)" }}>
-        <aside className="border-r bg-second-light-main-light dark:bg-second-dark-main p-4 w-64 shadow-lg h-full">
-          <h2 className="text-lg font-semibold mb-4 text-dark-main dark:text-light-main">
+      <section className="flex bg-secundary-light border dark:bg-dark-main" style={{ height: "calc(100vh - 4rem)" }}>
+        <aside className="border-r bg-secundary-main dark:bg-second-dark-main p-4 w-64 shadow-lg h-full">
+          <h2 className="text-lg bg-secundary-light font-semibold mb-4 text-dark-main dark:text-light-main">
             {t("adminAccess.control.header")}
           </h2>
           <AdminPagesList />
         </aside>
-        <main className="flex-1 p-4 bg-second-light-main dark:bg-dark-main overflow-y-auto h-full">
+        <main className="flex-1 p-4 bg-primary-light dark:bg-dark-main overflow-y-auto h-full">
           {renderPageContent()}
         </main>
       </section>
