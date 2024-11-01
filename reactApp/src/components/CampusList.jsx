@@ -102,15 +102,155 @@
 // };
 
 // export default CampusList;
+
+
+// import React, { useState, useEffect } from "react";
+// import { getAllCampuses, updateCampusStatus } from "../services/service";
+// import CampusForm from "./CampusForm"; // Importa el formulario de campus
+
+// const CampusList = () => {
+//   const [campuses, setCampuses] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [selectedCampus, setSelectedCampus] = useState(null); // Estado para el campus seleccionado para editar
+
+//   useEffect(() => {
+//     const fetchCampuses = async () => {
+//       try {
+//         const response = await getAllCampuses();
+//         setCampuses(response);
+//       } catch (error) {
+//         console.error("Error al obtener los campus:", error);
+//         setError("Hubo un error al obtener los campus.");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchCampuses();
+//   }, []);
+
+//   const toggleActiveStatus = async (campusId, currentStatus) => {
+//     const confirmAction = window.confirm(
+//       `¿Estás seguro de que deseas ${
+//         currentStatus ? "desactivar" : "activar"
+//       } este campus?`
+//     );
+//     if (!confirmAction) return;
+
+//     try {
+//       const updatedStatus = !currentStatus;
+//       await updateCampusStatus(campusId, updatedStatus);
+
+//       setCampuses((prevCampuses) =>
+//         prevCampuses.map((campus) =>
+//           campus.id === campusId
+//             ? { ...campus, is_active: updatedStatus }
+//             : campus
+//         )
+//       );
+//       console.log(
+//         `Campus ${campusId} ${
+//           updatedStatus ? "activado" : "desactivado"
+//         } exitosamente`
+//       );
+//     } catch (error) {
+//       console.error("Error al actualizar el estado del campus:", error);
+//       setError("No se pudo actualizar el estado del campus.");
+//     }
+//   };
+
+//   const handleEditCampus = (campus) => {
+//     setSelectedCampus(campus); // Establece el campus seleccionado para editar
+//   };
+
+//   const handleCloseEdit = () => {
+//     setSelectedCampus(null); // Cierra el formulario de edición
+//   };
+
+//   if (loading) return <p>Cargando campus...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   if (campuses.length === 0) {
+//     return <p>No hay campus disponibles.</p>;
+//   }
+
+//   return (
+//     <div className="relative flex flex-col rounded-extra-rounded bg-white shadow-sm border border-slate-200 p-6">
+//       <h2 className="text-xl font-semibold text-gray-800 mb-4">
+//         Lista de Campus
+//       </h2>
+//       <table className="w-full">
+//         <thead>
+//           <tr>
+//             <th className="text-left py-2">Nombre</th>
+//             <th className="text-left py-2">Estado</th>
+//             <th className="text-left py-2">Acciones</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {campuses.map((campus) => (
+//             <tr key={campus.id}>
+//               <td className="py-2">{campus.name}</td>
+//               <td className="py-2">
+//                 {campus.is_active ? "Activo" : "Inactivo"}
+//               </td>
+//               <td className="py-2">
+//                 <button
+//                   onClick={() =>
+//                     toggleActiveStatus(campus.id, campus.is_active)
+//                   }
+//                   className={`py-1 px-2 rounded-complete ${
+//                     campus.is_active ? "bg-red-500" : "bg-green-500"
+//                   } text-white`}
+//                 >
+//                   {campus.is_active ? "Desactivar" : "Activar"}
+//                 </button>
+//                 <button
+//                   onClick={() => handleEditCampus(campus)}
+//                   className="ml-2 py-1 px-2 bg-yellow-500 text-white rounded-complete"
+//                 >
+//                   Editar
+//                 </button>
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+
+//       {/* Modal de edición */}
+//       {selectedCampus && (
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+//           <div className="bg-white p-6 rounded-lg shadow-lg">
+//             <CampusForm
+//               campus={selectedCampus}
+//               onClose={handleCloseEdit}
+//               onUpdate={(updatedCampus) => {
+//                 setCampuses((prev) =>
+//                   prev.map((campus) =>
+//                     campus.id === updatedCampus.id ? updatedCampus : campus
+//                   )
+//                 );
+//                 handleCloseEdit();
+//               }}
+//             />
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default CampusList;
 import React, { useState, useEffect } from "react";
 import { getAllCampuses, updateCampusStatus } from "../services/service";
-import CampusForm from "./CampusForm"; // Importa el formulario de campus
+import CampusForm from "./CampusForm";
 
 const CampusList = () => {
   const [campuses, setCampuses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCampus, setSelectedCampus] = useState(null); // Estado para el campus seleccionado para editar
+  const [selectedCampus, setSelectedCampus] = useState(null);
 
   useEffect(() => {
     const fetchCampuses = async () => {
@@ -130,9 +270,7 @@ const CampusList = () => {
 
   const toggleActiveStatus = async (campusId, currentStatus) => {
     const confirmAction = window.confirm(
-      `¿Estás seguro de que deseas ${
-        currentStatus ? "desactivar" : "activar"
-      } este campus?`
+      `¿Estás seguro de que deseas ${currentStatus ? "desactivar" : "activar"} este campus?`
     );
     if (!confirmAction) return;
 
@@ -142,16 +280,10 @@ const CampusList = () => {
 
       setCampuses((prevCampuses) =>
         prevCampuses.map((campus) =>
-          campus.id === campusId
-            ? { ...campus, is_active: updatedStatus }
-            : campus
+          campus.id === campusId ? { ...campus, is_active: updatedStatus } : campus
         )
       );
-      console.log(
-        `Campus ${campusId} ${
-          updatedStatus ? "activado" : "desactivado"
-        } exitosamente`
-      );
+      console.log(`Campus ${campusId} ${updatedStatus ? "activado" : "desactivado"} exitosamente`);
     } catch (error) {
       console.error("Error al actualizar el estado del campus:", error);
       setError("No se pudo actualizar el estado del campus.");
@@ -159,11 +291,11 @@ const CampusList = () => {
   };
 
   const handleEditCampus = (campus) => {
-    setSelectedCampus(campus); // Establece el campus seleccionado para editar
+    setSelectedCampus(campus);
   };
 
   const handleCloseEdit = () => {
-    setSelectedCampus(null); // Cierra el formulario de edición
+    setSelectedCampus(null);
   };
 
   if (loading) return <p>Cargando campus...</p>;
@@ -175,9 +307,7 @@ const CampusList = () => {
 
   return (
     <div className="relative flex flex-col rounded-extra-rounded bg-white shadow-sm border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">
-        Lista de Campus
-      </h2>
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">Lista de Campus</h2>
       <table className="w-full">
         <thead>
           <tr>
@@ -190,24 +320,12 @@ const CampusList = () => {
           {campuses.map((campus) => (
             <tr key={campus.id}>
               <td className="py-2">{campus.name}</td>
+              <td className="py-2">{campus.is_active ? "Activo" : "Inactivo"}</td>
               <td className="py-2">
-                {campus.is_active ? "Activo" : "Inactivo"}
-              </td>
-              <td className="py-2">
-                <button
-                  onClick={() =>
-                    toggleActiveStatus(campus.id, campus.is_active)
-                  }
-                  className={`py-1 px-2 rounded-complete ${
-                    campus.is_active ? "bg-red-500" : "bg-green-500"
-                  } text-white`}
-                >
+                <button onClick={() => toggleActiveStatus(campus.id, campus.is_active)} className={`py-1 px-2 rounded-complete ${campus.is_active ? "bg-red-500" : "bg-green-500"} text-white`}>
                   {campus.is_active ? "Desactivar" : "Activar"}
                 </button>
-                <button
-                  onClick={() => handleEditCampus(campus)}
-                  className="ml-2 py-1 px-2 bg-yellow-500 text-white rounded-complete"
-                >
+                <button onClick={() => handleEditCampus(campus)} className="ml-2 py-1 px-2 bg-yellow-500 text-white rounded-complete">
                   Editar
                 </button>
               </td>
@@ -216,7 +334,6 @@ const CampusList = () => {
         </tbody>
       </table>
 
-      {/* Modal de edición */}
       {selectedCampus && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -225,9 +342,7 @@ const CampusList = () => {
               onClose={handleCloseEdit}
               onUpdate={(updatedCampus) => {
                 setCampuses((prev) =>
-                  prev.map((campus) =>
-                    campus.id === updatedCampus.id ? updatedCampus : campus
-                  )
+                  prev.map((campus) => (campus.id === updatedCampus.id ? updatedCampus : campus))
                 );
                 handleCloseEdit();
               }}
