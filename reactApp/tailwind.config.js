@@ -40,38 +40,25 @@ export default {
   light: "#e0e0e0",
 },
         "primary-dark": {
-          DEFAULT: "#282c34",
+          DEFAULT: "#21252b",
           dark: "#282c34",
           light: "#282c34",
         },
+        
 
-        "second-light-main": {
-          DEFAULT: "#ffff",
+        "secundary-dark": {
+          DEFAULT: "#282c34",
           dark: "#191919",
           light: "#f8f8f8",
         },
 
-        "second-dark-main": {
-          DEFAULT: "#191919",
+        "tertiary-dark": {
+          DEFAULT: "#404754",
           dark: "#191919",
           light: "#f8f8f8",
         },
 
-        "gris-oscuro": {
-          DEFAULT: "#333333",
-          dark: "#FFD700",
-          light: "#D6E2F1",
-        },
-        "dark-gray": {
-          DEFAULT: "#1a1a1a",
-          dark: "#1a1a1a",
-          light: "#2a2a2a", // Considera un color diferente para la variante light
-        },
-        "light-blue": {
-          DEFAULT: "#E0F7FA",
-          dark: "#1a1a1a",
-          light: "#E0F7FA", // Este color parece ser igual en todos los temas
-        },
+     
         footer: {
           DEFAULT: "#424242",
           dark: "#1a1a1a",

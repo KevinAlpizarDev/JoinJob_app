@@ -60,7 +60,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
 
             {isDropdownOpen && (
        
-              <div className=" bg-white absolute top-[15vh] left-[90%] transform -translate-x-1/2 w-[13vw] h-[20vh] dark:bg-gray-800 rounded-complete shadow-lg z-20 py-4 flex flex-col items-center justify-between transition-all duration-300">
+              <div className=" bg-white absolute top-[15vh] left-[89%] transform -translate-x-1/2 w-[13vw] h-[20vh] dark:bg-tertiary-dark rounded-complete shadow-lg z-20 py-4 flex flex-col items-center justify-between transition-all duration-300">
               <div className="flex-1 flex items-center justify-center">
                 <ThemeToggle />
               </div>
