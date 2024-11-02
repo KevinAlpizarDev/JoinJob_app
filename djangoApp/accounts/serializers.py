@@ -116,6 +116,8 @@ class CampusSerializer(serializers.ModelSerializer):
 #             "campus",
 #             "campus_name",
 #         ]
+
+
 class CourseSerializer(serializers.ModelSerializer):
     campus_name = serializers.CharField(source="campus.name", read_only=True)
     campus_latitude = serializers.FloatField(
