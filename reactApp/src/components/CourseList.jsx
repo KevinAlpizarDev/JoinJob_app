@@ -312,7 +312,7 @@ const CourseList = () => {
                     {course.description}
                   </p>
                   <div className="text-sm text-gray-500">
-                    <span className="block font-semibold text-gray-700 dark:text-light-star">
+                    <span className="block  font-semibold  text-primary-dark dark:text-primary-light">
                       Campus:
                     </span>
                     <Info
@@ -320,7 +320,7 @@ const CourseList = () => {
                       latitude={course.campus_latitude}
                       longitude={course.campus_longitude}
                     />
-                    <span>{course.campus_name}</span>
+                    <span  className="text-blue-sky font-semibold">{course.campus_name}</span>
                   </div>
                 </div>
                 <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-6 flex justify-between items-center">

@@ -31,19 +31,20 @@ function ThemeToggle() {
 
   return (
     <div className="flex items-center justify-center w-full">
-      <label className="flex  w-full items-center cursor-pointer py-2 dark: rounded">
-        <input
-          type="checkbox"
-          className="sr-only peer"
-          checked={theme === "dark"}
-          onChange={handleThemeChange}
-        />
-        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-extra-rounded dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-extra-rounded after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        <div className="ml-2 text-sm font-bold text-gray-700 dark:text-gray-300">
-          {theme === "dark" ? t("adminAccess.theme.off") : t("adminAccess.theme.on")}
-        </div>
-      </label>
-    </div>
+    <label className="flex w-full items-center cursor-pointer py-2 dark:rounded">
+      <input
+        type="checkbox"
+        className="sr-only peer"
+        checked={theme === "dark"}
+        onChange={handleThemeChange}
+      />
+      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-amarillo-mostaza dark:peer-focus:ring-amarillo-mostaza rounded-extra-rounded dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-extra-rounded after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-amarillo-mostaza"></div>
+      <div className="ml-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+        {theme === "dark" ? ` / ${t("adminAccess.theme.off")}` : ` / ${t("adminAccess.theme.on")}`}
+      </div>
+    </label>
+  </div>
+  
   );
 }
 

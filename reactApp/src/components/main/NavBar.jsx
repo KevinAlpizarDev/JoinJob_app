@@ -15,16 +15,26 @@ export default function NavBar({ isLoggedIn, onLogout }) {
   const { t } = useTranslation("global");
 
   return (
-    <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b  border-gray-200 dark:border-gray-800  dark:bg-dark-main">
+    <nav className="w-full bg-amarillo-mostaza dark:bg-secundary-dark dark:border-primary-light  border-gray-200  dark:bg-dark-main">
       <div className="max-w-7xl rounded-extra-rounded   mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex rounded-extra-rounded   items-center justify-between h-16">
           <div className="flex rounded-extra-rounded  w-96 items-center">
-            <div className="rounded-extra-rounded">
+            {/* <div className="rounded-extra-rounded">
               
             <Link to="/" className="flex-shrink-0 rounded-extra-rounded  ">
               <img className="h-10 w-10 rounded-standard" src={Logo} alt="Logo" />
             </Link>
-            </div>
+            </div> */}
+               <Link to="/" className="flex items-center space-x-2">
+              {/* <img
+                className="h-10 w-10 rounded-standard"
+                src={Logo}
+                alt="Logo"
+              /> */}
+              <span className="text-2xl font-bold text-blue-sky-light mx-0 dark:text-blue-sky">
+                JoinJob
+              </span>
+            </Link>
             <div className="hidden text-2xl text-blue-300 md:flex flex-grow ml-6">
               <div className="flex-1 text-2xl text-blue-300  font-bold flex items-center justify-center">
                 <NavLink
@@ -117,7 +127,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
 function NavLink({ to, children, mobile = false }) {
   const baseClasses =
     "text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200";
-  const desktopClasses = "px-4 py-2 rounded-md";
+  const desktopClasses = "px py-2 rounded-md";
   const mobileClasses = "block px-4 py-2 rounded-md";
 
   return (
