@@ -242,6 +242,8 @@
 // };
 
 // export default CampusList;
+
+
 import React, { useState, useEffect } from "react";
 import { getAllCampuses, updateCampusStatus } from "../services/service";
 import CampusForm from "./CampusForm";

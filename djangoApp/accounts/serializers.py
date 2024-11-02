@@ -195,13 +195,29 @@ class UserSerializer(serializers.ModelSerializer):
 #         ]
 
 
+# class EnrollmentSerializer(serializers.ModelSerializer):
+#     user = serializers.PrimaryKeyRelatedField(
+#         read_only=True
+#     )  # Solo lectura, se asigna automáticamente en el servidor
+#     course = serializers.PrimaryKeyRelatedField(
+#         queryset=Course.objects.all()
+#     )  # Acepta un ID de curso
+
+#     class Meta:
+#         model = Enrollment
+#         fields = [
+#             "id",
+#             "user",
+#             "id_number",
+#             "phone_number",
+#             "age",
+#             "gender",
+#             "course",
+#             "is_active",
+#         ]
 class EnrollmentSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=True
-    )  # Solo lectura, se asigna automáticamente en el servidor
-    course = serializers.PrimaryKeyRelatedField(
-        queryset=Course.objects.all()
-    )  # Acepta un ID de curso
+    user = serializers.PrimaryKeyRelatedField(read_only=True)
+    course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())
 
     class Meta:
         model = Enrollment
@@ -214,4 +230,5 @@ class EnrollmentSerializer(serializers.ModelSerializer):
             "gender",
             "course",
             "is_active",
+            "is_course_active",  # Incluye el campo en el serializador
         ]
