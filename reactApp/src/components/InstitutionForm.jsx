@@ -280,14 +280,14 @@ const InstitutionForm = ({ institution, onSubmit, onClose }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-gray-400 shadow-sm border border-slate-200 p-6 overflow-auto"
+      className="flex flex-col h-full w-full rounded-extra-rounded my-0 bg-secundary-light  shadow-sm border dark:border-none  p-6 overflow-auto dark:bg-secundary-dark"
     >
-      <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
+      <h2 className="text-xl font-semibold text-secundary-dark  text-center mb-4 dark:text-secundary-light">
         {t("adminAccess.control.registerInstitutions")}
       </h2>
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="name" className="block text-sm font-medium text-secundary-dark dark:text-secundary-light">
           Nombre de la institución
         </label>
         <input
@@ -298,12 +298,12 @@ const InstitutionForm = ({ institution, onSubmit, onClose }) => {
           value={institutionData.name}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-complete"
+          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         />
       </div>
 
       <div>
-        <label htmlFor="type" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="type" className="block text-sm font-medium text-secundary-dark dark:text-secundary-light">
           Tipo de institución
         </label>
         <select
@@ -311,7 +311,7 @@ const InstitutionForm = ({ institution, onSubmit, onClose }) => {
           name="type"
           value={institutionData.type}
           onChange={handleChange}
-          className="mt-1 p-2 w-full border rounded-complete"
+          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         >
           <option value="public">Pública</option>
           <option value="private">Privada</option>
@@ -319,7 +319,7 @@ const InstitutionForm = ({ institution, onSubmit, onClose }) => {
       </div>
 
       <div>
-        <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="phone_number" className="block text-sm font-medium text-secundary-dark dark:text-secundary-light">
           Número de teléfono
         </label>
         <input
@@ -330,7 +330,7 @@ const InstitutionForm = ({ institution, onSubmit, onClose }) => {
           value={institutionData.phone_number}
           onChange={handleChange}
           required
-          className="mt-1 p-2 w-full border rounded-complete"
+          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         />
       </div>
 

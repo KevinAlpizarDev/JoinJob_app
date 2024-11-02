@@ -46,16 +46,16 @@ const Control = () => {
   };
 
   const renderPageContent = () => {
-    const contentStyle = "flex   gap-4 h-full  rounded-extra-rounded shadow-lg w-full";
+    const contentStyle = "flex  gap-4 h-full  rounded-extra-rounded  w-full";
 
     switch (pageId) {
       case "Institutions":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 flex items-center bg-second-light-main dark:bg-second-dark-main shadow-md">
+            <div className="w-1/2 flex items-center  dark:bg-second-dark-main ">
               <InstitutionForm />
             </div>
-            <div className="w-1/2 overflow-auto rounded-extra-rounded bg-third-light-main dark:bg-third-dark-main shadow-md">
+            <div className="w-1/2 overflow-auto rounded-extra-rounded bg-third-light-main dark:bg-third-dark-main ">
               <InstitutionList />
             </div>
           </div>

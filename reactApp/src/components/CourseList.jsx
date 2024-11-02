@@ -155,11 +155,11 @@ const CourseList = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-primary-light justify-center bg-light-main  dark:bg-second-dark-main">
-    <div className="w-full bg-primary-light max-w-3xl px-4 py-6 darkdark:bg-gray-800">
-      <div className="space-y-6 bg-primary-light ">
+    <div className="min-h-screen flex flex-col items-center bg-primary-light justify-center bg-light-main  dark:bg-primary-dark">
+    <div className="w-full bg-primary-light max-w-3xl px-4 py-6  dark:bg-primary-dark">
+      <div className="space-y-6 bg-primary-light dark:bg-primary-dark ">
         {courses.length === 0 ? (
-          <p className="text-gray-500 bg-black  w-full text-center dark:text-gray-400">
+          <p className="w-full flex  justify-center bg-primary-light  dark:bg-primary-dark dark:text-secundary-light">
             {t("userAccess.availableCourses.noAvailable")}
           </p> // Mensaje si no hay cursos
         ) : (
