@@ -106,7 +106,7 @@ const ModalWithMap = ({ isOpen, onClose, latitude, longitude }) => {
       <div className="relative bg-white p-6 w-11/12 max-w-lg rounded-2xl shadow-lg transform transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-500 scale-95">
         <button
           onClick={onClose}
-          className="absolute bg-black top-4 right-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-300"
+          className="absolute top-4 right-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-300"
         >
           X
         </button>

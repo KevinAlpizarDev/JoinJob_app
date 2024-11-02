@@ -239,6 +239,8 @@
 // };
 
 // export default InstitutionList;
+
+
 import React, { useState, useEffect } from "react";
 import { getInstitutions, updateInstitutionStatus } from "../services/service";
 import InstitutionForm from "./InstitutionForm";
@@ -353,16 +355,17 @@ const InstitutionList = () => {
       </nav>
 
       {editInstitution && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded shadow-md w-96">
-            <h3 className="text-lg font-bold mb-4">Editar Institución</h3>
-            <InstitutionForm
-              institution={editInstitution}
-              onSubmit={handleEditSubmit}
-              onClose={handleCloseModal}
-            />
-          </div>
-        </div>
+       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-md">
+       <div className="w-[45%] p-6 rounded">
+         <h3 className="text-lg font-bold mb-4">Editar Institución</h3>
+         <InstitutionForm
+           institution={editInstitution}
+           onSubmit={handleEditSubmit}
+           onClose={handleCloseModal}
+         />
+       </div>
+     </div>
+     
       )}
     </div>
   );
