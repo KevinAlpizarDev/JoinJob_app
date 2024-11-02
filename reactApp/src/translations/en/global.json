@@ -42,7 +42,7 @@
       "header": "Welcome, to JoinJob"
     },
     "availableCourses": {
-      "available": "Available courses",
+      "available": "Courses",
       "noAvailable": "There are no courses available.",
       "viewProfile": "View Profile"
     },

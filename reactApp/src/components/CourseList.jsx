@@ -273,6 +273,8 @@ const CourseList = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-primary-light justify-center bg-light-main dark:bg-primary-dark">
+      <h1 className="text-4xl font-bold text-blue-sky"> {t("userAccess.availableCourses.available")}</h1>
+    
       <div className="w-full bg-primary-light max-w-3xl px-4 py-6 dark:bg-primary-dark">
         <div className="space-y-6 bg-primary-light dark:bg-primary-dark">
           {courses.length === 0 ? (
@@ -287,25 +289,26 @@ const CourseList = () => {
               >
                 <div className="px-4 py-6">
                   <div className="flex justify-between items-start">
-                    <h2 className="text-xl font-bold text-secundary-light dark:text-light-star">
+                    <h2 className="text-xl font-bold text-secundary-dark dark:text-secundary-light">
                       {course.name}
                     </h2>
                     <div className="text-sm text-gray-500">
-                      <span className="block font-semibold text-gray-700">Código</span>
-                      <div className="flex justify-center">
+                      <span className="block font-semibold text-secundary-dark dark:text-tertiary-light">Código</span>
+                      <div className="flex font-bold justify-center">
                         {course.code}
                       </div>
                     </div>
                   </div>
                   <div className="flex space-x-1 mb-3">
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
+                    <span className="bg-tertiary-light font-bold text-secundary-dark px-3 py-2 rounded-extra-rounded text-xs dark:bg-tertiary-dark dark:text-secundary-light">
                       {course.seats} Cupo
                     </span>
-                    <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-extra-rounded text-xs font-medium">
+                    <span className="bg-tertiary-light font-bold text-secundary-dark px-3 py-2 rounded-extra-rounded text-xs dark:bg-tertiary-dark dark:text-secundary-light">
+                   
                       {course.modality}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 my-2 dark:text-gray-400">
+                  <p className="text-bold text-secundary-dark my-2 dark:text-gray-400">
                     {course.description}
                   </p>
                   <div className="text-sm text-gray-500">
