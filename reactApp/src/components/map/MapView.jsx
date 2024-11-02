@@ -86,7 +86,8 @@ const MapView = ({ latitude, longitude }) => {
     <MapContainer
       center={position}
       zoom={13}
-      style={{ height: "400px", width: "100%" }}
+      style={{ height: "500px", width: "100%" }}
+      className="rounded-t-extra-rounded"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -101,7 +102,7 @@ const ModalWithMap = ({ isOpen, onClose, latitude, longitude }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity ease-in-out duration-500 opacity-100 animate-fadeIn">
+    <div className="fixed bg-white inset-0 flex items-center justify-center bg-opacity-50 transition-opacity ease-in-out duration-500 opacity-100 animate-fadeIn">
       <div className="relative bg-white p-6 w-11/12 max-w-lg rounded-2xl shadow-lg transform transition-all ease-[cubic-bezier(0.25,0.1,0.25,1.0)] duration-500 scale-95">
         <button
           onClick={onClose}

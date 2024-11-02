@@ -89,7 +89,7 @@ export default function Login() {
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
       <form className="space-y-4 " onSubmit={handleSubmit}>
         <div>
-          <label className=" block text-sm font-medium text-gray-700 mb-1">
+          <label className=" block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
           {t("publicAccess.account.login.email")}
           </label>
           <input
@@ -101,7 +101,7 @@ export default function Login() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
           {t("publicAccess.account.login.password")}
           </label>
           <input

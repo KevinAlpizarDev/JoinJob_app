@@ -46,16 +46,16 @@ const Control = () => {
   };
 
   const renderPageContent = () => {
-    const contentStyle = "flex gap-4 h-full rounded-extra-rounded shadow-lg w-full";
+    const contentStyle = "flex  gap-4 h-full  rounded-extra-rounded  w-full";
 
     switch (pageId) {
       case "Institutions":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 flex items-center bg-second-light-main dark:bg-second-dark-main shadow-md">
+            <div className="w-1/2 flex items-center  dark:bg-second-dark-main ">
               <InstitutionForm />
             </div>
-            <div className="w-1/2 overflow-auto rounded-extra-rounded bg-third-light-main dark:bg-third-dark-main shadow-md">
+            <div className="w-1/2 overflow-auto rounded-extra-rounded bg-third-light-main dark:bg-third-dark-main ">
               <InstitutionList />
             </div>
           </div>
@@ -95,7 +95,7 @@ const Control = () => {
         );
       default:
         return (
-          <div className="flex bg-light-main border dark:border-dark-main justify-center h-full items-center rounded-extra-rounded  font-semibold dark:bg-second-dark-main text-gray-600">
+          <div className="flex border dark:bg-secundary-dark  bg-secundary-light  justify-center h-full items-center rounded-extra-rounded  font-semibold dark:bg-second-dark text-gray-600 dark:text-tertiary-light">
             {t("adminAccess.control.noPages")}
           </div>
         );
@@ -105,14 +105,14 @@ const Control = () => {
   return (
     <>
       <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} className="h-16" />
-      <section className="flex bg-black dark:bg-dark-main" style={{ height: "calc(100vh - 4rem)" }}>
-        <aside className="border-r bg-second-light-main-light dark:bg-second-dark-main p-4 w-64 shadow-lg h-full">
-          <h2 className="text-lg font-semibold mb-4 text-dark-main dark:text-light-main">
+      <section className="flex bg-blue-300 dark:bg-dark-main" style={{ height: "calc(100vh - 4rem)" }}>
+        <aside className=" dark:bg-secundary-dark bg-secundary-light dark:bg-second-dark-main p-4 w-64 shadow-lg h-full">
+          <h2 className="text-primary-dark dark:text-primary-light   font-semibold mb-4 ">
             {t("adminAccess.control.header")}
           </h2>
           <AdminPagesList />
         </aside>
-        <main className="flex-1 p-4 bg-second-light-main dark:bg-dark-main overflow-y-auto h-full">
+        <main className="flex-1 p-4  bg-primary-light dark:bg-primary-dark overflow-y-auto h-full">
           {renderPageContent()}
         </main>
       </section>

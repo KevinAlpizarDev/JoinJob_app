@@ -34,7 +34,7 @@ export default function SignInPage() {
     <>
       <Position />
       <div className="min-w-fi h-screen bg-light-main flex items-center justify-center p-4 dark:bg-second-dark-main  py-8">
-        <div className="bg-white rounded-extra-rounded max-w-md w-full mb-12 shadow-lg">
+        <div className="bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded max-w-md w-full mb-12 shadow-lg">
           <div className="p-6 dark:bg-">
             <button
               onClick={updateFormBtn}
