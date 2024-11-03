@@ -38,9 +38,9 @@ function ThemeToggle() {
         checked={theme === "dark"}
         onChange={handleThemeChange}
       />
-      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-amarillo-mostaza dark:peer-focus:ring-amarillo-mostaza rounded-extra-rounded dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-extra-rounded after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-amarillo-mostaza"></div>
-      <div className="ml-2 text-sm font-bold text-gray-700 dark:text-gray-300">
-        {theme === "dark" ? ` / ${t("adminAccess.theme.off")}` : ` / ${t("adminAccess.theme.on")}`}
+      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-secundary-d dark:peer-focus:ring-amarillo-mostaza rounded-extra-rounded dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-extra-rounded after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-amarillo-mostaza"></div>
+      <div className="ml-2 text-sm font-medium text-black dark:text-gray-300">
+        {theme === "dark" ? t("adminAccess.theme.off") : t("adminAccess.theme.on")}
       </div>
     </label>
   </div>

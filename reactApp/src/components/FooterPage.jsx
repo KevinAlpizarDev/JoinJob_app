@@ -81,7 +81,7 @@ export default function FooterPage() {
             <h2 className="text-2xl font-bold text-blue-sky dark:text-yellow-mostaza">
               {t("publicAccess.footer.stayCurious")}
             </h2>
-            <p className="mt-1 text  font-bold text-onlypink dark:text-onlypink">
+            <p className="mt-1 text  font-bold text-amarillo-mostaza dark:text-amarillo-mostaza">
               {t("publicAccess.footer.description")}
             </p>
           </div>
