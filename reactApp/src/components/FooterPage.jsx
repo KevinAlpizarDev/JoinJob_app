@@ -74,14 +74,14 @@ export default function FooterPage() {
   const { t } = useTranslation("global"); // Llama a useTranslation dentro del componente
 
   return (
-    <footer className="bg-secundary-light border dark:border-none dark:bg-primary-dark py-4 px-6 sm:px-8 lg:px-10 shadow-md">
+    <footer className="bg-secundary-light border dark:border-none dark:bg-tertiary-dark py-4 px-6 sm:px-8 lg:px-10 shadow-md">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <div className="text-center sm:text-left">
             <h2 className="text-2xl font-bold text-blue-sky dark:text-yellow-mostaza">
               {t("publicAccess.footer.stayCurious")}
             </h2>
-            <p className="mt-1 text  font-bold text-amarillo-mostaza dark:text-amarillo-mostaza">
+            <p className="mt-1 text  font-bold  dark:text-amarillo-mostaza">
               {t("publicAccess.footer.description")}
             </p>
           </div>

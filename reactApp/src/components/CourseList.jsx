@@ -273,7 +273,7 @@ const CourseList = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-primary-light justify-center bg-light-main dark:bg-primary-dark">
-      <h1 className="text-4xl font-bold text-blue-sky"> {t("userAccess.availableCourses.available")}</h1>
+      <h1 className="text-2xl font-bold text-secundary-dark mx-0 dark:text-secundary-light"> {t("userAccess.availableCourses.available")}</h1>
     
       <div className="w-full bg-primary-light max-w-3xl px-4 py-6 dark:bg-primary-dark">
         <div className="space-y-6 bg-primary-light dark:bg-primary-dark">
@@ -289,7 +289,7 @@ const CourseList = () => {
               >
                 <div className="px-4 py-6">
                   <div className="flex justify-between items-start">
-                    <h2 className="text-xl font-bold text-secundary-dark dark:text-secundary-light">
+                    <h2 className="text-2xl font-bold text-blue-sky mx-0 dark:text-blue-sky">
                       {course.name}
                     </h2>
                     <div className="text-sm text-gray-500">
@@ -308,7 +308,7 @@ const CourseList = () => {
                       {course.modality}
                     </span>
                   </div>
-                  <p className="text-bold text-secundary-dark my-2 dark:text-gray-400">
+                  <p className="mx-auto py-8 max-w-[700px] text-gray-500 md:text-xl dark:text-tertiary-light">
                     {course.description}
                   </p>
                   <div className="text-sm text-gray-500">

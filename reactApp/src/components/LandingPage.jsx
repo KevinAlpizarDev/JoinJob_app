@@ -17,7 +17,7 @@ export default function LandingPage() {
         <div className="container   px-3 md:px-2">
             <div className="flex flex-col space-y-4 text-center">
                 <div className="space-y-2">
-                    <h1 className="text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl dark:text-secundary-light">
+                    <h1 className="text-3xl text-secundary-dark font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl dark:text-secundary-light">
                         {t("publicAccess.landingPage.header")}
                     </h1>
                     <p className="mx-auto py-8 max-w-[700px] text-gray-500 md:text-xl dark:text-tertiary-light">

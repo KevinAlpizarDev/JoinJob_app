@@ -42,10 +42,10 @@ export default function Home() {
     <>
       <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogoutClick} />{" "}
       {/* Pasar props */}
-      <div className="min-h-screen bg-primary-light dark:bg-dark-main">
+      <div className="min-h-screen bg-primary-light dark:bg-primary-dark">
         {isLoggedIn ? (
           <>
-            <h1 className="bg-primary-light text-secundary-dark dark:text-secundary-light dark:bg-primary-dark text-3xl p-8 font-bold  dark:text-light-star tracking-wide">
+            <h1  className="text-3xl text-secundary-dark p-8 font-black tracking-tighter sm:text-4xl md:text-3xl lg:text-3xl dark:text-secundary-light">
               {t("userAccess.welcome.header")}, {username}!
             </h1>
             <CourseList />

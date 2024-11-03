@@ -132,8 +132,8 @@ export default function Register() {
           {t("publicAccess.account.register.name")}
         </label>
         <input
-          className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-          type="text"
+           className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+          type="email"
           name="name"
           value={formData.name}
           onChange={handleChange}
@@ -146,7 +146,7 @@ export default function Register() {
           {t("publicAccess.account.register.userName")}
         </label>
         <input
-          className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+           className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
           type="text"
           name="username"
           value={formData.username}
@@ -160,7 +160,7 @@ export default function Register() {
           {t("publicAccess.account.register.email")}
         </label>
         <input
-          className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+         className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
           type="email"
           name="email"
           value={formData.email}
@@ -170,7 +170,7 @@ export default function Register() {
       </div>
 
       <button
-        className="rounded-extra-rounded bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full mt-4"
+         className="w-full bg-blue-sky hover:bg-blue-sky-light my-4 text-sm font-medium text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 shadow-md"
         onClick={handleNext}
       >
         {t("publicAccess.account.register.registerButton")}
@@ -190,7 +190,7 @@ export default function Register() {
           Contraseña
         </label>
         <input
-          className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+  className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
           type="password"
           name="password1"
           value={formData.password1}
@@ -204,7 +204,7 @@ export default function Register() {
           Confirmar contraseña
         </label>
         <input
-          className="w-full px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+        className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
           type="password"
           name="password2"
           value={formData.password2}
@@ -215,15 +215,16 @@ export default function Register() {
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button
-          className="rounded-extra-rounded bg-gray-300 px-6 py-2 h-12 text-sm font-semibold text-blue-700 hover:bg-gray-200 w-full mr-2"
+         className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
           onClick={handlePrev}
         >
           {t("publicAccess.account.register.previous")}
         </button>
         <button
-          className="rounded-extra-rounded bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 w-full"
+          className="w-full bg-blue-sky text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6   transition-all duration-200 hover:scale-105 shadow-m  dark:to-blue-sky-light"
           onClick={handleNext}
         >
+          
           {t("publicAccess.account.register.next")}
         </button>
       </div>
@@ -247,26 +248,27 @@ export default function Register() {
   {/* PASO 3: Confirmación */}
   {step === 3 && (
     <div>
-      <h2 className="text-lg font-medium text-gray-500">
+       <h2 className="text-lg font-bold dark:text-tertiary-light">
         Paso 3: Confirmación
       </h2>
 
-      <div className="mt-12 space-y-4 font-medium text-sm text-gray-500">
+      <div className="mt-12 space-y-4 block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
         <p>Nombre: {formData.name}</p>
         <p>Email: {formData.email}</p>
         <p>Nombre de usuario: {formData.username}</p>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4">
         <button
-          className="rounded-full bg-blue-50 px-8 py-2 h-12 text-sm font-semibold text-blue-600 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+                className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
           onClick={handlePrev}
         >
           Anterior
         </button>
         <form onSubmit={handleSubmit}>
           <button
-            className="w-full my-4 bg-[#E63946] text-white rounded-full py-3 px-8 font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              className="w-full bg-[#4CAF50] hover:bg-[#66BB6A] text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2 transition-all duration-200 hover:scale-105 shadow-m"
+
             type="submit"
             disabled={isLoading}
           >

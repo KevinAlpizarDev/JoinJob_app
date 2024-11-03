@@ -62,7 +62,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
             {isLoggedIn && (
               <button
                 onClick={onLogout}
-                className="text-white font-semibold w-32 bg-blue-sky  rounded-standard hover:bg-blue-sky-light focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
+                className="text-white hover:text-secundary-dark font-semibold w-32 bg-blue-sky  rounded-standard hover:bg-blue-sky-light focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2   transition duration-150 ease-in-out"
               >
                 {t("publicAccess.navbar.logout")}
               </button>

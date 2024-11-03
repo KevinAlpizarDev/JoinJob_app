@@ -63,10 +63,10 @@ const Control = () => {
       case "Campus":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main shadow-md">
+            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main ">
               <CampusForm />
             </div>
-            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main shadow-md">
+            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main ">
               <CampusList />
             </div>
           </div>
@@ -74,10 +74,10 @@ const Control = () => {
       case "Courses":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main shadow-md">
+            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main ">
               <CourseForm />
             </div>
-            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main shadow-md">
+            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main ">
               <AdminCourseList />
             </div>
           </div>
@@ -85,10 +85,10 @@ const Control = () => {
       case "Enrollments":
         return (
           <div className={contentStyle}>
-            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main shadow-md">
+            <div className="w-1/2 rounded-lg bg-second-light-main dark:bg-second-dark-main">
               <EnrollmentForm />
             </div>
-            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main shadow-md">
+            <div className="w-1/2 overflow-auto rounded-lg bg-third-light-main dark:bg-third-dark-main">
               <EnrollmentList />
             </div>
           </div>
