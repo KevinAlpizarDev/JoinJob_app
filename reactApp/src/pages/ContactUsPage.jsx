@@ -10,7 +10,7 @@ const ContactUsPage = () => {
     <>
   
         <NavBar />
-        <Position />
+        {/* <Position /> */}
         <EmailForm />
     
       <FooterPage />

@@ -197,6 +197,8 @@
 //     </>
 //   );
 // }
+
+
 import React from "react";
 import NavBar from "../components/main/NavBar";
 import Position from "../components/Position";
@@ -206,13 +208,13 @@ export default function AboutPage() {
   return (
     <>
       <NavBar />
-      <Position />
+      {/* <Position /> */}
 
       <section className="w-full py-16 md:py-24 bg-secundary-light dark:bg-secundary-dark">
         <div className="container mx-auto px-6 md:px-28">
           {/* Título */}
           <h2 className="text-3xl font-poppins text-tertiary-dark dark:text-primary-light tracking-tight sm:text-4xl md:text-5xl text-center mb-12 font-black">
-            Lorem ipsum dolor sit amet consectetur adipisicing
+         Acerca de nosotros
           </h2>
 
           {/* Grid de Tarjetas */}

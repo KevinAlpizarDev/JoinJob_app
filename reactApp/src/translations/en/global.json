@@ -34,7 +34,8 @@
     "footer": {
       "stayCurious": "Stay Curious",
       "description": "Discover something new every day.",
-      "copyright": "© 2024 JoinJob, Inc. All rights reserved."
+      "copyright": "© 2024 JoinJob, Inc. All rights reserved.",
+      "home": "Home"
     }
   },
   "userAccess": {

@@ -126,7 +126,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
 
 function NavLink({ to, children, mobile = false }) {
   const baseClasses =
-    "text-sm font-medium text-black dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200";
+    "text-sm font-medium text-black dark:text-gray-300 hover:text-blue-sky dark:hover:text-amarillo-mostaza transition duration-200";
   const desktopClasses = "px py-2 rounded-md";
   const mobileClasses = "block px-4 py-2 rounded-md";
 

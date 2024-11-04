@@ -115,7 +115,7 @@ export default function Register() {
   return (
     
 
-<div className="p-6 bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded dark:border-none">
+<div className="bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded dark:border-none">
 
 
   {error && <p style={{ color: "red" }}>{error}</p>}
@@ -123,17 +123,18 @@ export default function Register() {
 
   {/* PASO 1: Información personal */}
   {step === 1 && (
-    <div>
-      <h2 className="text-lg font-bold dark:text-tertiary-light">
+    <div className="">
+      <h2 className="text-lg py-4 font-bold dark:text-tertiary-light">
         {t("publicAccess.account.register.personalInformation")}
       </h2>
       <div>
-        <label className="block text-sm font-medium text-secundary-light mb-1">
+        <label className="block text-sm font-medium text-secundary-dark mb-1">
           {t("publicAccess.account.register.name")}
         </label>
         <input
            className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-          type="email"
+   placeholder="Ej: Paola"
+          type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
@@ -147,6 +148,7 @@ export default function Register() {
         </label>
         <input
            className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+              placeholder="Ej: Pao"
           type="text"
           name="username"
           value={formData.username}
@@ -161,6 +163,7 @@ export default function Register() {
         </label>
         <input
          className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+            placeholder="Ej: paolajoinjob@gmail.com"
           type="email"
           name="email"
           value={formData.email}
@@ -191,6 +194,7 @@ export default function Register() {
         </label>
         <input
   className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+     placeholder="********"
           type="password"
           name="password1"
           value={formData.password1}
@@ -205,6 +209,7 @@ export default function Register() {
         </label>
         <input
         className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+             placeholder="********"
           type="password"
           name="password2"
           value={formData.password2}
@@ -218,14 +223,14 @@ export default function Register() {
          className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
           onClick={handlePrev}
         >
-          {t("publicAccess.account.register.previous")}
+       Anterior
         </button>
         <button
           className="w-full bg-blue-sky text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6   transition-all duration-200 hover:scale-105 shadow-m  dark:to-blue-sky-light"
           onClick={handleNext}
         >
-          
-          {t("publicAccess.account.register.next")}
+          Continuar
+          {/* {t("publicAccess.account.register.next")} */}
         </button>
       </div>
       {/* <div className="flex justify-between mt-4">

@@ -38,7 +38,7 @@ export default function SignInPage() {
           <div className="p-6 dark:bg-">
             <button
               onClick={updateFormBtn}
-              className="w-full bg-amarillo-mostaza text-sm font-medium text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 shadow-md"
+              className="w-full text-sm font-medium bg-amarillo-mostaza  text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 "
             >
               {registrationToggle
                 ? t("publicAccess.account.register.switch")

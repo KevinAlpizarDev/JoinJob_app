@@ -182,6 +182,7 @@ export default function Login() {
           </label>
           <input
             className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+               placeholder="Escribe tu correo"
             type="email"
             name="email"
             value={formData.email}
@@ -196,6 +197,7 @@ export default function Login() {
           </label>
           <input
              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+                         placeholder="Escribe tu contraseña"
             type="password"
             name="password"
             value={formData.password}

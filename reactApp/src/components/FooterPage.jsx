@@ -74,7 +74,7 @@ export default function FooterPage() {
   const { t } = useTranslation("global"); // Llama a useTranslation dentro del componente
 
   return (
-    <footer className="bg-secundary-light border dark:border-none dark:bg-tertiary-dark py-4 px-6 sm:px-8 lg:px-10 shadow-md">
+    <footer className="bg-secundary-light border-y-2 dark:border-none dark:bg-primary-dark py-4 px-6 sm:px-8 lg:px-10 shadow-md">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <div className="text-center sm:text-left">
@@ -114,7 +114,7 @@ export default function FooterPage() {
             href="#"
             className="inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-extra-rounded shadow-sm text-primary-light bg-blue-sky hover:bg-yellow-mostaza focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-sky transition-all duration-150"
           >
-            Join our newsletter
+             {t("publicAccess.footer.home")}
             {/* <ArrowUpRight className="ml-2 -mr-1 h-4 w-4" /> */}
           </a>
         </div>
