@@ -15,16 +15,26 @@ export default function NavBar({ isLoggedIn, onLogout }) {
   const { t } = useTranslation("global");
 
   return (
-    <nav className="w-full bg-amarillo-mostaza dark:amarillo-mostaza border-b  border-gray-200 dark:border-gray-800  dark:bg-dark-main">
+    <nav className="w-full  bg-amarillo-mostaza dark:bg-secundary-dark dark:border-primary-light  border-gray-200  dark:bg-dark-main">
       <div className="max-w-7xl rounded-extra-rounded   mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex rounded-extra-rounded   items-center justify-between h-16">
           <div className="flex rounded-extra-rounded  w-96 items-center">
-            <div className="rounded-extra-rounded">
+            {/* <div className="rounded-extra-rounded">
               
             <Link to="/" className="flex-shrink-0 rounded-extra-rounded  ">
               <img className="h-10 w-10 rounded-standard" src={Logo} alt="Logo" />
             </Link>
-            </div>
+            </div> */}
+               <Link to="/" className="flex items-center space-x-2">
+              {/* <img
+                className="h-10 w-10 rounded-standard"
+                src={Logo}
+                alt="Logo"
+              /> */}
+              <span className="text-2xl font-bold text-blue-sky mx-0 dark:text-blue-sky">
+                JoinJob
+              </span>
+            </Link>
             <div className="hidden text-2xl text-blue-300 md:flex flex-grow ml-6">
               <div className="flex-1 text-2xl text-blue-300  font-bold flex items-center justify-center">
                 <NavLink
@@ -52,7 +62,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
             {isLoggedIn && (
               <button
                 onClick={onLogout}
-                className="text-white font-semibold w-32 bg-blue-sky  rounded-standard hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-150 ease-in-out"
+                className="text-white hover:text-secundary-dark font-semibold w-32 bg-blue-sky  rounded-standard hover:bg-blue-sky-light focus:ring-4 focus:ring-blue-300 rounded-st px-2 py-2   transition duration-150 ease-in-out"
               >
                 {t("publicAccess.navbar.logout")}
               </button>
@@ -116,8 +126,8 @@ export default function NavBar({ isLoggedIn, onLogout }) {
 
 function NavLink({ to, children, mobile = false }) {
   const baseClasses =
-    "text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200";
-  const desktopClasses = "px-4 py-2 rounded-md";
+    "text-sm font-medium text-black dark:text-gray-300 hover:text-blue-sky dark:hover:text-amarillo-mostaza transition duration-200";
+  const desktopClasses = "px py-2 rounded-md";
   const mobileClasses = "block px-4 py-2 rounded-md";
 
   return (

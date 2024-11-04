@@ -283,7 +283,7 @@ const Modal = ({ courseId }) => {
                   Teléfono
                 </label>
                 <input
-                  type="tel"
+                  type="number"
                   name="phone_number"
                   value={formData.phone_number}
                   onChange={handleChange}

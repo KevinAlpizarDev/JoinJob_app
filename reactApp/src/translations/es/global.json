@@ -34,7 +34,8 @@
     "footer": {
       "stayCurious": "Mantén la curiosidad",
       "description": "Descubre algo nuevo cada día.",
-      "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados."
+      "copyright": "© 2024 JoinJob, Inc. Todos los derechos reservados.",
+      "home": "Incicio"
     }
   },
   "userAccess": {
@@ -42,7 +43,7 @@
       "header": "Bienvenido, a JoinJob"
     },
     "availableCourses": {
-      "available": "Cursos disponibles",
+      "available": "Cursos",
       "noAvailable": "No hay cursos disponibles.",
       "viewProfile": "Ver perfil"
     },

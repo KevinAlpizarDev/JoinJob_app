@@ -22,7 +22,6 @@ export default {
           DEFAULT: "#2563EB", // Color personalizado para blue-sky
           light: "#4F94FF", // Tono más claro (ajusta este valor según sea necesario)
         },
-
         "primary-light": {
           DEFAULT: "#ffffff",
           dark: "#ffffff",
@@ -33,38 +32,38 @@ export default {
           dark: "#f2f2f2",
           light: "#f2f2f2",
         },
-
         "tertiary-light": {
-  DEFAULT: "#e0e0e0",
-  dark: "#bfbfbf",
-  light: "#e0e0e0",
-},
+          DEFAULT: "#e0e0e0",
+          dark: "#bfbfbf",
+          light: "#e0e0e0",
+        },
         "primary-dark": {
           DEFAULT: "#21252b",
           dark: "#282c34",
           light: "#282c34",
         },
-        
-
         "secundary-dark": {
           DEFAULT: "#282c34",
           dark: "#191919",
           light: "#f8f8f8",
         },
-
         "tertiary-dark": {
           DEFAULT: "#404754",
           dark: "#191919",
           light: "#f8f8f8",
         },
-
-     
         footer: {
           DEFAULT: "#424242",
           dark: "#1a1a1a",
           light: "#d1d1d1", // Añadido un color más claro para el modo claro
         },
+        onlypink: {
+          DEFAULT: "#FFB6C1", // Color rosado pastel
+          dark: "#FF9AA2", // Tono más oscuro (ajusta según sea necesario)
+          light: "#FFC3D0", // Tono más claro (ajusta según sea necesario)
+        },
       },
+
       keyframes: {
         "move-down": {
           "0%": { transform: "translateY(-100%)" },

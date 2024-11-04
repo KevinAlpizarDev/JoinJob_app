@@ -32,13 +32,13 @@ export default function SignInPage() {
 
   return (
     <>
-      <Position />
-      <div className="min-w-fi h-screen bg-light-main flex items-center justify-center p-4 dark:bg-second-dark-main  py-8">
+      {/* <Position /> */}
+      <div className="min-w-fi h-screen flex items-center justify-center p-4 dark:bg-second-dark-main  py-8">
         <div className="bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded max-w-md w-full mb-12 shadow-lg">
           <div className="p-6 dark:bg-">
             <button
               onClick={updateFormBtn}
-              className="w-full bg-[#1D3557] text-white rounded-extra-rounded py-3 px-6 font-bold text-lg mb-6 transition-all duration-200 hover:scale-105 shadow-md"
+              className="w-full text-sm font-medium bg-amarillo-mostaza  text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 "
             >
               {registrationToggle
                 ? t("publicAccess.account.register.switch")

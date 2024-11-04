@@ -85,7 +85,7 @@ export default function Info({ courseId, latitude, longitude }) {
         <div className="fixed  inset-0 z-50 flex items-center justify-center">
           {/* Fondo oscuro */}
           <div
-            className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md"
+              className="absolute inset-0 bg-black bg-opacity-5 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
 

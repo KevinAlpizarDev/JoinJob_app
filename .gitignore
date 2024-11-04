@@ -25,15 +25,15 @@ dist-ssr
 *.sw?
 
 # Ignorar archivos específicos
-AuthProvider.jsx
-ProtectedRoute.jsx
-src/
-Login.jsx
-accounts/views.py
-views.py
-djangoApp/accounts/views.py
+# AuthProvider.jsx
+# ProtectedRoute.jsx
+# src/
+# Login.jsx
+# accounts/views.py
+# views.py
+# djangoApp/accounts/views.py
 
-SignInPage.jsx
+# SignInPage.jsx
 
 # Django #
 *.log

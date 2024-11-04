@@ -959,7 +959,7 @@ const CourseForm = ({ course, onSubmit, onClose }) => {
           value={courseData.start_date}
           onChange={handleChange}
           required
-          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
+          className="mt-1 dark:text-tertiary-light dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         />
       </div>
 
@@ -977,7 +977,7 @@ const CourseForm = ({ course, onSubmit, onClose }) => {
           value={courseData.end_date}
           onChange={handleChange}
           required
-          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
+          className="mt-1 dark:text-tertiary-light dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         />
       </div>
 
@@ -1031,7 +1031,7 @@ const CourseForm = ({ course, onSubmit, onClose }) => {
           name="modality"
           value={courseData.modality}
           onChange={handleChange}
-          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
+          className="mt-1 dark:text-tertiary-light dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         >
           <option value="in-person">Presencial</option>
           <option value="virtual">Virtual</option>
@@ -1051,7 +1051,7 @@ const CourseForm = ({ course, onSubmit, onClose }) => {
           value={courseData.campus}
           onChange={handleChange}
           required
-          className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
+           className="mt-1 dark:text-tertiary-light dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
         >
           <option value="">Selecciona un campus</option>
           {campuses.map((campus) => (
