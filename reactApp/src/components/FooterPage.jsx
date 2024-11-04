@@ -104,8 +104,9 @@ export default function FooterPage() {
         </div>
 
         <div className="mt-4 pt-4 border-t border-tertiary-light dark:border-tertiary-dark">
-          <p className="text-center text-sm text-tertiary-light dark:text-tertiary-dark">
+          <p className="text-center text-sm text-secundary-dark dark:text-tertiary-light">
             {/* Puedes agregar más información aquí si lo deseas */}
+            {t("publicAccess.footer.copyright")}
           </p>
         </div>
 

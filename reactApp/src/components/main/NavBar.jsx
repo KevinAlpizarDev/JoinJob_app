@@ -105,8 +105,8 @@ export default function NavBar({ isLoggedIn, onLogout }) {
       </div>
 
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden ">
+          <div className="px-2  pt-2 pb-3 space-y-1">
             <NavLink to="/about" mobile>
               {t("publicAccess.navbar.aboutUs")}
             </NavLink>
@@ -114,7 +114,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
               {t("publicAccess.navbar.contactUs")}
             </NavLink>
           </div>
-          <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700 ">
+          <div className="pt-4 pl-6 pb-3 border-t border-gray-200 dark:border-gray-700 ">
             <ThemeToggle />
             <LanguageToggle />
           </div>

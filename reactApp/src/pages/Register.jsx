@@ -128,7 +128,7 @@ export default function Register() {
         {t("publicAccess.account.register.personalInformation")}
       </h2>
       <div>
-        <label className="block text-sm font-medium text-secundary-dark mb-1">
+      <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
           {t("publicAccess.account.register.name")}
         </label>
         <input
@@ -163,7 +163,7 @@ export default function Register() {
         </label>
         <input
          className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-            placeholder="Ej: paolajoinjob@gmail.com"
+            placeholder="Ej: paola@joinjob.com"
           type="email"
           name="email"
           value={formData.email}

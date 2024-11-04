@@ -238,29 +238,52 @@ class Course(models.Model):
 #     def __str__(self):
 #         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
 ###################
+# class Enrollment(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     id_number = models.CharField(max_length=20)
+#     phone_number = models.CharField(max_length=15)
+#     age = models.IntegerField()
+#     gender = models.CharField(
+#         max_length=10, choices=[("male", "Male"), ("female", "Female")]
+#     )
+#     course = models.ForeignKey(
+#         Course, on_delete=models.CASCADE, related_name="enrollments"
+#     )
+#     enrollment_date = models.DateTimeField(auto_now_add=True)
+#     is_active = models.BooleanField(default=True)
+#     is_course_active = models.BooleanField(default=True)  # Nuevo campo
+
+#     class Meta:
+#         unique_together = ('user', 'course')  # Restringe a una matrícula por usuario y curso
+
+#     def __str__(self):
+#         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
+
+###################
 class Enrollment(models.Model):
+    GENDER_CHOICES = [
+        ("male", "Masculino"),
+        ("female", "Femenino"),
+        ("other", "Otro"),  # Nueva opción
+    ]
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     id_number = models.CharField(max_length=20)
     phone_number = models.CharField(max_length=15)
     age = models.IntegerField()
-    gender = models.CharField(
-        max_length=10, choices=[("male", "Male"), ("female", "Female")]
-    )
-    course = models.ForeignKey(
-        Course, on_delete=models.CASCADE, related_name="enrollments"
-    )
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="enrollments")
     enrollment_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_course_active = models.BooleanField(default=True)  # Nuevo campo
 
     class Meta:
-        unique_together = ('user', 'course')  # Restringe a una matrícula por usuario y curso
+        unique_together = ('user', 'course')
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} - {self.course.name}"
 
-###################
-
+##########
 # class Enrollment(models.Model):
 #     # Relación con el usuario autenticado
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

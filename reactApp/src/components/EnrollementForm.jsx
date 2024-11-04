@@ -163,8 +163,6 @@
 
 // export default EnrollmentForm;
 
-
-
 // import React, { useState, useEffect } from "react";
 // import { createEnrollment, getAllCourses } from "../services/service";
 // import { useTranslation } from "react-i18next";
@@ -339,6 +337,7 @@
 // };
 
 // export default EnrollmentForm;
+
 import React, { useState, useEffect } from "react";
 import { createEnrollment, getAllCourses } from "../services/service";
 import { useTranslation } from "react-i18next";
@@ -391,7 +390,10 @@ const EnrollmentForm = () => {
         is_active: true,
       });
     } catch (error) {
-      setAlert({ type: "error", message: "Hubo un error al crear la inscripción" });
+      setAlert({
+        type: "error",
+        message: "Hubo un error al crear la inscripción",
+      });
     }
   };
 
@@ -468,7 +470,6 @@ const EnrollmentForm = () => {
             className="mt-1 dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
           />
         </div>
-
         <div>
           <label
             htmlFor="gender"
@@ -485,8 +486,28 @@ const EnrollmentForm = () => {
           >
             <option value="male">Masculino</option>
             <option value="female">Femenino</option>
+            <option value="other">Otro</option> {/* Nueva opción */}
           </select>
         </div>
+
+        {/* <div>
+          <label
+            htmlFor="gender"
+            className="block text-sm font-medium text-secundary-dark dark:text-secundary-light"
+          >
+            Género
+          </label>
+          <select
+            id="gender"
+            name="gender"
+            value={enrollmentData.gender}
+            onChange={handleChange}
+            className="mt-1 dark:text-tertiary-light dark:bg-tertiary-dark p-2 w-full border dark:border-none rounded-complete"
+          >
+            <option value="male">Masculino</option>
+            <option value="female">Femenino</option>
+          </select>
+        </div> */}
 
         <div>
           <label
