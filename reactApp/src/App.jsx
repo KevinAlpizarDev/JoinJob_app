@@ -217,6 +217,7 @@
 // };
 
 // export default App;
+
 import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -265,7 +266,6 @@ const router = createBrowserRouter([
         <Home />
       </ProtectedRoute>
     ),
-    errorElement: <NotFoundPage />,
   },
   {
     path: "/admin",
@@ -294,6 +294,10 @@ const router = createBrowserRouter([
   {
     path: "/account",
     element: <Account />,
+  },
+  {
+    path: "*", // Esta ruta captura todas las rutas no definidas
+    element: <NotFoundPage />, // Renderiza NotFoundPage
   },
 ]);
 

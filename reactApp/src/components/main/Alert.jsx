@@ -1,16 +1,19 @@
-import React from 'react';
-import { X } from 'lucide-react';
+import React from "react";
+import { X } from "lucide-react";
 
 const alertStyles = {
-  info: 'bg-blue-100 border-blue-500 text-blue-700',
-  success: 'bg-green-100 border-green-500 text-green-700',
-  warning: 'bg-yellow-100 border-yellow-500 text-yellow-700',
-  error: 'bg-red-100 border-red-500 text-red-700',
+  info: "bg-blue-100 border-blue-500 text-blue-700",
+  success: "bg-green-100 border-green-500 text-green-700",
+  warning: "bg-yellow-100 border-yellow-500 text-yellow-700",
+  error: "bg-red-100 border-red-500 text-red-700",
 };
 
-export default function Alert({ type = 'info', title, message, onClose }) {
+export default function Alert({ type = "info", title, message, onClose }) {
   return (
-    <div className={`border-l-4 p-4 ${alertStyles[type]} relative`} role="alert">
+    <div
+      className={`border-l-4 p-4 ${alertStyles[type]} relative`}
+      role="alert"
+    >
       <div className="flex items-center justify-between">
         <div>
           {title && <p className="font-bold">{title}</p>}

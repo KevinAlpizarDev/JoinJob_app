@@ -16,7 +16,7 @@
 // export const { setLanguage } = languageSlice.actions;
 
 // // Exporta el reducer
-// export default languageSlice.reducer;
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const languageSlice = createSlice({

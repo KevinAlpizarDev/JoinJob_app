@@ -11,7 +11,7 @@ const SearchInput = () => {
           >
             Your Email
           </label>
-    
+
           <div class="relative w-60">
             <input
               type="search"
