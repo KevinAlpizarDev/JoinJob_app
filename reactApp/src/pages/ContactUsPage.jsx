@@ -1,4 +1,3 @@
-
 import React from "react";
 import NavBar from "../components/main/NavBar";
 import FooterPage from "../components/FooterPage";
@@ -8,11 +7,8 @@ import Position from "../components/Position";
 const ContactUsPage = () => {
   return (
     <>
-  
-        <NavBar />
-        {/* <Position /> */}
-        <EmailForm />
-    
+      <NavBar />
+      <EmailForm />
       <FooterPage />
     </>
   );

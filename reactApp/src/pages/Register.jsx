@@ -113,127 +113,123 @@ export default function Register() {
   };
 
   return (
-    
+    <div className="bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded dark:border-none">
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
 
-<div className="bg-secundary-light dark:bg-secundary-dark rounded-extra-rounded dark:border-none">
+      {/* PASO 1: Información personal */}
+      {step === 1 && (
+        <div className="">
+          <h2 className="text-lg py-4 font-bold dark:text-tertiary-light">
+            {t("publicAccess.account.register.personalInformation")}
+          </h2>
+          <div>
+            <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+              {t("publicAccess.account.register.name")}
+            </label>
+            <input
+              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+              placeholder="Ej: Paola"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-
-  {error && <p style={{ color: "red" }}>{error}</p>}
-  {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-
-  {/* PASO 1: Información personal */}
-  {step === 1 && (
-    <div className="">
-      <h2 className="text-lg py-4 font-bold dark:text-tertiary-light">
-        {t("publicAccess.account.register.personalInformation")}
-      </h2>
-      <div>
-      <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-          {t("publicAccess.account.register.name")}
-        </label>
-        <input
-           className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-   placeholder="Ej: Paola"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-          {t("publicAccess.account.register.userName")}
-        </label>
-        <input
-           className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+          <div>
+            <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+              {t("publicAccess.account.register.userName")}
+            </label>
+            <input
+              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
               placeholder="Ej: Pao"
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-      </div>
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <div>
-        <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-          {t("publicAccess.account.register.email")}
-        </label>
-        <input
-         className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-            placeholder="Ej: paola@joinjob.com"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
+          <div>
+            <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+              {t("publicAccess.account.register.email")}
+            </label>
+            <input
+              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+              placeholder="Ej: paola@joinjob.com"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <button
-         className="w-full bg-blue-sky hover:bg-blue-sky-light my-4 text-sm font-medium text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 shadow-md"
-        onClick={handleNext}
-      >
-        {t("publicAccess.account.register.registerButton")}
-      </button>
-    </div>
-  )}
+          <button
+            className="w-full bg-blue-sky hover:bg-blue-sky-light my-4 text-sm font-medium text text-secundary-dark rounded-extra-rounded py-3 px-6  mb-6 transition-all duration-200 hover:scale-105 shadow-md"
+            onClick={handleNext}
+          >
+            {t("publicAccess.account.register.registerButton")}
+          </button>
+        </div>
+      )}
 
-  {/* PASO 2: Información de la cuenta */}
-  {step === 2 && (
-    <div>
-      <h2 className="text-lg font-bold dark:text-tertiary-light">
-        Paso 2: Información de la cuenta
-      </h2>
+      {/* PASO 2: Información de la cuenta */}
+      {step === 2 && (
+        <div>
+          <h2 className="text-lg font-bold dark:text-tertiary-light">
+            Paso 2: Información de la cuenta
+          </h2>
 
-      <div>
-        <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-          Contraseña
-        </label>
-        <input
-  className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-     placeholder="********"
-          type="password"
-          name="password1"
-          value={formData.password1}
-          onChange={handleChange}
-          required
-        />
-      </div>
+          <div>
+            <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+              Contraseña
+            </label>
+            <input
+              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+              placeholder="********"
+              type="password"
+              name="password1"
+              value={formData.password1}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <div>
-        <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-          Confirmar contraseña
-        </label>
-        <input
-        className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
-             placeholder="********"
-          type="password"
-          name="password2"
-          value={formData.password2}
-          onChange={handleChange}
-          required
-        />
-      </div>
+          <div>
+            <label className="block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+              Confirmar contraseña
+            </label>
+            <input
+              className="w-full dark:text-white px-4 py-3 rounded-extra-rounded border-2 border-gray-300 focus:border-blue-700 focus:outline-none shadow-sm dark:bg-tertiary-dark"
+              placeholder="********"
+              type="password"
+              name="password2"
+              value={formData.password2}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        <button
-         className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
-          onClick={handlePrev}
-        >
-       Anterior
-        </button>
-        <button
-          className="w-full bg-blue-sky text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6   transition-all duration-200 hover:scale-105 shadow-m  dark:to-blue-sky-light"
-          onClick={handleNext}
-        >
-          Continuar
-          {/* {t("publicAccess.account.register.next")} */}
-        </button>
-      </div>
-      {/* <div className="flex justify-between mt-4">
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button
+              className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
+              onClick={handlePrev}
+            >
+              Anterior
+            </button>
+            <button
+              className="w-full bg-blue-sky text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6   transition-all duration-200 hover:scale-105 shadow-m  dark:to-blue-sky-light"
+              onClick={handleNext}
+            >
+              Continuar
+              {/* {t("publicAccess.account.register.next")} */}
+            </button>
+          </div>
+          {/* <div className="flex justify-between mt-4">
         <button
           className="rounded-extra-rounded bg-gray-300 px-6 py-2 h-12 text-sm font-semibold text-blue-700 hover:bg-gray-200 w-full mr-2"
           onClick={handlePrev}
@@ -247,46 +243,41 @@ export default function Register() {
           {t("publicAccess.account.register.next")}
         </button>
       </div> */}
+        </div>
+      )}
+
+      {/* PASO 3: Confirmación */}
+      {step === 3 && (
+        <div>
+          <h2 className="text-lg font-bold dark:text-tertiary-light">
+            Paso 3: Confirmación
+          </h2>
+
+          <div className="mt-12 space-y-4 block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
+            <p>Nombre: {formData.name}</p>
+            <p>Email: {formData.email}</p>
+            <p>Nombre de usuario: {formData.username}</p>
+          </div>
+
+          <div className="mt-4">
+            <button
+              className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
+              onClick={handlePrev}
+            >
+              Anterior
+            </button>
+            <form onSubmit={handleSubmit}>
+              <button
+                className="w-full bg-[#4CAF50] hover:bg-[#66BB6A] text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2 transition-all duration-200 hover:scale-105 shadow-m"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? "Cargando..." : "Confirmar y Registrarse"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
-  )}
-
-  {/* PASO 3: Confirmación */}
-  {step === 3 && (
-    <div>
-       <h2 className="text-lg font-bold dark:text-tertiary-light">
-        Paso 3: Confirmación
-      </h2>
-
-      <div className="mt-12 space-y-4 block text-sm font-medium text-secundary-dark dark:text-secundary-light mb-1">
-        <p>Nombre: {formData.name}</p>
-        <p>Email: {formData.email}</p>
-        <p>Nombre de usuario: {formData.username}</p>
-      </div>
-
-      <div className="mt-4">
-        <button
-                className="w-full bg-tertiary-light hover:bg-primary-light text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2   transition-all duration-200 hover:scale-105 shadow-m "
-          onClick={handlePrev}
-        >
-          Anterior
-        </button>
-        <form onSubmit={handleSubmit}>
-          <button
-              className="w-full bg-[#4CAF50] hover:bg-[#66BB6A] text-sm font-medium text-secundary-dark rounded-extra-rounded py-3 px-6 my-2 transition-all duration-200 hover:scale-105 shadow-m"
-
-            type="submit"
-            disabled={isLoading}
-          >
-            {isLoading ? "Cargando..." : "Confirmar y Registrarse"}
-          </button>
-        </form>
-      </div>
-    </div>
-  )}
-</div>
-  
-
-
-    
   );
 }

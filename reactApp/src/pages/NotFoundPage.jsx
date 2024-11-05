@@ -1,7 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function NotFoundPage() {
   const [mounted, setMounted] = useState(false);
@@ -20,7 +19,9 @@ export default function NotFoundPage() {
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
         className="text-center"
       >
-        <h1 className="text-6xl md:text-8xl font-bold text-[#FF5733] mb-4">404</h1>
+        <h1 className="text-6xl md:text-8xl font-bold text-[#FF5733] mb-4">
+          404
+        </h1>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -30,13 +31,14 @@ export default function NotFoundPage() {
           Oops! Page Not Found
         </motion.p>
         <p className="text-lg md:text-xl text-[#2F4858] mb-8 max-w-md mx-auto">
-          It seems you've wandered off into cyberspace. Don't worry, it happens to the best of us.
+          It seems you've wandered off into cyberspace. Don't worry, it happens
+          to the best of us.
         </p>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link to="/" className="inline-block bg-[#F6AE2D] text-[#2F4858] font-bold py-3 px-6 rounded-lg text-lg transition-transform duration-200 ease-in-out hover:bg-[#F26419] hover:text-white">
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            to="/"
+            className="inline-block bg-[#F6AE2D] text-[#2F4858] font-bold py-3 px-6 rounded-lg text-lg transition-transform duration-200 ease-in-out hover:bg-[#F26419] hover:text-white"
+          >
             Back to Home
           </Link>
         </motion.div>
@@ -46,4 +48,3 @@ export default function NotFoundPage() {
 }
 
 // npm install framer-motion react-router-dom, npm install lucide-react
-

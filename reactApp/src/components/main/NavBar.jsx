@@ -19,18 +19,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
       <div className="max-w-7xl rounded-extra-rounded   mx-auto px-4 sm:px-6 lg:px-8 py-">
         <div className="flex rounded-extra-rounded   items-center justify-between h-16">
           <div className="flex rounded-extra-rounded  w-96 items-center">
-            {/* <div className="rounded-extra-rounded">
-              
-            <Link to="/" className="flex-shrink-0 rounded-extra-rounded  ">
-              <img className="h-10 w-10 rounded-standard" src={Logo} alt="Logo" />
-            </Link>
-            </div> */}
-               <Link to="/" className="flex items-center space-x-2">
-              {/* <img
-                className="h-10 w-10 rounded-standard"
-                src={Logo}
-                alt="Logo"
-              /> */}
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-blue-sky mx-0 dark:text-blue-sky">
                 JoinJob
               </span>
@@ -43,9 +32,7 @@ export default function NavBar({ isLoggedIn, onLogout }) {
                 >
                   {t("publicAccess.navbar.aboutUs")}
                 </NavLink>
-                <span>
-                  
-                </span>
+                <span></span>
               </div>
               <div className="flex-1 flex items-center justify-center">
                 <NavLink

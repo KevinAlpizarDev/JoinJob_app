@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { checkLoggedInUser, handleLogout as logout } from "../services/service"; // Importar las funciones del archivo de servicios
@@ -39,18 +38,12 @@ const AdminPage = () => {
   return (
     <>
       <div className=" h-screen bg-yellow-400">
-        {/* <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />{" "} */}
-        {/* Pasar props */}
         {isLoggedIn ? (
           <>
-            {/* <h2>Hi, admin {username} :)</h2> */}
             <Control />
           </>
         ) : (
-          <Link to="/account">
-            {/* Aquí podrías agregar un mensaje o botón para que los usuarios inicien sesión */}
-            Please log in to access admin features.
-          </Link>
+          <Link to="/account">Please log in to access admin features.</Link>
         )}
       </div>
     </>

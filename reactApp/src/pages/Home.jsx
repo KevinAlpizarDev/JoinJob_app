@@ -45,13 +45,16 @@ export default function Home() {
       <div className="min-h-screen bg-primary-light dark:bg-primary-dark">
         {isLoggedIn ? (
           <>
-            <h1  className="text-2xl p-8 font-bold text-secundary-dark mx-0 dark:text-secundary-light">
+            <h1 className="text-2xl p-8 font-bold text-secundary-dark mx-0 dark:text-secundary-light">
               {t("userAccess.welcome.header")}, {username}!
             </h1>
             <CourseList />
           </>
         ) : (
-          <Link to="/account" className="text-blue-600 dark:text-blue-400 hover:underline">
+          <Link
+            to="/account"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
             Please log in
           </Link>
         )}

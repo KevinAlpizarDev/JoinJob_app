@@ -199,41 +199,6 @@ class CourseViewSet(viewsets.ModelViewSet):
         )  # Llama al método original para eliminar el curso.
 
 
-################
-
-# class EnrollmentViewSet(viewsets.ModelViewSet):
-#     queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones.
-#     serializer_class = EnrollmentSerializer  # Serializador para inscripciones.
-#     permission_classes = (
-#         IsAuthenticated,
-#     )  # Asegura que solo usuarios autenticados puedan acceder.
-
-#     def perform_create(self, serializer):
-#         serializer.save(
-#             user=self.request.user
-#         )  # Asocia la inscripción con el usuario autenticado.
-# class EnrollmentViewSet(viewsets.ModelViewSet):
-#     queryset = Enrollment.objects.all()  # Obtiene todas las inscripciones.
-#     serializer_class = EnrollmentSerializer  # Serializador para inscripciones.
-#     permission_classes = (IsAuthenticated,)  # Asegura que solo usuarios autenticados puedan acceder.
-
-
-#     def perform_create(self, serializer):
-#         course = serializer.validated_data['course']  # Obtiene el curso de la inscripción
-#         if course.seats > 0:
-#             # Reduce el cupo
-#             course.seats -= 1
-#             # Si los asientos llegan a 0, establece el curso como inactivo
-#             if course.seats == 0:
-#                 course.is_active = False
-#             # Guarda los cambios en el curso
-#             course.save()
-#             # Guarda la inscripción asociando al usuario autenticado
-#             serializer.save(user=self.request.user)
-#         else:
-#             # Puedes lanzar una excepción si no hay cupos disponibles
-#             raise serializers.ValidationError("No hay cupos disponibles para este curso.")
-################
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
@@ -258,25 +223,3 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
             raise serializers.ValidationError(
                 "No hay cupos disponibles para este curso."
             )
-
-
-# class EnrollmentViewSet(viewsets.ModelViewSet):
-#     queryset = Enrollment.objects.all()
-#     serializer_class = EnrollmentSerializer
-#     permission_classes = (IsAuthenticated,)
-
-#     def perform_create(self, serializer):
-#         course = serializer.validated_data['course']
-#         if course.seats > 0:
-#             # Reduce el cupo
-#             course.seats -= 1
-#             if course.seats == 0:
-#                 course.is_active = False  # Desactiva el curso globalmente si no hay cupos
-#             course.save()
-
-#             # Guarda la inscripción y desactiva el curso solo para el usuario
-#             enrollment = serializer.save(user=self.request.user)
-#             enrollment.is_course_active = False  # Desactiva el curso para este usuario
-#             enrollment.save()
-#         else:
-#             raise serializers.ValidationError("No hay cupos disponibles para este curso.")
