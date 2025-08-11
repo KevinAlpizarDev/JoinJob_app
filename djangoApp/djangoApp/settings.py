@@ -92,7 +92,7 @@ DATABASES = {
         "NAME": "jdb",
         "USER": "root",
         "PASSWORD": "kevinalpizar1998@PUTOamo",
-        "HOST": "mysql",  # Cambia 'localhost' a 'mysql' (el nombre del servicio en docker-compose)
+        "HOST": "localhost",  # Cambia 'localhost' a 'mysql' (el nombre del servicio en docker-compose)
         "PORT": "3306",
     }
 }
