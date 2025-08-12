@@ -85,14 +85,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "djangoApp.wsgi.application"
 
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "jdb",
         "USER": "root",
-        "PASSWORD": "kevinalpizar1998@PUTOamo",
-        "HOST": "localhost",  # Cambia 'localhost' a 'mysql' (el nombre del servicio en docker-compose)
+        "PASSWORD": "kevinalpizar1998@PUTOamo",  # Debe coincidir con docker-compose
+        "HOST": "mysql",  # Nombre del servicio en docker-compose
         "PORT": "3306",
     }
 }
