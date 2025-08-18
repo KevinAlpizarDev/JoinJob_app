@@ -36,7 +36,7 @@ services:
   mysql:
     image: mysql:latest
     ports:
-      - "3306:3306"  # Cambiado de 3307 a 3306 para consistencia
+      - "3307:3306"  # Cambiado de 3307 a 3306 para consistencia
     environment:
       - MYSQL_ROOT_PASSWORD=kevinalpizar1998@PUTOamo
       - MYSQL_DATABASE=jdb
