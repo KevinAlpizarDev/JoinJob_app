@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   django:
     image: django_app
@@ -8,12 +10,18 @@ services:
       - "8000:8000"
     volumes:
       - ./djangoApp:/app
+    environment:
+      - CORS_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+      - DEBUG=True
+      - PYTHONUNBUFFERED=1
     command: >
       bash -c "./wait-for-it.sh mysql:3306 --timeout=60 --strict -- 
                python manage.py migrate &&
                python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - mysql
+    networks:
+      - app-network
 
   react:
     container_name: react_app
@@ -25,6 +33,8 @@ services:
       - /app/node_modules
     ports:
       - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000
     develop:
       watch:
         - path: ./app/package.json
@@ -32,17 +42,27 @@ services:
         - path: ./app
           target: /usr/src/app
           action: sync
+    networks:
+      - app-network
+    depends_on:
+      - django
 
   mysql:
     image: mysql:latest
     ports:
-      - "3306:3306"  # Cambiado de 3307 a 3306 para consistencia
+      - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=kevinalpizar1998@PUTOamo
       - MYSQL_DATABASE=jdb
     volumes:
-      - django_react_data:/var/lib/mysql  # Cambiado la ruta del volumen
+      - django_react_data:/var/lib/mysql
       - ./dumps:/docker-entrypoint-initdb.d:ro
+    networks:
+      - app-network
 
 volumes:
   django_react_data:
+
+networks:
+  app-network:
+    driver: bridge
