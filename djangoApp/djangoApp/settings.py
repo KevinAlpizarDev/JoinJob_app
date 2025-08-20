@@ -1,4 +1,3 @@
-# CORS_ALLOW_ALL_ORIGINS = True
 """
 Django settings for djangoApp project.
 
@@ -13,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
-
+import os
 import pymysql
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,31 +29,58 @@ SECRET_KEY = "django-insecure-=sdu&=!$$oqmhd72$_5hhact#vd2s&owuak!=&zvdt$&l5fp#d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "django_app"]
 
+# CORS Configuration
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://react_app:5173",
 ]
+
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Para desarrollo
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# CSRF Configuration
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = False
+SESSION_COOKIE_HTTPONLY = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "accounts.apps.AccountsConfig",  # Agregar la nueva app aquí
-    "rest_framework",  # Django REST framework
+    "accounts.apps.AccountsConfig",
+    "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
-    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  # Debe estar primero
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -62,7 +88,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "djangoApp.urls"
@@ -90,8 +115,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "jdb",
         "USER": "root",
-        "PASSWORD": "kevinalpizar1998@PUTOamo",  # Debe coincidir con docker-compose
-        "HOST": "mysql",  # Nombre del servicio en docker-compose
+        "PASSWORD": "kevinalpizar1998@PUTOamo",
+        "HOST": "mysql",
         "PORT": "3306",
     }
 }
@@ -156,5 +181,3 @@ SIMPLE_JWT = {
     "TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSerializer",
     "TOKEN_VERIFY_SERIALIZER": "rest_framework_simplejwt.serializers.TokenVerifySerializer",
 }
-
-CORS_ALLOW_ALL_ORIGINS = True

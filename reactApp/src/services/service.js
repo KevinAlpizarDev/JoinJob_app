@@ -7,16 +7,16 @@ axios.defaults.withCredentials = true;
 
 // Crear un cliente Axios con la baseURL de tu backend
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000", // URL de tu backend
+  baseURL: "http://localhost:8000", // URL para desarrollo
   withCredentials: true,
 });
 
 // Función para obtener el usuario actual con autenticación
 export const getCurrentUser = () => {
-  const token = localStorage.getItem("accessToken"); // Obtener el token del almacenamiento local
+  const token = localStorage.getItem("accessToken");
   return client.get("/api/user/", {
     headers: {
-      Authorization: `Bearer ${token}`, // Enviar el token en los headers
+      Authorization: `Bearer ${token}`,
     },
   });
 };
@@ -47,7 +47,7 @@ export const checkLoggedInUser = async () => {
       },
     };
     const response = await client.get("/api/user/", config);
-    return response.data; // Devuelve la información del usuario
+    return response.data;
   } else {
     throw new Error("No token found");
   }
@@ -76,22 +76,18 @@ export const handleLogout = async () => {
 // Función para agregar una nueva institución
 export const addInstitution = (institutionData) => {
   const token = localStorage.getItem("accessToken");
-  return axios.post(
-    "http://localhost:8000/api/institutions/",
-    institutionData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return client.post("/api/institutions/", institutionData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 // Función para obtener las instituciones
 export const getInstitutions = () => {
   const token = localStorage.getItem("accessToken");
-  return axios.get("http://localhost:8000/api/institutions/", {
+  return client.get("/api/institutions/", {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
@@ -102,46 +98,39 @@ export const getInstitutions = () => {
 // Función para actualizar el estado de una institución
 export const updateInstitutionStatus = (institutionId, institutionData) => {
   const token = localStorage.getItem("accessToken");
-  return axios.put(
-    `http://localhost:8000/api/institutions/${institutionId}/`,
-    institutionData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return client.put(`/api/institutions/${institutionId}/`, institutionData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 };
+
 // Función para actualizar una institución
 export const updateInstitution = (institutionId, institutionData) => {
   const token = localStorage.getItem("accessToken");
-  return axios.put(
-    `http://localhost:8000/api/institutions/${institutionId}/`,
-    institutionData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return client.put(`/api/institutions/${institutionId}/`, institutionData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 /////////////////////
 
 export const addCampus = async (campusData) => {
-  const token = localStorage.getItem("accessToken"); // Obtener el token
-  return await axios.post("http://localhost:8000/api/campuses/", campusData, {
+  const token = localStorage.getItem("accessToken");
+  return await client.post("/api/campuses/", campusData, {
     headers: {
-      Authorization: `Bearer ${token}`, // Uso correcto del template literal
+      Authorization: `Bearer ${token}`,
     },
   });
 };
 
 export const getAllCampuses = async () => {
   const token = localStorage.getItem("accessToken");
-  const response = await axios.get("http://localhost:8000/api/campuses/", {
+  const response = await client.get("/api/campuses/", {
     headers: { Authorization: `Bearer ${token}` },
   });
   return response.data;
@@ -149,8 +138,8 @@ export const getAllCampuses = async () => {
 
 export const updateCampusStatus = (campusId, isActive) => {
   const token = localStorage.getItem("accessToken");
-  return axios.patch(
-    `http://localhost:8000/api/campuses/${campusId}/`,
+  return client.patch(
+    `/api/campuses/${campusId}/`,
     { is_active: isActive },
     {
       headers: {
@@ -160,19 +149,16 @@ export const updateCampusStatus = (campusId, isActive) => {
     }
   );
 };
+
 // Función para actualizar un campus
 export const updateCampus = (campusId, campusData) => {
   const token = localStorage.getItem("accessToken");
-  return axios.put(
-    `http://localhost:8000/api/campuses/${campusId}/`,
-    campusData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return client.put(`/api/campuses/${campusId}/`, campusData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 /////////////////////
@@ -180,7 +166,7 @@ export const updateCampus = (campusId, campusData) => {
 // Función para obtener todos los cursos con autenticación
 export const getAllCourses = () => {
   const token = localStorage.getItem("accessToken");
-  return axios.get("http://localhost:8000/api/courses/", {
+  return client.get("/api/courses/", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -189,19 +175,19 @@ export const getAllCourses = () => {
 
 // Función para agregar un curso nuevo
 export const addCourse = (courseData) => {
-  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso
-  return axios.post("http://localhost:8000/api/courses/", courseData, {
+  const token = localStorage.getItem("accessToken");
+  return client.post("/api/courses/", courseData, {
     headers: {
-      Authorization: `Bearer ${token}`, // Incluir el token en los headers
-      "Content-Type": "application/json", // Asegurar que los datos se envían en formato JSON
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
     },
   });
 };
 
 export const updateCourseStatus = (courseId, isActive) => {
   const token = localStorage.getItem("accessToken");
-  return axios.patch(
-    `http://localhost:8000/api/courses/${courseId}/`,
+  return client.patch(
+    `/api/courses/${courseId}/`,
     { is_active: isActive },
     {
       headers: {
@@ -215,31 +201,23 @@ export const updateCourseStatus = (courseId, isActive) => {
 // Función para actualizar los datos de un curso
 export const updateCourse = (courseId, updatedData) => {
   const token = localStorage.getItem("accessToken");
-  return axios.put(
-    `http://localhost:8000/api/courses/${courseId}/`,
-    updatedData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  return client.put(`/api/courses/${courseId}/`, updatedData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 // Función para crear una inscripción
 export const createEnrollment = async (enrollmentData) => {
-  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso almacenado
+  const token = localStorage.getItem("accessToken");
   try {
-    const response = await axios.post(
-      "http://localhost:8000/api/enrollments/",
-      enrollmentData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`, // Enviar el token en los encabezados
-        },
-      }
-    );
+    const response = await client.post("/api/enrollments/", enrollmentData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -251,7 +229,7 @@ export const createEnrollment = async (enrollmentData) => {
 export const getEnrollments = async () => {
   const token = localStorage.getItem("accessToken");
   try {
-    const response = await axios.get("http://localhost:8000/api/enrollments/", {
+    const response = await client.get("/api/enrollments/", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -268,8 +246,8 @@ export const getEnrollments = async () => {
 export const updateEnrollmentStatus = async (enrollmentId, enrollmentData) => {
   const token = localStorage.getItem("accessToken");
   try {
-    const response = await axios.put(
-      `http://localhost:8000/api/enrollments/${enrollmentId}/`,
+    const response = await client.put(
+      `/api/enrollments/${enrollmentId}/`,
       enrollmentData,
       {
         headers: {
@@ -284,16 +262,17 @@ export const updateEnrollmentStatus = async (enrollmentId, enrollmentData) => {
     throw error;
   }
 };
+
 // Función para actualizar una inscripción
 export const updateEnrollment = async (enrollmentId, enrollmentData) => {
-  const token = localStorage.getItem("accessToken"); // Obtener el token de acceso almacenado
+  const token = localStorage.getItem("accessToken");
   try {
-    const response = await axios.put(
-      `http://localhost:8000/api/enrollments/${enrollmentId}/`,
+    const response = await client.put(
+      `/api/enrollments/${enrollmentId}/`,
       enrollmentData,
       {
         headers: {
-          Authorization: `Bearer ${token}`, // Enviar el token en los encabezados
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       }
