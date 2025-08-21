@@ -1,7 +1,7 @@
 # ============================
 # LOGS
 # ============================
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -10,37 +10,31 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # ============================
-# DEPENDENCIAS
+# DEPENDENCIAS / BUILD
 # ============================
 node_modules/
 dist/
 dist-ssr/
 *.local
-*.pyc
-__pycache__/
 
 # ============================
 # DJANGO
 # ============================
-*.log
-*.pot
 *.pyc
 __pycache__/
-db.sqlite3
-media/
+db.sqlite3   # Base de datos local
+media/       # Archivos subidos localmente
+*.pot
+*.log
 
 # ============================
-# BACKUP FILES
+# BACKUP / TEMP
 # ============================
 *.bak
 
 # ============================
-# PYTHON
+# PYTHON / PACKAGING
 # ============================
-*.py[cod]
-*$py.class
-
-# Distribution / packaging 
 .Python
 build/
 develop-eggs/
@@ -61,7 +55,7 @@ wheels/
 *.manifest
 *.spec
 
-# Unit test / coverage reports
+# Unit test / coverage
 htmlcov/
 .tox/
 .coverage
@@ -73,7 +67,7 @@ coverage.xml
 *.cover
 .hypothesis/
 
-# Environments
+# Virtual environments
 .env
 .venv
 env/
@@ -82,9 +76,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# ============================
-# JUPYTER NOTEBOOK
-# ============================
+# Jupyter
 .ipynb_checkpoints
 
 # ============================
@@ -108,6 +100,11 @@ venv.bak/
 # EXCEPCIONES - FORZAR A SUBIR
 # ============================
 !src/
+!public/
 !accounts/
 !**/views.py
 !**/models.py
+!**/*.jsx
+!**/*.js
+!**/*.ts
+!**/*.tsx
