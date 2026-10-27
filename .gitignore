@@ -1,121 +1,3 @@
-
-# ============================
-# LOGS
-# ============================
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# ============================
-# DEPENDENCIAS
-# ============================
-node_modules/
-dist/
-dist-ssr/
-*.local
-*.pyc
-__pycache__/
-
-# ============================
-# DJANGO
-# ============================
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-media/
-
-# ============================
-# BACKUP FILES
-# ============================
-*.bak
-
-# ============================
-# PYTHON
-# ============================
-*.py[cod]
-*$py.class
-
-# Distribution / packaging 
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.whl
-*.egg-info/
-.installed.cfg
-*.egg
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-.pytest_cache/
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# ============================
-# JUPYTER NOTEBOOK
-# ============================
-.ipynb_checkpoints
-
-# ============================
-# EDITORES
-# ============================
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.idea/
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-.history
-
-# ============================
-# EXCEPCIONES - FORZAR A SUBIR
-# ============================
-!src/
-!accounts/
-!**/views.py
-!**/models.py
-=======
-# ============================
-# LOGS
-# ============================
 logs/
 *.log
 npm-debug.log*
@@ -124,36 +6,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# ============================
-# DEPENDENCIAS / BUILD
-# ============================
 node_modules/
 dist/
 dist-ssr/
 *.local
-
-# ============================
-# DJANGO
-# ============================
 *.pyc
 __pycache__/
-db.sqlite3   # Base de datos local
-media/       # Archivos subidos localmente
-*.pot
-*.log
 
-# ============================
-# BACKUP / TEMP
-# ============================
+*.pot
+db.sqlite3
+media/
+
 *.bak
 
-# ============================
-# PYTHON / PACKAGING
-# ============================
+*.py[cod]
+*$py.class
+
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -170,7 +41,6 @@ wheels/
 *.manifest
 *.spec
 
-# Unit test / coverage
 htmlcov/
 .tox/
 .coverage
@@ -182,21 +52,18 @@ coverage.xml
 *.cover
 .hypothesis/
 
-# Virtual environments
 .env
-.venv
+.env.*
+!.env.example
+.venv/
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
 
-# Jupyter
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
-# ============================
-# EDITORES
-# ============================
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -209,11 +76,8 @@ venv.bak/
 *.njsproj
 *.sln
 *.sw?
-.history
+.history/
 
-# ============================
-# EXCEPCIONES - FORZAR A SUBIR
-# ============================
 !src/
 !public/
 !accounts/
@@ -223,4 +87,3 @@ venv.bak/
 !**/*.js
 !**/*.ts
 !**/*.tsx
->>>>>>> 10ff75d5fbb71934b127a9e4537a558a7c9fc2df
