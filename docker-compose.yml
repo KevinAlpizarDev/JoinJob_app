@@ -52,7 +52,7 @@ services:
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=kevinalpizar1998@PUTOamo
+      - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=jdb
     volumes:
       - django_react_data:/var/lib/mysql
